@@ -1,0 +1,173 @@
+* {
+    text-decoration: none;
+    margin: 0rem;
+    padding: 0rem;
+    font-family: sans-serif;
+}
+
+#container {
+    height: auto;
+    margin: 0rem auto;
+    padding: 1rem;
+   
+}
+
+#header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap ;
+    align-items: center;
+
+    height: 120px;
+    border-bottom: 1px solid rgba(225, 225, 226, 0.8);
+
+}
+
+.logo{
+    flex-basis: 65%;
+
+    padding: 10px;
+    text-shadow: 1px 1px 0px #ccc;
+    text-transform: uppercase;
+}
+
+#menu{
+    flex-grow: 1;
+    flex-basis: 30%;
+    height: 100%;
+}
+
+#menu > ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    list-style: none;
+}
+
+#menu a{
+    text-transform: uppercase;
+    color: #444;
+    padding: 15px;
+    transition: all 200ms;
+}
+
+#menu a:hover{
+    background: #ccc;
+    border-radius: 15px;
+}
+
+#content{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#anuncios{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    flex-basis: 80%;
+ 
+}
+
+.anuncio{
+    flex-grow: 1;
+    flex-basis: 250px;
+    margin-bottom: 25px;
+    margin-right: 25px;
+    border: 1px solid #ccc;
+}
+
+
+.anuncio img{
+    width: 100%;
+}
+
+.anuncio-info{
+    padding: 10px;
+}
+
+.anuncio-info a{
+    font-size: 16px;
+    color: black;
+    transition: all 200ms;
+}
+
+.anuncio-info a:hover{
+    color: #444;
+}
+
+.anuncio-info p{
+    color: grey;
+}
+
+#aside{
+    flex-basis: 15%;
+    margin-right: 30px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#aside h2{
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 100;
+    color: #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(225, 225, 226, 0.8);
+    text-align: center;
+}
+
+#aside ul{
+    list-style: none;
+}
+
+
+#aside ul li{
+    padding-bottom: 20px;
+}
+
+#aside a{
+    display: block;
+    padding: 20px;
+    background: #eee;
+    color: #444;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 15px;
+}
+
+#aside a:hover{
+    background: #444;
+    color: #eee;
+}
+
+#footer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:flex-start ;
+
+    height: 120px;
+    align-items: center;
+    border-top: 1px solid rgba(225, 225, 226, 0.8);
+}
+
+#footer .logo{
+    opacity: 0.5;
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+#footer .info{
+    flex-grow: 1;
+   
+}
