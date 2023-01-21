@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
-import { ItemType } from "../../components/ItemType/ItemType";
+import { ItemType } from "../../components/ItemType";
 
 const ItemTypesList = () => {
   const [itemTypes, setItemTypes] = useState([]);

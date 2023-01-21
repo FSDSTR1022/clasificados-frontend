@@ -1,7 +1,7 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 
-import "./header.css";
+import styles from './module.header.css'
 
 const Header = () => {
   return (
