@@ -1,42 +1,18 @@
 import './assets/css/App.css';
+import * as React from 'react'
+import { ChakraProvider } from '@chakra-ui/react';
 
-//Componentes importados
-import Articulos from './components/articulos';
-import Header from './components/Header';
-import Slider from './components/Slider';
-import Sidebar from './components/Sidebar';
-import Footer from './components/Footer';
+import MainPage from './Layout/MainPage/MainPage'
+
 
 function App() {
   return (
-    <div className="App">
+		<ChakraProvider>
 
-      <Header />
+			<MainPage />
+		
+		</ChakraProvider>
 
-      <Slider />
-
-      
-
-      <div className="center">
-        <section id="content">
-          
-
-          <section className='componentes'>
-
-            
-            <Articulos />
-
-          </section>
-        </section>
-
-        <Sidebar/>
-        <div className='clearfix'></div>
-
-      </div>
-
-      <Footer/>
-
-    </div>
   );
 }
 
