@@ -1,26 +1,25 @@
-import React from "react";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import './module.header.css'
 
-import styles from './module.header.css'
-
-const Header = () => {
-  return (
+const NavBar = (menu-1, menu-2, menu-3, menu-4) => {
+    return(
     <>
-      <Breadcrumb separator="-">
-        <BreadcrumbItem className="home">
-          <BreadcrumbLink href="#">Home</BreadcrumbLink>
-        </BreadcrumbItem>
+    <div className='container-header-NavBar'>
 
-        <BreadcrumbItem>
-          <BreadcrumbLink href="#">About</BreadcrumbLink>
-        </BreadcrumbItem>
-
-        <BreadcrumbItem isCurrentPage>
-          <BreadcrumbLink href="#">Contact</BreadcrumbLink>
-        </BreadcrumbItem>
-      </Breadcrumb>
+        <div className='container-NavBar'>
+            <span>LOGO</span>
+            <ul className='main-menu'>
+                <li>Mis Articulos</li>
+                <li>Bandeja de Entrada</li>
+                <li>Lista de deseos</li>
+                <li>Vender</li>
+            </ul>
+            <div className="login">
+                <input type='submit' name='button' value='Login' className='user-login'/>
+                <input type='submit' name='button' value='Registrarse' className='user-register'/>
+            </div>
+        </div>
+    </div>
     </>
-  );
-};
-
-export default Header;
+    )
+}
+export default NavBar

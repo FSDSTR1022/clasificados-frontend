@@ -1,4 +1,5 @@
 import React from "react";
+import './module.mainpage.css'
 
 //Componentes importados
 import Header from '../Header/index'
