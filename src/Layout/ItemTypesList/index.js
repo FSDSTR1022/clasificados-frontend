@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { ItemType } from "../../components/ItemType";
 
+
 const ItemTypesList = () => {
   const [itemTypes, setItemTypes] = useState([]);
 

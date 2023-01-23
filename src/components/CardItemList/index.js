@@ -1,5 +1,7 @@
 import React from 'react'
 import { Card, CardBody, CardFooter, Image, Stack, Heading, Text, Button } from '@chakra-ui/react'
+import styles from './module.carditemlist.css'
+
 
 const CardItemList = (constructor) => {
 	return (
@@ -18,7 +20,7 @@ const CardItemList = (constructor) => {
 
 				<Stack>
 					<CardBody>
-						<Heading size='md'>{ constructor.props.title }</	Heading>
+						<Heading size='md' className='head'>{ constructor.props.title }</	Heading>
 				
 						<Text py='2'>
 							Caffè latte is a coffee beverage of Italian origin 	made 			with espresso
@@ -31,7 +33,7 @@ const CardItemList = (constructor) => {
 					</CardBody>
 				
 					<CardFooter>
-						<Button variant='solid' colorScheme='blue'>
+						<Button  variant='solid' colorScheme='blue'>
 							Añadir a lista deseos
 						</Button>
 						<Button variant='solid' colorScheme='blue'>

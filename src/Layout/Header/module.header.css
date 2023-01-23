@@ -6,7 +6,7 @@
 }
 .container-NavBar {
 	display:flex;
-	max-width: 1536px;
+	width: 2000px;
 	height: 70px;
 	justify-content: space-around;
 	align-items: center;
@@ -56,5 +56,6 @@
 }
 .main-menu li:hover {
 	cursor: pointer;
-	border-bottom: 2px solid orange;
+	border-bottom: 2px solid #F19F4D;
 }
+

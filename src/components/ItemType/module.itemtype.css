@@ -6,3 +6,37 @@
 .image {
 	object-fit: contain;
 }
+
+div{
+	display: flex;
+	flex-flow:row wrap ;
+	justify-content: space-between;
+}
+
+li{
+	list-style: none;
+	display: flex;
+
+}
+
+.boximage{
+	border: 1px solid red;
+
+}
+
+.image{
+	border: solid 1px yellow;
+}
+
+.anuncio{
+	border: solid blue 1px;
+	width: 5px;
+	margin-left: 20px;
+	margin-right: 0px;
+}
+
+.anuncio-info{
+	border: 1px violet solid;
+	justify-content: center;
+	width: 200px;
+}
