@@ -1,0 +1,17 @@
+.containerHeaderNavBar{
+    display: flex;
+    align-items: center;
+    
+}
+.mainMenu li{
+    list-style-type: none;
+    font-weight: 300;
+    font-size: .76rem;
+}
+
+li:hover {
+    cursor:pointer;
+    border-bottom: 2px solid orange;
+    transition: 2s easy;
+}
+

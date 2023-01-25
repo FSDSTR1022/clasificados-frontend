@@ -1,0 +1,23 @@
+.containerLogin{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 12%;
+    font-size: .75rem;
+}
+
+.userLogin,
+.userRegister {
+    background-color: rgb(44, 168, 193);
+    padding: .25em 1em;
+    font-weight: bolder;
+    border-radius: 18px;
+    color:#fff;
+}
+
+.userLogin:hover,
+.userRegister:hover {
+    cursor:pointer;
+    filter: drop-shadow(0px -0px 5px rgb(16, 194, 167)) invert(1%);
+    background-color: rgb(186, 186, 50);
+}
