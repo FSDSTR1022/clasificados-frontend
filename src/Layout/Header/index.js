@@ -8,20 +8,19 @@ const Header = () => {
     
     return (
         <>
-        <div className={styles.header}> 
-            <span>LOGO</span>
-            
-            {navbars.map((navbar) => (
-                <NavBar 
-                className={styles.menu}
-                option={navbar.optionMenu}
-                />
-                ))}
+            <div className={styles.header}> 
+                <span>LOGO</span>
                 
-            <ButtonsLogin
-            className={styles.ButtonsLoginUser} />
-
-        </div>
+                {navbars.map((navbar) => (
+                    <NavBar 
+                    key={navbar.id}
+                    className={styles.menu}
+                    option={navbar.optionMenu}
+                    />
+                    ))}
+                <ButtonsLogin
+                className={styles.ButtonsLoginUser} />
+            </div>
     </>
 )
 }
