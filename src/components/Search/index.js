@@ -3,7 +3,7 @@ import styles from './module.search.css'
 
 const Search = () => {
 	return (
-		<div>
+		<div id='buscador'>
 
 			<input></input>
 			<button>Search</button>

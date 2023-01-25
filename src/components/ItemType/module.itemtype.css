@@ -1,17 +1,45 @@
+#aside{
+	display: flex;
+	border: solid 1px black;
+	border-radius:20px ;
+	width: 180px;
+	height: 55px;
+	margin-bottom: 15px;
+	margin-left: 40px;
+	transition: all 200ms;
+}
+
+#aside:hover{
+	border: solid rgb(0, 0, 0) 2px ;
+	background-color: orange;
+}
+
+
+a{
+	cursor: pointer;
+}
+
+#link{
+	color:rgb(0, 0, 0) ;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+#link:hover{
+	color: rgb(255, 255, 255);
+}
+
+
 .boximage {
-	width: 100px;
+	width: 90px;
 	height: 100px;
 }
 
 .image {
 	object-fit: contain;
+	display: flex;
 }
 
-div{
-	display: flex;
-	flex-flow:row wrap ;
-	justify-content: space-between;
-}
 
 li{
 	list-style: none;
@@ -20,23 +48,24 @@ li{
 }
 
 .boximage{
-	border: 1px solid red;
+	margin-right: -29px;
 
 }
 
 .image{
-	border: solid 1px yellow;
+	padding: 17PX;
 }
 
 .anuncio{
-	border: solid blue 1px;
 	width: 5px;
 	margin-left: 20px;
 	margin-right: 0px;
 }
 
 .anuncio-info{
-	border: 1px violet solid;
 	justify-content: center;
 	width: 200px;
+	padding-bottom: 5px;
 }
+
+
