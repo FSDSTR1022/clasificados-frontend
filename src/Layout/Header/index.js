@@ -1,34 +1,27 @@
-import "./module.header.css";
+import { navbars } from '../../components/MainMenu/external-file';
+import { NavBar } from '../../components/MainMenu/NavBar';
+import { ButtonsLogin } from '../../components/MainMenu/ButtonsLogin';
 
-const NavBar = () => {
-  return (
-    <>
-      <div className="container-header-NavBar">
-        <div className="container-NavBar">
-          <span>LOGO</span>
-          <ul className="main-menu">
-            <li>Mis Articulos</li>
-            <li>Bandeja de Entrada</li>
-            <li>Lista de deseos</li>
-            <li>Vender</li>
-          </ul>
-          <div className="login">
-            <input
-              type="submit"
-              name="button"
-              value="Login"
-              className="user-login"
-            />
-            <input
-              type="submit"
-              name="button"
-              value="Registrarse"
-              className="user-register"
-            />
-          </div>
-        </div>
-      </div>
+import styles from '../Header/header.module.css'
+
+const Header = () => {
+    
+    return (
+        <>
+            <div className={styles.header}> 
+                <span>LOGO</span>
+                
+                {navbars.map((navbar) => (
+                    <NavBar 
+                    key={navbar.id}
+                    className={styles.menu}
+                    option={navbar.optionMenu}
+                    />
+                    ))}
+                <ButtonsLogin
+                className={styles.ButtonsLoginUser} />
+            </div>
     </>
-  );
-};
-export default NavBar;
+)
+}
+export default Header;
