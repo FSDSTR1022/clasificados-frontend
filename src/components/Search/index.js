@@ -5,8 +5,14 @@ const Search = () => {
 	return (
 		<div id='buscador'>
 
+			<select id='select'>
+				<option>Precios</option>
+				<option>Precio maximo</option>
+				<option>Precio minimo</option>
+			</select>
+
 			<input></input>
-			<button>Search</button>
+			<button id='button'>Search</button>
 
 		</div>
 	)

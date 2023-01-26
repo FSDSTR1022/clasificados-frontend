@@ -7,6 +7,7 @@ import styles from './module.carditemlist.css'
 
 const CardItemList = (constructor) => {
 	return (
+		
 		<section className="web">
 
 

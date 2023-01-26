@@ -14,8 +14,10 @@ const MainPage = () => {
       <div className="App">
         <Header className='header'/>
 				<Search className='search' />
+        <div className="mainp">
         <ItemTypesList classname='types' />
 				<ItemList className='itemlist' />
+        </div>
         <Footer className='footer' />
       </div>
     </>
