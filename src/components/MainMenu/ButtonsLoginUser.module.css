@@ -8,8 +8,11 @@
 
 .userLogin,
 .userRegister {
+    display: block;
+    margin-left: 2rem;
+    justify-content: space-between;
     background-color: rgb(44, 168, 193);
-    padding: .25em 1em;
+    padding: .25em 1.2em;
     font-weight: bolder;
     border-radius: 18px;
     border: none;
