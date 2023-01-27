@@ -9,8 +9,8 @@ const Header = () => {
     return (
         <>
             <div className={styles.header}>
+
                 <div className={styles.navbar}>
-                    
                     <span>LOGO</span>
                     
                     {navbars.map((navbar) => (
