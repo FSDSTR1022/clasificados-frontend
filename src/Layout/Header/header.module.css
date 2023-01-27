@@ -2,14 +2,20 @@
 	max-width: 100%;
 	height: 70px;
 
-	display:flex;
-	justify-content: space-around;
-
-	margin-bottom: 20px;
 	background-color:#f3f2f2;
 }
 
-.header span{
+.navbar{
+	max-width: 1590px;
+	width: 100%;
+	height: 70px;
+	display:flex;
+	justify-content: space-around;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.navbar span{
 	color:rgb(21, 160, 123);
 	font-size: 1.6rem;
 	font-weight: 800;
@@ -21,9 +27,4 @@
 	display: flex;
 	align-items: center;
 	text-align: center;
-}
-
-.ButtonsLogin {
-	display: flex;
-	align-items: center;
 }
