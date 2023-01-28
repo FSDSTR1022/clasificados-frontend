@@ -1,17 +1,20 @@
 #aside{
 	display: flex;
-	border: solid 1px black;
+	border: solid 2px #ccc;
+	box-shadow: 1px 1px 1px 1px rgb(131, 131, 131);
+
 	border-radius:20px ;
 	width: 180px;
 	height: 55px;
-	margin-bottom: 15px;
+	margin-top: 20px;
 	margin-left: 40px;
 	transition: all 200ms;
 }
 
 #aside:hover{
-	border: solid rgb(0, 0, 0) 2px ;
-	background-color: orange;
+	border: solid #ccc 2px ;
+	background-color: #ccc;
+	scale: 1.1;
 }
 
 
@@ -19,15 +22,20 @@ a{
 	cursor: pointer;
 }
 
+
 #link{
 	color:rgb(0, 0, 0) ;
 	font-weight: bold;
-	padding-bottom: 5px;
+	text-align: center;
+	padding-left: 10px;
+	font-size: 12px;
 }
 
 #link:hover{
-	color: rgb(255, 255, 255);
+	color: rgb(49, 49, 49);
+
 }
+
 
 
 .boximage {
@@ -44,11 +52,13 @@ a{
 li{
 	list-style: none;
 	display: flex;
+	
 
 }
 
 .boximage{
-	margin-right: -29px;
+	margin-right: -50px;
+	
 
 }
 
@@ -56,11 +66,7 @@ li{
 	padding: 17PX;
 }
 
-.anuncio{
-	width: 5px;
-	margin-left: 20px;
-	margin-right: 0px;
-}
+
 
 .anuncio-info{
 	justify-content: center;

@@ -1,15 +1,42 @@
-import React from 'react'
-import styles from './module.search.css'
+import React, { useContext, useState } from "react";
+import { FiltersContext } from "../../Layout/MainPage/context/filters-context.js";
+import styles from "./module.search.css";
 
 const Search = () => {
-	return (
-		<div id='buscador'>
+  const { updateFilters } = useContext(FiltersContext);
 
-			<input></input>
-			<button>Search</button>
+  const [searchInput, updateSearchInput] = useState();
 
-		</div>
-	)
-}
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      updateFilters({ search: searchInput });
+    }
+  }
 
-export default Search
+  return (
+    <div id="buscador">
+      <select id="select">
+        <option>Precios</option>
+        <option>Precio maximo</option>
+        <option>Precio minimo</option>
+      </select>
+
+      <input
+        onChange={(event) => {
+          updateSearchInput(event.target.value);
+        }}
+        onKeyPress={handleKeyPress}
+      ></input>
+      <button
+        id="button"
+        onClick={() => {
+          updateFilters({ search: searchInput });
+        }}
+      >
+        Search
+      </button>
+    </div>
+  );
+};
+
+export default Search;
