@@ -1,39 +1,49 @@
-import React from 'react'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import CardItemList from '../../components/CardItemList'
+import React, { useContext } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import CardItemList from "../../components/CardItemList";
+import { FiltersContext } from "../MainPage/context/filters-context";
 
 const ItemList = () => {
+  const { filters } = useContext(FiltersContext);
 
-	const [ itemsList, setItemList ] = useState([])
+  const [itemsList, setItemList] = useState([]);
 
-	async function fetchItemList (){
-		const { data } = await axios.get(
-			"http://localhost:8043/clasificados/items?page=1&page_size=10"
-		)
-		console.log('aodfjaod', data)
-		return data
-	}
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  async function fetchItemList() {
+    let url = `http://localhost:8043/clasificados/items?page=${filters.page}&page_size=${filters.pageSize}`;
+    console.log(filters);
 
-	useEffect(() => {
-		async function retrieveItemList() {
-			const { data } = await fetchItemList();
-			setItemList(data);
-		}
-	
-		retrieveItemList();
-	}, []);
+    if (filters.search) {
+      url += `&search_words=${filters.search}`;
+    }
 
-	return (
+    if (filters.type) {
+      url += `&type=${filters.type}`;
+    }
 
-		<div>
+    const { data } = await axios.get(url);
 
-			{ itemsList.map((item)=>(
-				<CardItemList key={item.id} props={item}  />
-			))}
+    return data;
+  }
 
-		</div>
-	)
-}
+  useEffect(() => {
+    async function retrieveItemList() {
+      const { data } = await fetchItemList();
+      setItemList(data);
+    }
 
-export default ItemList
+    retrieveItemList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters]);
+
+  return (
+    <div>
+      {itemsList.map((item) => (
+        <CardItemList key={item.id} props={item} />
+      ))}
+    </div>
+  );
+};
+
+export default ItemList;
