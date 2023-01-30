@@ -3,7 +3,6 @@ import styles from '../MainMenu/NavBar.module.css'
 export function NavBar({option}) {
     return (
 
-    
     <div className={styles.containerHeaderNavBar}>
 
         <div className={styles.containerNavBar}>
