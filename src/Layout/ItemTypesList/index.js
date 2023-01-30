@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { ItemType } from "../../components/ItemType";
 
 
-const ItemTypesList = () => {
+const ItemTypesList = (eventHandler) => {
+  console.log(eventHandler)
   const [itemTypes, setItemTypes] = useState([]);
 
   async function fetchItemTypes() {
@@ -27,7 +28,7 @@ const ItemTypesList = () => {
   return (
     <div>
       {itemTypes.map((itemType) => (
-        <ItemType key={itemType.id} props={itemType} />
+        <ItemType key={itemType.id} props={itemType} eventHandler={eventHandler} />
       ))}
     </div>
   );

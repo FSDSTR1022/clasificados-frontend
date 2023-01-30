@@ -1,8 +1,10 @@
 #aside{
 	display: flex;
+	justify-content: space-between;
+	overflow: hidden;
 	border: solid 2px #ccc;
 	box-shadow: 1px 1px 1px 1px rgb(131, 131, 131);
-
+	
 	border-radius:20px ;
 	width: 180px;
 	height: 55px;
@@ -33,19 +35,26 @@ a{
 
 #link:hover{
 	color: rgb(49, 49, 49);
-
+	
 }
 
 
-
+/**/
 .boximage {
-	width: 90px;
+	width: 70%;
 	height: 100px;
+	
+	margin: 0px;
+	padding-bottom: 40px;
+	
+	
 }
 
 .image {
-	object-fit: contain;
 	display: flex;
+	align-items: center;
+	/*width: 250px;*/
+	object-fit: contain;
 }
 
 
@@ -56,21 +65,20 @@ li{
 
 }
 
-.boximage{
-	margin-right: -50px;
-	
 
-}
 
-.image{
-	padding: 17PX;
-}
 
 
 
 .anuncio-info{
-	justify-content: center;
 	width: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.75rem;
+	font-weight: 300;
+	line-height: 0.8rem;
+	letter-spacing: 0.05rem;
 	padding-bottom: 5px;
 }
 
