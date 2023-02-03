@@ -10,9 +10,6 @@ import ItemList from "../ItemList/index";
 import Search from "../../components/Search";
 
 const MainPage = () => {
-  function filterhandler(evento){
-    console.log(evento)
-  }
   return (
     <>
       <div className="App">
@@ -30,5 +27,4 @@ const MainPage = () => {
     </>
   );
 };
-
 export default MainPage;

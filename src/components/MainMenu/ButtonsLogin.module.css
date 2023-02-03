@@ -1,0 +1,26 @@
+.containerLogin{
+    width: 25vw;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.userLogin,
+.userRegister {
+    display: flex;
+
+    font-size: .7rem;
+    color:#fff;
+    border-radius: 18px;
+    border: none;
+    padding: .15rem 1.4rem;
+    background-color:rgb(218, 148, 19);
+}
+
+.userLogin:hover,
+.userRegister:hover {
+    cursor:pointer;
+    font-weight: 600;
+    filter: drop-shadow(0px -0px 9px rgb(219, 191, 170)) invert(3%);
+    background-color: rgb(153, 111, 11);
+}

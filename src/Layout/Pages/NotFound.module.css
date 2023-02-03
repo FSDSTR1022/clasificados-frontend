@@ -1,0 +1,10 @@
+/* .containerNotFound {
+
+} */
+.containerNotFound h2{
+    font-size: 4rem;
+    font-weight: bold;
+}
+.NotFound{
+    font-size: 2rem;
+}
