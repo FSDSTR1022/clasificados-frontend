@@ -1,13 +1,31 @@
 .containerHeaderNavBar{
-    display: flex;
     width: 1580px;
+    position: fixed;
+    z-index: 20;
+    top:0px;
     height: 70px;
+    margin-bottom: 200px;
+
+    display: flex;
     justify-content: space-around;
     align-items: center;
     align-content: center;
     
-    /* background-color:#646262; */
     background-color:gray;
+}
+
+.logo{
+    width: 30%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Aboreto', cursive;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgb(196, 184, 94);
+    /* background-color: red; */
 }
 
 .containerNavBar{
@@ -15,35 +33,47 @@
     display: flex;
     justify-content: space-around;
     color:#f0f0f0;
-    /* background-color: #646262; */
 }
+
 
 .navBarLink {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: .76rem;
-    font-weight: 400;
+    font-size: .85rem;
+    font-weight: 300;
+    transition: .2s all;
 }
 
 .navBarLink:hover{
     cursor:pointer;
     border-bottom: .05rem solid orange;
     font-weight: 600;
-    padding-bottom: 0;
-    margin-bottom: 0;
-
 }
 
-/* .mainMenu li{
-    list-style-type: none;
-    font-weight: 300;
-    font-size: .76rem;
-} */
+.containerButtons{ 
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
-/* li:hover {
-    cursor:pointer;
-    border-bottom: 2px solid orange;
-    transition: 2s easy;
-} */
+.buttonLink,
+.buttonRegister {
+    border:none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: .10rem 1rem;
+    border-radius: 16px;
+    /* color:#fff; */
+    color: rgb(196, 184, 94);
+    color: rgb(218, 148, 19);
+}
 
+.buttonLink:hover,
+.buttonRegister:hover {
+    cursor: pointer;
+    background-color: rgb(218, 148, 19);
+    font-weight: 600;
+    color:#fff
+}

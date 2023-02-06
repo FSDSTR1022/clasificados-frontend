@@ -7,17 +7,17 @@ export function ItemType({ props }) {
 
   return (
     <section
-      className="content1"
+      className={styles.content1}
       onClick={() => {
         updateFilters({ type: props.id });
       }}
     >
       <aside id="aside">
-        <div className="boximage">
-          <img src={props.image} alt="" className="image" />
+        <div className={styles.boximage}>
+          <img src={props.image} alt="" className={styles.image} />
         </div>
-        <div className="anuncio-info">
-          <a id="link">{props.name}</a>
+        <div className={styles.anuncioInfo}>
+          <a id={styles.link}>{props.name}</a>
         </div>
       </aside>
     </section>

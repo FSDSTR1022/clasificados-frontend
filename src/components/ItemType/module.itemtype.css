@@ -35,7 +35,6 @@ a{
 
 #link:hover{
 	color: rgb(49, 49, 49);
-	
 }
 
 
@@ -46,8 +45,6 @@ a{
 	
 	margin: 0px;
 	padding-bottom: 40px;
-	
-	
 }
 
 .image {
@@ -57,7 +54,6 @@ a{
 	object-fit: contain;
 }
 
-
 li{
 	list-style: none;
 	display: flex;
@@ -65,12 +61,7 @@ li{
 
 }
 
-
-
-
-
-
-.anuncio-info{
+.anuncioInfo{
 	width: 200px;
 	display: flex;
 	justify-content: center;

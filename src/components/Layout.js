@@ -1,14 +1,13 @@
 import { Outlet } from "react-router-dom";
-import Header from '../Layout/Header/index';
-// import styles from '../components/MainMenu/NavBar.module.css';
+import { NavBar } from "./MainMenu/NavBar";
+
 import style from '../components/Layout.module.css';
 
 export const Layout = () => {
     return (
         <div className={style.containerLayout}>
-            <Header />
+            <NavBar />
             <Outlet />
-
         </div>
     )
 }
