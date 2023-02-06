@@ -2,12 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+// import {LoginUser} from './components/MainMenu/LoginUser'
 import reportWebVitals from './reportWebVitals';
+// import {RegisterUser} from './components/MainMenu/registerUser'
+
+import {BrowserRouter} from 'react-router-dom';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+      {/* <LoginUser/> */}
+      {/* <RegisterUser /> */}
+    </BrowserRouter>
   </React.StrictMode>
 );
 

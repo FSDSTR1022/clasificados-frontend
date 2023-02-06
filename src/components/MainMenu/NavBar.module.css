@@ -1,17 +1,49 @@
 .containerHeaderNavBar{
     display: flex;
+    width: 1580px;
+    height: 70px;
+    justify-content: space-around;
     align-items: center;
+    align-content: center;
     
+    /* background-color:#646262; */
+    background-color:gray;
 }
-.mainMenu li{
+
+.containerNavBar{
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
+    color:#f0f0f0;
+    /* background-color: #646262; */
+}
+
+.navBarLink {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: .76rem;
+    font-weight: 400;
+}
+
+.navBarLink:hover{
+    cursor:pointer;
+    border-bottom: .05rem solid orange;
+    font-weight: 600;
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+}
+
+/* .mainMenu li{
     list-style-type: none;
     font-weight: 300;
     font-size: .76rem;
-}
+} */
 
-li:hover {
+/* li:hover {
     cursor:pointer;
     border-bottom: 2px solid orange;
     transition: 2s easy;
-}
+} */
 

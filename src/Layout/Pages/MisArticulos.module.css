@@ -1,0 +1,7 @@
+.containerMisArticulos {
+    display: flex;
+    flex-direction: column;
+}
+.containerMisArticulos h2{
+    font-size: 2rem;
+}

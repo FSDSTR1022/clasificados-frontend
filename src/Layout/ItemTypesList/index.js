@@ -26,7 +26,7 @@ const ItemTypesList = () => {
   return (
     <div>
       {itemTypes.map((itemType) => (
-        <ItemType key={itemType.id} props={itemType} />
+        <ItemType key={itemType.id} props={itemType}  />
       ))}
     </div>
   );

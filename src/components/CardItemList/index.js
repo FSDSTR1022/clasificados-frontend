@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Card, CardBody, CardFooter, Image, Stack, Heading, Text, Button } from '@chakra-ui/react'
-import styles from './module.carditemlist.css'
+// import styles from './module.carditemlist.css'
 
 
 const CardItemList = (constructor) => {

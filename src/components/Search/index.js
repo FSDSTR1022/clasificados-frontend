@@ -5,6 +5,12 @@ import styles from "./module.search.css";
 const Search = () => {
   const { updateFilters } = useContext(FiltersContext);
 
+
+			<div className='range'>
+				<label>Filtro</label>
+				<input type='range' ></input>
+			</div>
+
   const [searchInput, updateSearchInput] = useState();
 
   function handleKeyPress(event) {
