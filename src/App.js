@@ -1,43 +1,46 @@
 import './assets/css/App.css';
+import * as React from 'react'
 
-//Componentes importados
-import Articulos from './components/articulos';
-import Header from './components/Header';
-import Slider from './components/Slider';
-import Sidebar from './components/Sidebar';
-import Footer from './components/Footer';
+// Routes
+import { Routes, Route } from 'react-router-dom'
+import { Layout } from './components/Layout'
+
+import { Home } from './Layout/Pages/Home'
+import { MisArticulos} from './Layout/Pages/MisArticulos'
+import { BandejaEntrada } from './Layout/Pages/BandejaEntrada'
+import { ListaDeseos } from './Layout/Pages/ListaDeseos'
+import { Vender } from './Layout/Pages/Vender'
+
+import { NotFound } from './Layout/Pages/NotFound'
+
+import { LoginUser } from './components/MainMenu/LoginUser'
+import { RegisterUser } from './components/MainMenu/registerUser';
 
 function App() {
+
   return (
-    <div className="App">
+    <>
+      <div className="containerApp">
+        
+        <Routes>
+        <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="misarticulos" element={<MisArticulos />}/>
+            <Route path="bandejaentrada" element={<BandejaEntrada />}/>
+            <Route path="listadedeseos" element={<ListaDeseos />} />
+            <Route path="vender" element={<Vender />} />
 
-      <Header />
-
-      <Slider />
-
+            <Route path="user/login" element={<LoginUser/>} />
+            <Route path="user/register" element={<RegisterUser />}/>
+        </Route>
+        
+            <Route path="*" element={<NotFound />} />
+        </Routes>
       
-
-      <div className="center">
-        <section id="content">
-          
-
-          <section className='componentes'>
-
-            
-            <Articulos />
-
-          </section>
-        </section>
-
-        <Sidebar/>
-        <div className='clearfix'></div>
-
       </div>
 
-      <Footer/>
-
-    </div>
-  );
+    </>
+);
 }
-
 export default App;
+

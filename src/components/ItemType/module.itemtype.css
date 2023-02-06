@@ -1,0 +1,76 @@
+#aside{
+	display: flex;
+	justify-content: space-between;
+	overflow: hidden;
+	border: solid 2px #ccc;
+	box-shadow: 1px 1px 1px 1px rgb(131, 131, 131);
+	
+	border-radius:20px ;
+	width: 180px;
+	height: 55px;
+	margin-top: 20px;
+	margin-left: 40px;
+	transition: all 200ms;
+}
+
+#aside:hover{
+	border: solid #ccc 2px ;
+	background-color: #ccc;
+	scale: 1.1;
+}
+
+
+a{
+	cursor: pointer;
+}
+
+
+#link{
+	color:rgb(0, 0, 0) ;
+	font-weight: bold;
+	text-align: center;
+	padding-left: 10px;
+	font-size: 12px;
+}
+
+#link:hover{
+	color: rgb(49, 49, 49);
+}
+
+
+/**/
+.boximage {
+	width: 70%;
+	height: 100px;
+	
+	margin: 0px;
+	padding-bottom: 40px;
+}
+
+.image {
+	display: flex;
+	align-items: center;
+	/*width: 250px;*/
+	object-fit: contain;
+}
+
+li{
+	list-style: none;
+	display: flex;
+	
+
+}
+
+.anuncioInfo{
+	width: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.75rem;
+	font-weight: 300;
+	line-height: 0.8rem;
+	letter-spacing: 0.05rem;
+	padding-bottom: 5px;
+}
+
+
