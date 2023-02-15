@@ -23,18 +23,22 @@ function App() {
       <div className="containerApp">
         
         <Routes>
-        <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="misarticulos" element={<MisArticulos />}/>
-            <Route path="bandejaentrada" element={<BandejaEntrada />}/>
-            <Route path="listadedeseos" element={<ListaDeseos />} />
-            <Route path="vender" element={<Vender />} />
+          <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
 
-            <Route path="user/login" element={<LoginUser/>} />
-            <Route path="user/register" element={<RegisterUser />}/>
-        </Route>
-        
-            <Route path="*" element={<NotFound />} />
+                <Route path="misarticulos" element={<MisArticulos />}/>
+                <Route path="bandejaentrada" element={<BandejaEntrada />}/>
+                <Route path="listadedeseos" element={<ListaDeseos />} />
+                <Route path="vender" element={<Vender />} />
+
+          </Route>
+          <Route>
+              <Route path="user/login" element={<LoginUser/>} />
+              <Route path="user/register" element={<RegisterUser />}/>
+
+          </Route>
+          
+              <Route path="*" element={<NotFound />} />
         </Routes>
       
       </div>
