@@ -1,97 +1,107 @@
-/* body{
-    width: 100%;
-    height: 20vh;
-    min-height: 90vh;
-
-    color:#f0f0f0;
-    background-color: #17223b;
-} */
-
-.containerP{
-    position: absolute;
+:root * {
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+.containerImage{
     width: 1580px;
-    min-height: 90vh;
-    top:120px;
+    /* min-height: 90vh; */
+    height:100vh;
+
     display: flex;
     justify-content: center;
+    align-items: center;
+
     background: linear-gradient(rgba(13, 18, 31, 0.75), rgba(5,7,12,0.75)), url('../../Images/bg-06.png'), no-repeat center center fixed;
-    background-size: contain;
+    background-size: cover;
 }
 
 .containerMain{
-    position: relative;
     width: 420px;
-    height: 20%;
+    height: 55vh;
 
-    top:250px;
-    padding:50px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding:20px 40px;
     border-radius: 8px;
-    background: linear-gradient(-225deg, rgba(198, 172, 172, 0.642) 0%, rgba(42, 112, 152, 0.452) 85%);
+    background: linear-gradient(-225deg, rgba(144, 173, 235, 0.642) 0%, rgba(3, 81, 126, 0.452) 85%);
 }
 
 .formLoginUser{
-    display: inline-block;
-    width: 300px;
+    width: 80%;
+    max-width: 100%;
+    padding: .75rem 0;
+    /* background-color: red; */
+
 }
 
-.titleLogin h2{
+.formLoginUser h2{
     display: flex;
     justify-content: center;
     font-weight: 400;
-    color:#eee;
+    color:#edc86b;
+    padding: 1.25rem 0px;
 }
+
+/* No olvidar poner en ambas icono de ojo ...*/
 
 .formControl,
 .formControlPassword {
-    margin-bottom: 7px;
-    padding-bottom: 20px;
-    position: relative;
+    width: 100%;
+    height: auto;
+/* Revisar esto aca, esta muy raro ! */
+    overflow: hidden;
+    /* background-color: red; */
 }
 
 .formControl label,
 .formControlPassword label{
+    font-family: 'Roboto', sans-serif;
     display: flex;
-    font-weight: 400;
+    font-weight: 300;
     color:#eee;
     margin-bottom: 2px;
 }
 
 .formControl input {
     width: 100%;
-    display: flex;
     text-align: left;
+
     font-size: .8rem;
     font-family: inherit;
+    font-weight: 200;
     padding: 12px;
     border: none;
     text-transform: lowercase;
+    margin-bottom: 30px;
     
     background-color: #f0f0f0;
 }
 
 .formControlPassword input{
     width: 100%;
-    display: block;
+    /* display: flex; */
     text-align: left;
 
     font-size: .8rem;
     font-family: inherit;
     padding: 12px;
     border: none;
-    
+    margin-bottom: 40px;
     background-color: #f0f0f0;
 }
-.formControl input:focus{
-    outline:none;
-}
-.formControl input:hover{
-    cursor: pointer;
-}
+
+.formControl input:focus,
 .formControlPassword input:focus{
     outline:none;
 }
+
+.formControl input:hover,
 .formControlPassword input:hover{
-    cursor:pointer;
+    cursor: pointer;
+    background-color: #e4caa9b2;
 }
 
 .formLoginUser button {
@@ -99,11 +109,14 @@
     display: block;
     padding: .75rem 1.2rem;
     margin: .75rem 0;
-    border:none;
-    border-radius: 4px;
+    margin-bottom: 2rem;
+    
+    color: #f6f6e9;
     font-size: 1rem;
     font-weight: 500;
-    color: #f6f6e9;
+    
+    border:none;
+    border-radius: 4px;
     background: #bf165a;
 }
 
@@ -112,14 +125,39 @@
     font-weight: 700;
     background-color: #139b92;
 }
+
+.backToHome{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+
+    font-family: 'Roboto', sans-serif;
+    font-size:1rem;
+    font-weight: 100;
+
+    color:#bdbcbd;
+    transition: .3s ease;
+}
+.backToHome:hover{
+    cursor:pointer;
+    color:#fff;
+    font-weight: 500;
+    border-bottom: 2px solid orange;
+}
+
 .fail{
-    color: #f2317f;
+    color: #d1b881;
+    font-family: 'Roboto', sans-serif;
+
     font-size: .75rem;
+    font-weight: 300;
 
 }
 .successUser{
-        display: flex;
-        justify-content: center;
-        padding-top: 10px;
-        color:#139b92;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    color:#139b92;
     }

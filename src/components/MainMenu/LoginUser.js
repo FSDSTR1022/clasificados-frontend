@@ -1,8 +1,11 @@
-import { useForm } from 'react-hook-form'
-import styles from './login.module.css'
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import styles from './login.module.css';
+import { AiOutlineHome } from "react-icons/ai";
+
+import axios from 'axios';
 
 // Validar que password y password 2 son identicas
-
 export function LoginUser() {
 
     const valueDefault = {
@@ -12,28 +15,38 @@ export function LoginUser() {
 
     const {register, handleSubmit, formState: {errors}, reset } = useForm(valueDefault)
     
-    const customSubmit= data => {
+    const customSubmit= async data => {
         console.log(data);
+        
+        const result =  await axios.get(`http://localhost:8043/clasificados/user/login?email=${data.email}&password=${data.password}`)
+        
+        .then(function(response) {
+            console.log(response);
+            console.log(response.data.auth);
+            
+            let userToken = response.data.auth;
+            localStorage.setItem("userToken", userToken);
+            console.log(userToken);
+
+            // este se usa al hacer 
+            // let userToken = localStorage.getItem("userToken");
+
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 
         reset();
 
         }
-
-        // {/* <img src={image} alt='login User' className={styles.Image}/> */}
         
         return (
-            <>
-            <div className={styles.containerP}>
-
-            <div className={styles.containerMain}>
-                <div className={styles.containerLoginUser}>
+        <>
+            <div className={styles.containerImage}>
+                <div className={styles.containerMain}>
 
                     <form onSubmit={handleSubmit(customSubmit)} className={styles.formLoginUser} >
-                        <div className={styles.titleLogin}>
-                            <h2>Login de Usuario</h2>
-                        </div>    
-
-
+                        <h2>Login de Usuario</h2>
 
                         <div className={styles.formControl}>
                             <label>email</label>
@@ -44,8 +57,8 @@ export function LoginUser() {
                                 message: 'Error !... email ingresado no es válido!...',
                                 string:''
                             }
-                        })}
-                        />
+                            })}
+                            />
 
                             {errors.email && <span className={styles.fail}>{errors.email.message}</span>}
 
@@ -60,21 +73,21 @@ export function LoginUser() {
                                 message: 'Mínimo 8 caracteres !...',
                                 string:''
                             }
-                        })}
+                            })}
                         
-                        />
+                            />
 
                             {errors.password && <span className={styles.fail}>{errors.password.message}</span>}
 
                         </div>
 
                         <button type='submit'>Enviar</button>
-
+                        <Link to='/' className={styles.backToHome}><AiOutlineHome/> Volver a Inicio</Link>
                     </form>
                 </div>
-            </div>
             </div>
         </>
             
             )
-    }
+        }
+        /* </div> */

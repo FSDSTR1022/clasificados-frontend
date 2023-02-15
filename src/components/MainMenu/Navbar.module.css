@@ -1,11 +1,13 @@
-.containerHeaderNavBar{
-    width: 1580px;
+.containerHeaderNavbar{
     position: fixed;
-    z-index: 20;
+    /* width: 1580px; */
+    width: inherit;
+    max-width: inherit;
+    z-index: 1;
+
     top:0px;
     height: 70px;
-    margin-bottom: 200px;
-
+    
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -14,41 +16,48 @@
     background-color:gray;
 }
 
-.logo{
-    width: 30%;
-    height: 70px;
+.containerHeaderNavbar h2{
+    width: 25%;
+    
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-family: 'Aboreto', cursive;
-    font-size: 2rem;
-    font-weight: 600;
+    font-family: 'PT Serif', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    font-style: italic;
+    /* border: none; */
+
     color: rgb(196, 184, 94);
     /* background-color: red; */
 }
 
-.containerNavBar{
+.containerNavbar{
     width: 800px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     color:#f0f0f0;
 }
 
 
-.navBarLink {
+.NavbarLink {
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    
     font-size: .85rem;
     font-weight: 300;
     transition: .2s all;
+    text-decoration: none;
 }
 
-.navBarLink:hover{
+.NavbarLink:hover{
     cursor:pointer;
     border-bottom: .05rem solid orange;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .containerButtons{ 
@@ -62,11 +71,10 @@
 .buttonRegister {
     border:none;
     font-size: 1rem;
-    font-weight: 500;
-    padding: .10rem 1rem;
-    border-radius: 16px;
-    /* color:#fff; */
-    color: rgb(196, 184, 94);
+    font-weight: 600;
+    text-decoration: none;
+    color:#fff;
+    /* color: rgb(196, 184, 94); */
     color: rgb(218, 148, 19);
 }
 
@@ -75,5 +83,7 @@
     cursor: pointer;
     background-color: rgb(218, 148, 19);
     font-weight: 600;
-    color:#fff
+    color:#fff;
+    padding: .10rem 1rem;
+    border-radius: 8px;
 }
