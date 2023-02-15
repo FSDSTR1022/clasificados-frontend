@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom'
-import styles from '../MainMenu/NavBar.module.css'
+import styles from '../MainMenu/Navbar.module.css'
 
-export const NavBar = () => {
+export const Navbar = () => {
     return (
     <>
-        <div className={styles.containerHeaderNavBar}>
-                <h2 className={styles.logo}>Mercado Avisos</h2>
-                <div className={styles.containerNavBar}>
+        <div className={styles.containerHeaderNavbar}>
+                <h2> Mercado @visos</h2>
+                <div className={styles.containerNavbar}>
                     
-                    <Link to="/" className={styles.navBarLink} >Inicio</Link>
-                    <Link to="misarticulos" className={styles.navBarLink}>Mis Articulos</Link>
-                    <Link to="bandejaentrada" className={styles.navBarLink}>Bandeja de Entrada</Link>
-                    <Link to="listadedeseos" className={styles.navBarLink}>Lista de deseos</Link>
-                    <Link to="vender" className={styles.navBarLink}>Vender</Link>
+                    <Link to="/" className={styles.NavbarLink} >Inicio</Link>
+                    <Link to="/misarticulos" className={styles.NavbarLink}>Mis Articulos</Link>
+                    <Link to="/bandejaentrada" className={styles.NavbarLink}>Bandeja de Entrada</Link>
+                    <Link to="/listadedeseos" className={styles.NavbarLink}>Lista de deseos</Link>
+                    <Link to="/vender" className={styles.NavbarLink}>Vender</Link>
                 </div>
 
                 <div className={styles.containerButtons}>

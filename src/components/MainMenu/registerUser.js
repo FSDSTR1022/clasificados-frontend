@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form'
 import styles from "./registerUser.module.css"
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+import { AiOutlineHome } from "react-icons/ai";
+
 
 
 // Validar que password y password 2 son identicas
@@ -38,23 +41,22 @@ export function RegisterUser() {
         
         return (
         <>
-        <div className={styles.containerPP}>
+        <div className={styles.containerImage}>
 
             <div className={styles.containerMain}>
-                <div className={styles.containerRegister}>
                         
                     <form onSubmit={handleSubmit(customSubmit)} className={styles.formRegister} >
                             
                         <h2>Registro de Usuario</h2>
 
-                        <div className={styles.formControlX}>
+                        <div className={styles.formControl}>
                             <label>Nombre</label>
                             <input type="text"
                             {...register("name", {
-                                required:'Error !... Debe ingresar el nombre !.', 
+                                required:'Error !... Debe ingresar el nombre !', 
                                 minLength: {
                                     value: 2,
-                                    message: 'Mínimo 2 caracteres !...',
+                                    message: 'Mínimo 2 caracteres !',
                                     string:''
                                 }
                             })}
@@ -63,14 +65,14 @@ export function RegisterUser() {
                             {errors.name && <span className={styles.fail}>{errors.name.message}</span>}
                         </div>
 
-                        <div className={styles.formControlX}>
+                        <div className={styles.formControl}>
                             <label>Apellido</label>
                             <input type="text"
                             {...register("lastname", {
-                                required:'Error !... Debe ingresar el Apellido !...', 
+                                required:'Error !... Debe ingresar el Apellido !', 
                                 minLength: {
                                     value: 2,
-                                    message: 'Mínimo 2 caracteres !...',
+                                    message: 'Mínimo 2 caracteres !',
                                     string:''
                                 }
                             })}
@@ -83,10 +85,10 @@ export function RegisterUser() {
                             <label>email</label>
                             <input type="email"
                             { ...register("email", { 
-                                required: 'Error !... Debe ingresar el email !...',
+                                required: 'Error !... Debe ingresar el email !',
                                 pattern: {
                                     value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                                    message: 'Error !... email ingresado no es válido!...',
+                                    message: 'Error !... email ingresado no es válido!',
                                     string:''
                                 }
                             })}
@@ -99,10 +101,10 @@ export function RegisterUser() {
                             <label>Password</label>
                             <input type="password" name="password"
                             { ...register("password", {
-                                required: 'Error!... Debe ingresar la password !...',
+                                required: 'Error!... Debe ingresar la password !',
                                 minLength: {
                                     value: 8,
-                                    message: 'Mínimo 8 caracteres !...',
+                                    message: 'Mínimo 8 caracteres !',
                                     string:''
                                 }
                             })}
@@ -116,10 +118,10 @@ export function RegisterUser() {
                             <label>Confirma Password</label>
                             <input type="password" name="password2"
                             { ...register("password2", {
-                                required: 'Error !... Ingrese confirmación de password !...',
+                                required: 'Error !... Debe confirmar la password !',
                                 minLength: {
                                     value: 8,
-                                    message: 'Mínimo 8 caracteres !...',
+                                    message: 'Mínimo 8 caracteres !',
                                     string: ''
                                 }
                             })}
@@ -130,9 +132,8 @@ export function RegisterUser() {
                         </div>
 
                         <button type='submit'>Registrar</button>
-
+                        <Link to='/' className={styles.backToHome}><AiOutlineHome/> Volver a Inicio</Link>
                     </form>
-                </div>
             </div>
         </div>
         </>
