@@ -1,6 +1,7 @@
 import React from "react";
 import "./module.mainpage.css";
 import { FiltersProvider } from "./context/filters-context.js";
+import { useState } from 'react'
 
 //Componentes importados
 import Footer from "../Footer/index";
@@ -9,6 +10,7 @@ import ItemList from "../ItemList/index";
 import Search from "../../components/Search";
 
 const MainPage = () => {
+
   return (
     <>
       <div className="App">
