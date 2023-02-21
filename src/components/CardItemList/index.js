@@ -33,12 +33,13 @@ const CardItemList = (constructor) => {
 						<CardBody id='carbody' onClick={() => setOpenModal(true)}>
 							<Heading size='md' className='head'>{ constructor.props.title }</	Heading>
 					<div id='text'>
+						{/*
 						<div id='text-info'>
 							<Text py='2'>
-								Caffè latte is a coffee beverage of Italian origin 	made 			with espresso
-								and steamed milk.
+						
 							</Text>
 						</div>
+						*/}
 						<div id='precios'>
 							<ul id='precio'>
 								<li>Precio:</li>

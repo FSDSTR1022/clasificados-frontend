@@ -59,7 +59,7 @@ export const Vender = () => {
 		type: '',
 		title: '',
 		description: '',
-		image: ''
+		images: []
 	}
 
 	const { register, handleSubmit, formState: {errors}, reset } = useForm(valueItem)
@@ -67,8 +67,6 @@ export const Vender = () => {
 	const itemSubmit = data => {
 
 		console.log(data, 'información enviada')
-
-
 
 		axios.post('http://localhost:8043/clasificados/items', {
 			country: data.country,
@@ -78,7 +76,8 @@ export const Vender = () => {
 			type: types.data.find(({name}) => name === data.type).id,
 			title: data.title,
 			description: data.description,
-			image: data.image
+			//debe de enviarse un array
+			images: data.image
 		})
 		.then(function(res) {
 			console.log(res)
