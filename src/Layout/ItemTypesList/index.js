@@ -8,7 +8,7 @@ const ItemTypesList = () => {
 
   async function fetchItemTypes() {
     const { data } = await axios.get(
-      "http://localhost:8043/clasificados/item-types"
+      `${process.env.REACT_APP_LOCALHOST}item-types`
     );
 
     return data;
@@ -26,7 +26,7 @@ const ItemTypesList = () => {
   return (
     <div>
       {itemTypes.map((itemType) => (
-        <ItemType key={itemType.id} props={itemType}  />
+        <ItemType key={itemType.id} props={itemType} />
       ))}
     </div>
   );
