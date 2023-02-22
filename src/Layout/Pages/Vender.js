@@ -1,194 +1,212 @@
-import { useForm } from 'react-hook-form'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import styles from '../Pages/Vender.module.css'
+import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import styles from "../Pages/Vender.module.css";
 
 export const Vender = () => {
+  //elemento subir imagenes
 
-	//elemento subir imagenes
+  const [image, setImage] = useState();
+  const [url, setUrl] = useState();
 
-	const [ image, setImage ] = useState()
-	const [ url, setUrl ] = useState()
+  const uploadImage = () => {
+    const data = new FormData();
 
-	const uploadImage = () => {
+    data.append("file", image);
+    data.append("upload_preset", "clasificados");
+    data.append("cloud_name", "dhjelhzdd");
 
-		const data = new FormData()
+    fetch("https://api.cloudinary.com/v1_1/dhjelhzdd/image/upload", {
+      method: "post",
+      body: data,
+    })
+      .then((resp) => resp.json())
+      .then((data) => setUrl(data.url))
+      .catch((err) => console.log(err));
+  };
 
-		data.append('file', image)
-		data.append('upload_preset', 'clasificados')
-		data.append('cloud_name', 'dhjelhzdd')
+  //elemento para conseguir los types
 
-		fetch("https://api.cloudinary.com/v1_1/dhjelhzdd/image/upload", {
-			method: 'post',
-			body: data
-		})
-		.then(resp => resp.json())
-		.then(data => setUrl(data.url))
-		.catch(err => console.log(err))
-	}
+  const [types, setTypes] = useState([]);
 
-	//elemento para conseguir los types
+  async function fetchType() {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_LOCALHOST}item-types`
+    );
+    return data;
+  }
 
-	const [ types, setTypes ] = useState([])
+  useEffect(() => {
+    async function findTypes() {
+      const typeName = await fetchType();
+      setTypes(typeName);
+    }
+    findTypes();
+  }, []);
 
-	async function fetchType(){
-		const { data } = await axios.get('http://localhost:8043/clasificados/item-types')
-		return(data)
-	}
+  // console.log(typeof(types), 'tipo types')
 
-	useEffect(() => {
-		async function findTypes(){
-			const typeName = await fetchType()
-			setTypes(typeName)
-		}
-		findTypes()
-	}, [])
+  console.log(types, "types");
+  // console.log(types.data.map((item)=> console.log(item.name)), 'Item name')
 
-	// console.log(typeof(types), 'tipo types')
-	
-	console.log(types, 'types')
-	// console.log(types.data.map((item)=> console.log(item.name)), 'Item name')
+  //Elementos subir elementos del formulario
 
-	//Elementos subir elementos del formulario
+  const valueItem = {
+    country: "",
+    city: "",
+    owner_id: "",
+    price: 0,
+    type: "",
+    title: "",
+    description: "",
+    images: [],
+  };
 
-	const valueItem = {
-		country: '',
-		city: '',
-		owner_id: '',
-		price: 0,
-		type: '',
-		title: '',
-		description: '',
-		images: []
-	}
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm(valueItem);
 
-	const { register, handleSubmit, formState: {errors}, reset } = useForm(valueItem)
+  const itemSubmit = (data) => {
+    console.log(data, "información enviada");
 
-	const itemSubmit = data => {
+    axios
+      .post(`${process.env.REACT_APP_LOCALHOST}items`, {
+        country: data.country,
+        city: data.city,
+        owner_id: data.owner_id,
+        price: data.price,
+        type: types.data.find(({ name }) => name === data.type).id,
+        title: data.title,
+        description: data.description,
+        //debe de enviarse un array
+        images: data.image,
+      })
+      .then(function (res) {
+        console.log(res);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
 
-		console.log(data, 'información enviada')
+    reset();
+  };
 
-		axios.post('http://localhost:8043/clasificados/items', {
-			country: data.country,
-			city: data.city,
-			owner_id: data.owner_id,
-			price: data.price,
-			type: types.data.find(({name}) => name === data.type).id,
-			title: data.title,
-			description: data.description,
-			//debe de enviarse un array
-			images: data.image
-		})
-		.then(function(res) {
-			console.log(res)
-		})
-		.catch(function(err) {
-			console.log(err)
-		})
+  return (
+    <>
+      <div className={styles.containerVender}>
+        <form onSubmit={handleSubmit(itemSubmit)} className={styles.formSell}>
+          <h2>Registro artículos</h2>
 
-	reset()
+          <div>
+            <label>País</label>
+            <input
+              type="text"
+              {...register("country", {
+                required: "Es necesario indicar el país de origen",
+              })}
+            />
 
-	}
+            {errors.country && (
+              <span className={styles.fail}>{errors.country.message}</span>
+            )}
+          </div>
 
-    return (
-        <>
+          <div>
+            <label>Ciudad</label>
+            <input
+              type="text"
+              {...register("city", {
+                required: "Es necesario indicar el ciudad de origen",
+              })}
+            />
 
-        <div className={styles.containerVender}>
-					<form onSubmit={handleSubmit(itemSubmit)} className={styles.formSell} >
+            {errors.city && (
+              <span className={styles.fail}>{errors.city.message}</span>
+            )}
+          </div>
 
-						<h2>Registro artículos</h2>
+          <div>
+            {/* el owner debe de venir del localhost */}
+            <label>Owner</label>
+            <input
+              type="text"
+              {...register("owner_id", {
+                required: "Es necesario indicar el ciudad de origen",
+              })}
+            />
 
-						<div>
-							<label>País</label>
-							<input type='text' {
-								...register('country', {
-									required: 'Es necesario indicar el país de origen'
-								})
-							} />
+            {errors.owner_id && (
+              <span className={styles.fail}>{errors.owner_id.message}</span>
+            )}
+          </div>
 
-							{ errors.country && <span className={styles.fail}>{ errors.country.message }</span> }
-						</div>
+          <div>
+            <label>Precio</label>
+            <input
+              type="number"
+              {...register("price", {
+                required: "Se debe de indicar el precio de origen",
+              })}
+            />
 
-						<div>
-							<label>Ciudad</label>
-							<input type='text' {
-								...register('city', {
-									required: 'Es necesario indicar el ciudad de origen'
-								})
-							} />
-						
-							{ errors.city && <span className={styles.fail}>{ errors.city.message }</span> }
-						</div>
+            {errors.price && (
+              <span className={styles.fail}>{errors.price.message}</span>
+            )}
+          </div>
 
-						<div>
-							{/* el owner debe de venir del localhost */}
-							<label>Owner</label>
-							<input type='text' {
-								...register('owner_id', {
-									required: 'Es necesario indicar el ciudad de origen'
-								})
-							} />
+          <div>
+            {/* debe de transformarse en tipo select */}
 
-							{ errors.owner_id && <span className={styles.fail}>{ errors.owner_id.message }</	span> }
-						</div>
+            <label>Tipos</label>
+            <select {...register("type")}>
+              {types.data?.map((item) => (
+                <option keys={item.id}>{item.name}</option>
+              ))}
+            </select>
+          </div>
 
-						<div>
-							<label>Precio</label>
-							<input type='number' {
-								...register('price', {
-									required: 'Se debe de indicar el precio de origen'
-								})
-							} />
-						
-							{ errors.price && <span className={styles.fail}>{ errors.price.message }</	span> }
-						</div>
+          <div>
+            <label>Titulo</label>
+            <input
+              type="text"
+              {...register("title", {
+                required: "Hay que indicar un titulo para tu artículo",
+              })}
+            />
 
-						<div>
-							{/* debe de transformarse en tipo select */}
-							
-							<label>Tipos</label>
-							<select {...register('type')}>
-								{ types.data?.map((item) =>(
-									<option keys={item.id}>{item.name}</option>
-								))}
-								</select>
-							
-						</div>
+            {errors.title && (
+              <span className={styles.fail}>{errors.title.message}</span>
+            )}
+          </div>
 
-						<div>
-							<label>Titulo</label>
-							<input type='text' {
-								...register('title', {
-									required: 'Hay que indicar un titulo para tu artículo'
-								})
-							} />
+          <div>
+            <label>Descripción</label>
+            <input
+              type="text"
+              {...register("description", {
+                required: "Hay que indicar una descripción del artículo",
+              })}
+            />
 
-							{ errors.title && <span className={styles.fail}>{ errors.title.message }</span> }
-						</div>
+            {errors.description && (
+              <span className={styles.fail}>{errors.description.message}</span>
+            )}
+          </div>
 
-						<div>
-							<label>Descripción</label>
-							<input type='text' {
-								...register('description', {
-									required: 'Hay que indicar una descripción del artículo'
-								})
-							} />
+          <div className="containerImg">
+            <label>Imágenes</label>
+            <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+            <img src={url} alt={url} />
+          </div>
 
-							{ errors.description && <span className={styles.fail}>{ errors.description.message }</span> }
-						</div>
-
-						<div className='containerImg'>
-							<label>Imágenes</label>
-							<input type='file' onChange={(e) => setImage(e.target.files[0])} />
-							<img src={url} alt={url} />
-
-						</div>
-
-						<button type='submit' onClick={uploadImage}>Vender</button>
-						
-					</form>
-
-        </div>
-        </>
-    )
-}
+          <button type="submit" onClick={uploadImage}>
+            Vender
+          </button>
+        </form>
+      </div>
+    </>
+  );
+};
