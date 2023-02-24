@@ -81,7 +81,7 @@ export const Vender = () => {
         type: types.data.find(({ name }) => name === data.type).id,
         title: data.title,
         description: data.description,
-        //debe de enviarse un array
+        //debe de enviarse un array, ya envia una sola imagen
         images: data.image,
       })
       .then(function (res) {
