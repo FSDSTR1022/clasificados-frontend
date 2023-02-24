@@ -1,38 +1,47 @@
 import { useState, useEffect } from "react";
-import styles from "../Pages/MisArticulos.module.css";
-import axios from "axios";
 import CardAllData from "../../components/CardAllData";
+import axios from "axios";
+
 
 export const MisArticulos = () => {
   const [items, setItems] = useState([]);
 
-	//pendiente hacer lógica coger id usuario de localstorage
-
   async function fetchAllItemsByUser() {
-    const { data } = await axios.get(
-      "http://localhost:8043/clasificados/user/63dd6339c8dd060e29fc46e9/items"
-    );
 
+    const data = await axios.get('http://localhost:8043/clasificados/user/63dd6339c8dd060e29fc46e9/items');
+    console.log(data);
     return data;
   }
 
   useEffect(() => {
     async function fetchItemsUser() {
-      const { data } = await fetchAllItemsByUser();
-      setItems(data);
+      const data = await fetchAllItemsByUser();
+      console.log(data.data.data);
+      setItems(data.data.data);
     }
     fetchItemsUser();
   }, []);
-
+  
   return (
     <>
-      <div className={styles.containerMisArticulos}>
-        <h2>Page Mis Articulos</h2>
-        {console.log(items)}
+      <div className="bg-gray-300 w-full h-full space-y-20 grid gap-3 grid-cols-5 grid-rows-3">
+
+        <p className="bg-lime-300 text-4xl text-orange-400 font-semibold h-10 text-center justify-center conten-center">Mis Articulos</p>
+
         {items.map((item) => (
-          <CardAllData key={item.id} props={item} />
-        ))}
-      </div>
+          <CardAllData key={item.id}
+          
+          image={item.main_image}
+          
+          title={item.title}
+          type={item.type}
+          price={item.price}
+          low_price={item.reduced_price}
+          description={item.description}
+          status={item.status}
+          />
+          ))}
+        </div>
     </>
   );
 };

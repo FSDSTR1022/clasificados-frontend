@@ -27,10 +27,8 @@
     font-size: 2.2rem;
     font-weight: 500;
     font-style: italic;
-    /* border: none; */
 
     color: rgb(196, 184, 94);
-    /* background-color: red; */
 }
 
 .containerNavbar{
@@ -38,7 +36,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color:#f0f0f0;
 }
 
 
@@ -47,6 +44,7 @@
     justify-content: space-around;
     align-items: center;
 
+    color:#f0f0f0;
     
     font-size: .85rem;
     font-weight: 300;
@@ -74,7 +72,6 @@
     font-weight: 600;
     text-decoration: none;
     color:#fff;
-    /* color: rgb(196, 184, 94); */
     color: rgb(218, 148, 19);
 }
 

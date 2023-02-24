@@ -12,7 +12,6 @@ export const Navbar = () => {
                     <Link to="/misarticulos" className={styles.NavbarLink}>Mis Articulos</Link>
                     <Link to="/bandejaentrada" className={styles.NavbarLink}>Bandeja de Entrada</Link>
                     <Link to="/listadedeseos" className={styles.NavbarLink}>Lista de deseos</Link>
-                    <Link to="/vender" className={styles.NavbarLink}>Vender</Link>
                 </div>
 
                 <div className={styles.containerButtons}>
