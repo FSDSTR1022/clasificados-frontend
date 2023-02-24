@@ -1,23 +1,43 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-import styles from './module.carditem.css'
+import styles from "./module.carditem.css";
 
 const Carditem = ({ open, onClose, id }) => {
+  const [data, setData] = useState([]);
 
-//crear el useEffect para contactar con el endpoint del backend, que me debe de devoler los datos del item y el useState para guardar los datos.
+  async function fetchItem() {
+    const item = await axios.get(
+      `${process.env.REACT_APP_LOCALHOST}item/${id}`
+    );
+    return item;
+  }
 
-	if(!open) return null
+  useEffect(() => {
+    async function findItem() {
+      const Item = await fetchItem();
+      setData(Item);
+    }
+    findItem();
+  }, []);
 
-	return (
-		<div className='mainContainer'>
-			<h1 className='prueba'>
-				{ id }
-				Carditem
-			</h1>
-			<p onClick={onClose} >X</p>
-		</div>
-	)
-}
+  if (!open) return null;
 
-export default Carditem
+  return (
+    <div className="mainContainer">
+      <h1 className="prueba">
+        <p>{data.data?.title}</p>
+        <p>{data.data?.description}</p>
+        <p>{data.data?.city}</p>
+        <p>{data.data?.country}</p>
+        <p>{data.data?.price}</p>
+        <p>{data.data?.status}</p>
+        <p>{data.data?.reduced_price}</p>
+      </h1>
+      <p onClick={onClose}>X</p>
+    </div>
+  );
+};
+
+export default Carditem;
