@@ -1,15 +1,20 @@
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 1580px;
-    background-color: blueviolet;
+		align-items: center;
+    width: 100%;
+		margin-top: 125px;
+		margin-bottom: 20px;
+		padding: 50px 0px;
+    background-color: rgb(70, 226, 43);
     height: auto;
 }
 
 .search{
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
     background-color: blue;
     width: 600px;
 }
@@ -17,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     background-color: red;
-    width: 80%;
+    width: 100%;
     padding-left: 200px;
 }
 

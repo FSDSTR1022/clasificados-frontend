@@ -12,11 +12,13 @@ const MainPage = () => {
   return (
     <>
       <div>
-        <FiltersProvider className={styles.container}>
-          <Search className={styles.search} />
-          <div className={styles.mainp}>
-            <ItemTypesList className={styles.types} />
-            <ItemList className={styles.itemlist} />
+        <FiltersProvider className={styles.provider}>
+          <div className={styles.container}>
+            <Search className={styles.search} />
+            <div className={styles.mainp}>
+              <ItemTypesList className={styles.types} />
+              <ItemList className={styles.itemlist} />
+            </div>
           </div>
         </FiltersProvider>
 

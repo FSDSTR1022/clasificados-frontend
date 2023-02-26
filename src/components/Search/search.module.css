@@ -9,23 +9,22 @@ input:focus {
 }
 
 
-#buscador {
+.buscador {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	padding: 20px;
 	margin: 20px;
-	width: 100%;
 	border: solid 2px #ccc;
 	border-radius: 20px;
 	box-shadow: 1px 1px 1px 1px rgb(131, 131, 131);
 	width: 50%;
-	margin-left: 40%;
+	/* margin-left: 40%; */
 	margin-top: 50px;
 }
 
 
 
-#button {
+.button {
 	color: orange;
 	margin-right: 40px;
 	margin-bottom: 10px;
@@ -34,14 +33,14 @@ input:focus {
 
 }
 
-#button:hover {
+.button:hover {
 	color: rgb(218, 148, 19);
 	scale: 1.1;
 
 }
 
 
-#select {
+.select {
 	margin-right: 10px;
 	border-radius: 10px;
 	border: solid #ccc 1px;
