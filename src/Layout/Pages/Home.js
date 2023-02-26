@@ -6,8 +6,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 export const Home = () => {
   return (
     <div className={styles.containerHome}>
-      <ChakraProvider>
-        <MainPage />
+      <ChakraProvider >
+        <MainPage/>
       </ChakraProvider>
     </div>
   );

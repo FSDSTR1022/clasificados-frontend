@@ -1,36 +1,39 @@
+.provider{
+    width: 1580px;
+}
 
 .container {
+    width: 1580px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-		align-items: center;
-    width: 100%;
-		margin-top: 125px;
-		margin-bottom: 20px;
-		padding: 50px 0px;
-    background-color: rgb(70, 226, 43);
-    height: auto;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    /*padding: 50px 0px;*/
 }
 
-.search{
+.search {
     /* display: flex; */
     /* justify-content: center; */
-    background-color: blue;
+    
     width: 600px;
-}
-.mainp{
-    display: flex;
-    justify-content: space-between;
-    background-color: red;
-    width: 100%;
-    padding-left: 200px;
+    /*padding: 5px 10px;*/
 }
 
-.types{
+.mainp {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-left: 200px;
+    margin-top: 25px;
+}
+
+.types {
     width: 30%;
     padding-right: 100px;
 }
 
-.itemlist{
+.itemlist {
     width: 70%;
 }

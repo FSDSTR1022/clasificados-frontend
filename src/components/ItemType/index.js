@@ -12,14 +12,16 @@ export function ItemType({ props }) {
         updateFilters({ type: props.id });
       }}
     >
-      <aside className={styles.aside}>
-        <div className={styles.boximage}>
-          <img src={props.image} alt="i" className={styles.image} />
-        </div>
-        <div className={styles.anuncioInfo}>
-          <a className={styles.link}>{props.name}</a>
-        </div>
-      </aside>
+      <div className={styles.containerMain}>
+        <aside className={styles.aside}>
+          <div className={styles.boximage}>
+            <img src={props.image} alt="i" className={styles.image} />
+          </div>
+          <div className={styles.anuncioInfo}>
+            <a className={styles.link}>{props.name}</a>
+          </div>
+        </aside>
+      </div>
     </section>
   );
 }

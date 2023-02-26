@@ -1,18 +1,17 @@
+/*
+.containerMain{
+
+}
+*/
 .aside{
+	width: 250px;
 	display: flex;
-	/*justify-content: space-between;*/
-	/*padding-right: 20px;*/
-	overflow: hidden;
 	border: solid 2px #ccc;
 	box-shadow: 1px 1px 1px 1px rgb(131, 131, 131);
-	background-color: blue;
+	padding-bottom: 15px;
 	border-radius:20px ;
-	width: 250px;
-	/*height: 55px;
-	margin-top: 20px;
-	margin-left: 250px;
-	margin-right: 50px;*/
 	transition: all 200ms;
+	background-color: #949494;
 }
 
 .aside:hover{
@@ -21,67 +20,35 @@
 	scale: 1.1;
 }
 
+.anuncioInfo{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+}
 
 .link{
-	cursor: pointer;
-	font-size: 9px;
+	font-size: 0.9rem;
 	color:rgb(0, 0, 0) ;
 	font-weight: bold;
 	text-align: center;
-	line-height: 50px;
-	background-color: red;
-	width: 50%;
-	justify-content: center;
+	line-height: 17px;	
 }
 
-
-
-
-#link:hover{
+.link:hover{
 	color: rgb(49, 49, 49);
+	cursor: pointer;
 }
 
-
-/**/
 .boximage {
-	width: 70%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40%;
 	height: 100px;
-	
-	margin: 0px;
-	padding-bottom: 40px;
 }
-
 
 .image{
-	display: flex;
-	align-items: center;
-	width: 50%;
-	height: 100%;
-	margin-right: 17px;
-	padding-left: 10px;
-	padding-top: 10px;
-	object-fit: contain;
-	background-color: aqua;
-}
-
-li{
-	list-style: none;
-	display: flex;
-	
-
-}
-
-.anuncioInfo{
-	width: 200px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 0.75rem;
-	font-weight: 300;
-	line-height: 0.8rem;
-	letter-spacing: 0.05rem;
-	padding-bottom: 5px;
-	background-color: rgb(66, 167, 36);
-}
-
+	width: 90%;
+ }
 
