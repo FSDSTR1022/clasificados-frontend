@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1580px;
+    background-color: blueviolet;
+    height: auto;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+    width: 600px;
+}
+.mainp{
+    display: flex;
+    justify-content: space-between;
+    background-color: red;
+    width: 80%;
+    padding-left: 200px;
+}
+
+.types{
+    width: 30%;
+    padding-right: 100px;
+}
+
+.itemlist{
+    width: 70%;
+}

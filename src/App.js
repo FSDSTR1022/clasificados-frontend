@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <div className="containerApp">
+      <div >
         
         <Routes>
           <Route path="/" element={<Layout />}>

@@ -1,37 +1,41 @@
-#aside{
+.aside{
 	display: flex;
-	justify-content: space-between;
+	/*justify-content: space-between;*/
+	/*padding-right: 20px;*/
 	overflow: hidden;
 	border: solid 2px #ccc;
 	box-shadow: 1px 1px 1px 1px rgb(131, 131, 131);
-	
+	background-color: blue;
 	border-radius:20px ;
-	width: 180px;
-	height: 55px;
+	width: 250px;
+	/*height: 55px;
 	margin-top: 20px;
-	margin-left: 40px;
+	margin-left: 250px;
+	margin-right: 50px;*/
 	transition: all 200ms;
 }
 
-#aside:hover{
+.aside:hover{
 	border: solid #ccc 2px ;
 	background-color: #ccc;
 	scale: 1.1;
 }
 
 
-a{
+.link{
 	cursor: pointer;
-}
-
-
-#link{
+	font-size: 9px;
 	color:rgb(0, 0, 0) ;
 	font-weight: bold;
 	text-align: center;
-	padding-left: 10px;
-	font-size: 12px;
+	line-height: 50px;
+	background-color: red;
+	width: 50%;
+	justify-content: center;
 }
+
+
+
 
 #link:hover{
 	color: rgb(49, 49, 49);
@@ -47,11 +51,17 @@ a{
 	padding-bottom: 40px;
 }
 
-.image {
+
+.image{
 	display: flex;
 	align-items: center;
-	/*width: 250px;*/
+	width: 50%;
+	height: 100%;
+	margin-right: 17px;
+	padding-left: 10px;
+	padding-top: 10px;
 	object-fit: contain;
+	background-color: aqua;
 }
 
 li{
@@ -71,6 +81,7 @@ li{
 	line-height: 0.8rem;
 	letter-spacing: 0.05rem;
 	padding-bottom: 5px;
+	background-color: rgb(66, 167, 36);
 }
 
 

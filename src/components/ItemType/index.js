@@ -1,4 +1,4 @@
-import styles from "./module.itemtype.css";
+import styles from "./itemtype.module.css";
 import { useContext } from "react";
 import { FiltersContext } from "../../Layout/MainPage/context/filters-context";
 
@@ -12,12 +12,12 @@ export function ItemType({ props }) {
         updateFilters({ type: props.id });
       }}
     >
-      <aside id="aside">
+      <aside className={styles.aside}>
         <div className={styles.boximage}>
-          <img src={props.image} alt="" className={styles.image} />
+          <img src={props.image} alt="i" className={styles.image} />
         </div>
         <div className={styles.anuncioInfo}>
-          <a id={styles.link}>{props.name}</a>
+          <a className={styles.link}>{props.name}</a>
         </div>
       </aside>
     </section>

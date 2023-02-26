@@ -1,7 +1,6 @@
 .containerHeaderNavbar{
     position: fixed;
-    /* width: 1580px; */
-    width: inherit;
+    width: 100%;
     max-width: inherit;
     z-index: 1;
 

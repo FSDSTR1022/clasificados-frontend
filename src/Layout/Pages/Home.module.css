@@ -1,13 +1,9 @@
-/* body {
-    max-width: 1580px;
-    margin: auto;
-} */
-
-.containerHome{
-    /* position: relative; */
-    width: 80%;
-    /* height: calc (100vh - 70px); */
-
+.containerHome {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+   
+    background-color: rgb(135, 22, 187);
     padding-top: 330px;
     margin-top: 200px;
 }

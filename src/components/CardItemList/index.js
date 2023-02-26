@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Card, CardBody, CardFooter, Image, Stack, Heading, Text, Button } from '@chakra-ui/react'
-// import styles from './module.carditemlist.css'
+ import styles from './carditemlist.module.css'
 
 
 const CardItemList = (constructor) => {
@@ -44,13 +44,11 @@ const CardItemList = (constructor) => {
 				</div>
 					</CardBody>
 				
-					<CardFooter id='footer'>
+					<CardFooter id='footer-cart'>
 						<Button  variant='solid' colorScheme='orange' className='button'>
 							Añadir a lista deseos
 						</Button>
-						<Button variant='solid' colorScheme='orange' className='button'>
-							Añadir a carrito
-						</Button>
+					
 					</CardFooter>
 				</Stack>
 			</Card>

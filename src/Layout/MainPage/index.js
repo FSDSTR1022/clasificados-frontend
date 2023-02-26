@@ -1,5 +1,5 @@
 import React from "react";
-import "./module.mainpage.css";
+import styles from "./mainpage.module.css";
 import { FiltersProvider } from "./context/filters-context.js";
 
 //Componentes importados
@@ -11,12 +11,12 @@ import Search from "../../components/Search";
 const MainPage = () => {
   return (
     <>
-      <div className="App">
-        <FiltersProvider>
-          <Search className="search" />
-          <div className="mainp">
-            <ItemTypesList classname="types" />
-            <ItemList className="itemlist" />
+      <div>
+        <FiltersProvider className={styles.container}>
+          <Search className={styles.search} />
+          <div className={styles.mainp}>
+            <ItemTypesList className={styles.types} />
+            <ItemList className={styles.itemlist} />
           </div>
         </FiltersProvider>
 
