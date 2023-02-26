@@ -16,8 +16,8 @@ const MainPage = () => {
           <div className={styles.container}>
             <Search className={styles.search} />
             <div className={styles.mainp}>
-              <ItemTypesList className={styles.types} />
-              <ItemList className={styles.itemlist} />
+              <ItemTypesList />
+              <ItemList />
             </div>
           </div>
         </FiltersProvider>

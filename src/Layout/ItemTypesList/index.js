@@ -3,6 +3,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { ItemType } from "../../components/ItemType";
 
+import styles from "./itemtypelist.module.css";
+
 const ItemTypesList = () => {
   const [itemTypes, setItemTypes] = useState([]);
 
@@ -24,7 +26,7 @@ const ItemTypesList = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       {itemTypes.map((itemType) => (
         <ItemType key={itemType.id} props={itemType} />
       ))}

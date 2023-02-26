@@ -1,5 +1,12 @@
 
-.containerLayout{
+.containerMain{
 	display: flex;
 	justify-content: center;
+	background-color: aquamarine;	
+}
+
+.containerLayout{
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 75px 1fr;
 }

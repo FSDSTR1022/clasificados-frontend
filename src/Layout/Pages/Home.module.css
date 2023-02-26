@@ -1,9 +1,4 @@
 .containerHome {
-    display: flex;
-    justify-content: center;
-    width: 90%;
     background-color: rgb(187, 96, 22);
-    padding-top: 330px;
-    margin-top: 200px;
 }
 

@@ -1,11 +1,12 @@
-.containerHeaderNavbar{
-    position: fixed;
-    width: 90%;
-    max-width: inherit;
-    z-index: 1;
 
-    top:0px;
-    height: 70px;
+.containerHeaderNavbar{
+    /* position: fixed; */
+    /* width: 90%; */
+    /* max-width: inherit; */
+    /* z-index: 1; */
+/*  */
+    /* top:0px; */
+    /* height: 70px; */
     
     display: flex;
     justify-content: space-around;

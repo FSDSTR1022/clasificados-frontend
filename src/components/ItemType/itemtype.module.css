@@ -1,8 +1,7 @@
-/*
-.containerMain{
 
+.containerMain{
+	padding: 5px;
 }
-*/
 .aside{
 	width: 250px;
 	display: flex;
