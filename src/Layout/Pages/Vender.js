@@ -6,23 +6,34 @@ import styles from "../Pages/Vender.module.css";
 export const Vender = () => {
   //elemento subir imagenes
 
-  const [image, setImage] = useState();
-  const [url, setUrl] = useState();
+  const [image, setImage] = useState([]);
+  const [url, setUrl] = useState([]);
 
-  const uploadImage = () => {
+  const multipleUpload = async () => {
+    let tempUrl = [];
+    for (let i = 0; i < image.length; i++) {
+      const result = await uploadImage(image[i]);
+      tempUrl = [...tempUrl, result];
+    }
+    setUrl(tempUrl);
+  };
+
+  const uploadImage = async (image) => {
     const data = new FormData();
 
     data.append("file", image);
-    data.append("upload_preset", "clasificados");
+    data.append("upload_preset", "nuclio");
     data.append("cloud_name", "dhjelhzdd");
 
-    fetch("https://api.cloudinary.com/v1_1/dhjelhzdd/image/upload", {
-      method: "post",
-      body: data,
-    })
-      .then((resp) => resp.json())
-      .then((data) => setUrl(data.url))
-      .catch((err) => console.log(err));
+    const result = await fetch(
+      "https://api.cloudinary.com/v1_1/dhjelhzdd/image/upload",
+      {
+        method: "post",
+        body: data,
+      }
+    );
+    const jsonResult = await result.json();
+    return jsonResult.url;
   };
 
   //elemento para conseguir los types
@@ -44,11 +55,6 @@ export const Vender = () => {
     findTypes();
   }, []);
 
-  // console.log(typeof(types), 'tipo types')
-
-  console.log(types, "types");
-  // console.log(types.data.map((item)=> console.log(item.name)), 'Item name')
-
   //Elementos subir elementos del formulario
 
   const valueItem = {
@@ -59,7 +65,7 @@ export const Vender = () => {
     type: "",
     title: "",
     description: "",
-    images: [],
+    images: {},
   };
 
   const {
@@ -82,10 +88,10 @@ export const Vender = () => {
         title: data.title,
         description: data.description,
         //debe de enviarse un array
-        images: data.image,
+        images: data.images,
       })
       .then(function (res) {
-        console.log(res);
+        console.log("res", res);
       })
       .catch(function (err) {
         console.log(err);
@@ -158,8 +164,6 @@ export const Vender = () => {
           </div>
 
           <div>
-            {/* debe de transformarse en tipo select */}
-
             <label>Tipos</label>
             <select {...register("type")}>
               {types.data?.map((item) => (
@@ -198,11 +202,20 @@ export const Vender = () => {
 
           <div className="containerImg">
             <label>Imágenes</label>
-            <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-            <img src={url} alt={url} />
+            <input
+              multiple="multiple"
+              type="file"
+              onChange={(e) => setImage(e.target.files)}
+              {...register("images")}
+            />
+            {/* pendte capturar las imagenes para mandar un array de url al componente */}
+            <img src={image} alt=""></img>
+            {url.map((image, index) => (
+              <img key={index} src={image} alt=""></img>
+            ))}
           </div>
 
-          <button type="submit" onClick={uploadImage}>
+          <button type="submit" onClick={multipleUpload}>
             Vender
           </button>
         </form>
