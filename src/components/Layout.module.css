@@ -1,8 +1,12 @@
-body{
-    display: flex;
-    justify-content: center;
+
+.containerMain{
+	display: flex;
+	justify-content: center;
+	background-color: aquamarine;	
 }
+
 .containerLayout{
-    width: 1580px;
-    background-color:#f0f0f0;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 75px 1fr;
 }

@@ -1,0 +1,53 @@
+
+.containerMain{
+	padding: 5px;
+}
+.aside{
+	width: 250px;
+	display: flex;
+	border: solid 2px #ccc;
+	box-shadow: 1px 1px 1px 1px rgb(131, 131, 131);
+	padding-bottom: 15px;
+	border-radius:20px ;
+	transition: all 200ms;
+	background-color: #949494;
+}
+
+.aside:hover{
+	border: solid #ccc 2px ;
+	background-color: #ccc;
+	scale: 1.1;
+}
+
+.anuncioInfo{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+}
+
+.link{
+	font-size: 0.9rem;
+	color:rgb(0, 0, 0) ;
+	font-weight: bold;
+	text-align: center;
+	line-height: 17px;	
+}
+
+.link:hover{
+	color: rgb(49, 49, 49);
+	cursor: pointer;
+}
+
+.boximage {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40%;
+	height: 100px;
+}
+
+.image{
+	width: 90%;
+ }
+
