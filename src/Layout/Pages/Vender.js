@@ -6,23 +6,37 @@ import styles from "../Pages/Vender.module.css";
 export const Vender = () => {
   //elemento subir imagenes
 
-  const [image, setImage] = useState();
-  const [url, setUrl] = useState();
+  const [image, setImage] = useState([]);
+  const [url, setUrl] = useState([]);
 
-  const uploadImage = () => {
+  const multipleUpload = async () => {
+    console.log("aodjafod", image);
+    let tempUrl = [];
+    for (let i = 0; i < image.length; i++) {
+      console.log("imgaennn", image[i]);
+      const result = await uploadImage(image[i]);
+      tempUrl = [...tempUrl, result];
+    }
+    setUrl(tempUrl);
+  };
+
+  const uploadImage = async (image) => {
+    console.log("image", image);
     const data = new FormData();
 
     data.append("file", image);
-    data.append("upload_preset", "clasificados");
+    data.append("upload_preset", "nuclio");
     data.append("cloud_name", "dhjelhzdd");
 
-    fetch("https://api.cloudinary.com/v1_1/dhjelhzdd/image/upload", {
-      method: "post",
-      body: data,
-    })
-      .then((resp) => resp.json())
-      .then((data) => setUrl(data.url))
-      .catch((err) => console.log(err));
+    const result = await fetch(
+      "https://api.cloudinary.com/v1_1/dhjelhzdd/image/upload",
+      {
+        method: "post",
+        body: data,
+      }
+    );
+    const jsonResult = await result.json();
+    return jsonResult.url;
   };
 
   //elemento para conseguir los types
@@ -36,6 +50,8 @@ export const Vender = () => {
     return data;
   }
 
+  console.log("tipos", types);
+
   useEffect(() => {
     async function findTypes() {
       const typeName = await fetchType();
@@ -43,11 +59,6 @@ export const Vender = () => {
     }
     findTypes();
   }, []);
-
-  // console.log(typeof(types), 'tipo types')
-
-  console.log(types, "types");
-  // console.log(types.data.map((item)=> console.log(item.name)), 'Item name')
 
   //Elementos subir elementos del formulario
 
@@ -198,11 +209,28 @@ export const Vender = () => {
 
           <div className="containerImg">
             <label>Imágenes</label>
-            <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-            <img src={url} alt={url} />
+            <input
+              type="text"
+              onChange={(e) => {
+                console.log("ver", e.target);
+              }}
+            ></input>
+            <input
+              type="file"
+              name="image"
+              onChange={(e) => {
+                console.log("ver", e.target.files);
+                setImage([...e.target.files]);
+              }}
+              multiple
+            />
+            {url.map((image, index) => (
+              <img key={index} src={image} alt=""></img>
+            ))}
+            {/* <img src={url} alt={url} /> */}
           </div>
 
-          <button type="submit" onClick={uploadImage}>
+          <button type="submit" onClick={multipleUpload}>
             Vender
           </button>
         </form>
