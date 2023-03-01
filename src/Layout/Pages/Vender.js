@@ -10,18 +10,18 @@ export const Vender = () => {
   const [url, setUrl] = useState([]);
 
   const multipleUpload = async () => {
-    console.log("aodjafod", image);
     let tempUrl = [];
     for (let i = 0; i < image.length; i++) {
-      console.log("imgaennn", image[i]);
+      console.log("image", image[i]);
       const result = await uploadImage(image[i]);
       tempUrl = [...tempUrl, result];
     }
-    setUrl(tempUrl);
+    tempUrl.forEach((image) => {
+      url.push(image);
+    });
   };
 
   const uploadImage = async (image) => {
-    console.log("image", image);
     const data = new FormData();
 
     data.append("file", image);
@@ -36,7 +36,7 @@ export const Vender = () => {
       }
     );
     const jsonResult = await result.json();
-    return jsonResult.url;
+    return jsonResult.secure_url;
   };
 
   //elemento para conseguir los types
@@ -49,8 +49,6 @@ export const Vender = () => {
     );
     return data;
   }
-
-  console.log("tipos", types);
 
   useEffect(() => {
     async function findTypes() {
@@ -70,7 +68,7 @@ export const Vender = () => {
     type: "",
     title: "",
     description: "",
-    images: [],
+    images: "",
   };
 
   const {
@@ -80,9 +78,9 @@ export const Vender = () => {
     reset,
   } = useForm(valueItem);
 
-  const itemSubmit = (data) => {
-    console.log(data, "información enviada");
-
+  const itemSubmit = async (data) => {
+    await multipleUpload();
+    console.log(url);
     axios
       .post(`${process.env.REACT_APP_LOCALHOST}items`, {
         country: data.country,
@@ -92,11 +90,11 @@ export const Vender = () => {
         type: types.data.find(({ name }) => name === data.type).id,
         title: data.title,
         description: data.description,
-        //debe de enviarse un array, ya envia una sola imagen
-        images: data.image,
+        images: url,
       })
       .then(function (res) {
         console.log(res);
+        setUrl([]);
       })
       .catch(function (err) {
         console.log(err);
@@ -169,8 +167,6 @@ export const Vender = () => {
           </div>
 
           <div>
-            {/* debe de transformarse en tipo select */}
-
             <label>Tipos</label>
             <select {...register("type")}>
               {types.data?.map((item) => (
@@ -210,16 +206,9 @@ export const Vender = () => {
           <div className="containerImg">
             <label>Imágenes</label>
             <input
-              type="text"
-              onChange={(e) => {
-                console.log("ver", e.target);
-              }}
-            ></input>
-            <input
               type="file"
-              name="image"
+              name="images"
               onChange={(e) => {
-                console.log("ver", e.target.files);
                 setImage([...e.target.files]);
               }}
               multiple
@@ -227,12 +216,9 @@ export const Vender = () => {
             {url.map((image, index) => (
               <img key={index} src={image} alt=""></img>
             ))}
-            {/* <img src={url} alt={url} /> */}
           </div>
 
-          <button type="submit" onClick={multipleUpload}>
-            Vender
-          </button>
+          <button type="submit">Vender</button>
         </form>
       </div>
     </>
