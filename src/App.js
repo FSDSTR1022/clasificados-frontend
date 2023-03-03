@@ -19,7 +19,7 @@ import { RegisterUser } from "./components/MainMenu/registerUser";
 function App() {
   return (
     <>
-      <div className="containerApp">
+      <div>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />

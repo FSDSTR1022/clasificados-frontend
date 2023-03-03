@@ -3,12 +3,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { ItemType } from "../../components/ItemType";
 
+import styles from "./itemtypelist.module.css";
+
 const ItemTypesList = () => {
   const [itemTypes, setItemTypes] = useState([]);
 
   async function fetchItemTypes() {
     const { data } = await axios.get(
-      "http://localhost:8043/clasificados/item-types"
+      `${process.env.REACT_APP_LOCALHOST}item-types`
     );
 
     return data;
@@ -24,9 +26,9 @@ const ItemTypesList = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       {itemTypes.map((itemType) => (
-        <ItemType key={itemType.id} props={itemType}  />
+        <ItemType key={itemType.id} props={itemType} />
       ))}
     </div>
   );

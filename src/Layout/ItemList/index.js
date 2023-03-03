@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import CardItemList from "../../components/CardItemList";
 import { FiltersContext } from "../MainPage/context/filters-context";
 
+import styles from "./itemlist.module.css";
+
 const ItemList = () => {
   const { filters } = useContext(FiltersContext);
 
@@ -38,7 +40,7 @@ const ItemList = () => {
   }, [filters]);
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       {itemsList.map((item) => (
         <CardItemList key={item.id} props={item} />
       ))}

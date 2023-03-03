@@ -6,11 +6,11 @@ import CardAllData from "../../components/CardAllData";
 export const MisArticulos = () => {
   const [items, setItems] = useState([]);
 
-	//pendiente hacer lógica coger id usuario de localstorage
+  //pendiente hacer lógica coger id usuario de localstorage
 
   async function fetchAllItemsByUser() {
     const { data } = await axios.get(
-      "http://localhost:8043/clasificados/user/63dd6339c8dd060e29fc46e9/items"
+      `${process.env.REACT_APP_LOCALHOST}user/63dd6339c8dd060e29fc46e9/items`
     );
 
     return data;

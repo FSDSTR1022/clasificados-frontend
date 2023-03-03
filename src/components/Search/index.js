@@ -1,15 +1,14 @@
 import React, { useContext, useState } from "react";
 import { FiltersContext } from "../../Layout/MainPage/context/filters-context.js";
-import styles from "./module.search.css";
+import styles from "./search.module.css";
 
 const Search = () => {
   const { updateFilters } = useContext(FiltersContext);
 
-
-			<div className='range'>
-				<label>Filtro</label>
-				<input type='range' ></input>
-			</div>
+  <div className="range">
+    <label>Filtro</label>
+    <input type="range"></input>
+  </div>;
 
   const [searchInput, updateSearchInput] = useState();
 
@@ -20,8 +19,8 @@ const Search = () => {
   }
 
   return (
-    <div id="buscador">
-      <select id="select">
+    <div className={styles.buscador}>
+      <select className={styles.select}>
         <option>Precios</option>
         <option>Precio maximo</option>
         <option>Precio minimo</option>
@@ -34,7 +33,7 @@ const Search = () => {
         onKeyPress={handleKeyPress}
       ></input>
       <button
-        id="button"
+        className={styles.button}
         onClick={() => {
           updateFilters({ search: searchInput });
         }}
