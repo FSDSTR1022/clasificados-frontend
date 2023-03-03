@@ -12,7 +12,6 @@ export const Vender = () => {
   const multipleUpload = async () => {
     let tempUrl = [];
     for (let i = 0; i < image.length; i++) {
-      console.log("image", image[i]);
       const result = await uploadImage(image[i]);
       tempUrl = [...tempUrl, result];
     }
@@ -80,7 +79,6 @@ export const Vender = () => {
 
   const itemSubmit = async (data) => {
     await multipleUpload();
-    console.log(url);
     axios
       .post(`${process.env.REACT_APP_LOCALHOST}items`, {
         country: data.country,
@@ -94,7 +92,6 @@ export const Vender = () => {
       })
       .then(function (res) {
         console.log(res);
-        setUrl([]);
       })
       .catch(function (err) {
         console.log(err);
@@ -203,12 +200,15 @@ export const Vender = () => {
             )}
           </div>
 
-          <div className="containerImg">
+          <div>
             <label>Imágenes</label>
             <input
               type="file"
               name="images"
               onChange={(e) => {
+                if (url.length > 0) {
+                  setUrl([]);
+                }
                 setImage([...e.target.files]);
               }}
               multiple
@@ -220,6 +220,7 @@ export const Vender = () => {
 
           <button type="submit">Vender</button>
         </form>
+        {/* <button onClick={multipleUpload}>Cargar Imagenes</button> */}
       </div>
     </>
   );
