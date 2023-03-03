@@ -220,7 +220,6 @@ export const Vender = () => {
 
           <button type="submit">Vender</button>
         </form>
-        {/* <button onClick={multipleUpload}>Cargar Imagenes</button> */}
       </div>
     </>
   );
