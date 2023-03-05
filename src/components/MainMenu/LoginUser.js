@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import styles from "./login.module.css";
 import { AiOutlineHome } from "react-icons/ai";
+import jwt_decode from "jwt-decode";
 
 import axios from "axios";
 
@@ -28,13 +29,11 @@ export function LoginUser() {
       )
 
       .then(function (response) {
-        console.log(response);
-        console.log(response.data.auth);
+        const user = jwt_decode(response.data.auth);
 
         let userToken = response.data.auth;
         localStorage.setItem("userToken", userToken);
-        console.log(userToken);
-
+        localStorage.setItem("userId", user.id);
         // este se usa al hacer
         // let userToken = localStorage.getItem("userToken");
       })
