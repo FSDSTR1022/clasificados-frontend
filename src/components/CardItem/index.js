@@ -49,6 +49,7 @@ const Carditem = () => {
         <p>{data?.status}</p>
         <p>{data?.reduced_price || "-"}</p>
         <img src={data?.main_image} alt="" />
+        <IMG></IMG>
         {carImages.map((img, index) => (
           <img key={index} src={img} alt="" />
         ))}
