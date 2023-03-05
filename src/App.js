@@ -15,6 +15,7 @@ import { NotFound } from "./Layout/Pages/NotFound";
 
 import { LoginUser } from "./components/MainMenu/LoginUser";
 import { RegisterUser } from "./components/MainMenu/registerUser";
+import Carditem from "./components/CardItem/index";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="bandejaentrada" element={<BandejaEntrada />} />
             <Route path="listadedeseos" element={<ListaDeseos />} />
             <Route path="vender" element={<Vender />} />
+            <Route path="item/:id" element={<Carditem />} />
           </Route>
           <Route>
             <Route path="user/login" element={<LoginUser />} />

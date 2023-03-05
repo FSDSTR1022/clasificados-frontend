@@ -1,9 +1,9 @@
 
 .mainContainer {
-	background-color: red;
-	position: fixed;
-	transform: translate(-25%, -50% );
-	width: 50%;
-	height: 50%;
-	z-index: 1;
+	background-color: red;	
+	/* position: fixed; */
+	/* transform: translate(-50%, -50% ); */
+	/* width: 50%; */
+	/* height: 50%; */
+	/* z-index: 1; */
 }

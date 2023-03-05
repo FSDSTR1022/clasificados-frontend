@@ -9,12 +9,8 @@ import {
   Button,
 } from "@chakra-ui/react";
 // import styles from './module.carditemlist.css'
-import { useState } from "react";
-import CardItem from "../CardItem/index";
 
 const CardItemList = (constructor) => {
-  const [openModal, setOpenModal] = useState(false);
-
   return (
     <section className="web">
       <div id="articulos">
@@ -33,7 +29,7 @@ const CardItemList = (constructor) => {
             />
 
             <Stack id="descripcion">
-              <CardBody id="carbody" onClick={() => setOpenModal(true)}>
+              <CardBody id="carbody">
                 <Heading size="md" className="head">
                   {constructor.props.title}
                 </Heading>
@@ -59,11 +55,6 @@ const CardItemList = (constructor) => {
           </Card>
         </div>
       </div>
-      <CardItem
-        open={openModal}
-        onClose={() => setOpenModal(false)}
-        id={constructor.props.id}
-      />
     </section>
   );
 };

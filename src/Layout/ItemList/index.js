@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import CardItemList from "../../components/CardItemList";
 import { FiltersContext } from "../MainPage/context/filters-context";
+import { Link } from "react-router-dom";
 
 const ItemList = () => {
   const { filters } = useContext(FiltersContext);
@@ -30,7 +31,7 @@ const ItemList = () => {
   useEffect(() => {
     async function retrieveItemList() {
       const { data } = await fetchItemList();
-			console.log('dataaaaaa', data)
+      console.log("dataaaaaa", data);
       setItemList(data);
     }
 
@@ -41,7 +42,9 @@ const ItemList = () => {
   return (
     <div>
       {itemsList.map((item) => (
-        <CardItemList key={item.id} props={item} />
+        <Link to={`/item/${item.id}`}>
+          <CardItemList key={item.id} props={item} />
+        </Link>
       ))}
     </div>
   );
