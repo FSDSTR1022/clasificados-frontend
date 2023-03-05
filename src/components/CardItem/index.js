@@ -27,7 +27,16 @@ const Carditem = () => {
     findItem();
   }, []);
 
-  console.log("imagenes", data?.images);
+  let carImages = [];
+  console.log("images", data?.images);
+  if (data?.images !== undefined) {
+    data.images.forEach((element) => {
+      console.log("imassssssss", element);
+      carImages = [...carImages, element];
+    });
+  }
+
+  console.log("prueba", carImages);
 
   return (
     <div className={styles.mainContainer}>
@@ -40,7 +49,7 @@ const Carditem = () => {
         <p>{data?.status}</p>
         <p>{data?.reduced_price || "-"}</p>
         <img src={data?.main_image} alt="" />
-        {data?.images.map((img, index) => (
+        {carImages.map((img, index) => (
           <img key={index} src={img} alt="" />
         ))}
       </h1>
