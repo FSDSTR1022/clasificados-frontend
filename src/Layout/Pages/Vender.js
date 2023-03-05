@@ -18,6 +18,7 @@ export const Vender = () => {
     tempUrl.forEach((image) => {
       url.push(image);
     });
+    console.log("hemos subido imagenes", url);
   };
 
   const uploadImage = async (image) => {
@@ -211,11 +212,12 @@ export const Vender = () => {
           }}
           multiple
         />
+
         {url.map((image, index) => (
-          <img key={index} src={image} alt=""></img>
+          <img key={index} src={image} alt="" />
         ))}
 
-        <button onClick={multipleUpload}>Cargar imégenes</button>
+        <button onClick={multipleUpload}>Cargar imágenes</button>
       </div>
     </>
   );
