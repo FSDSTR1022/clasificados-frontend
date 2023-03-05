@@ -27,6 +27,8 @@ const Carditem = () => {
     findItem();
   }, []);
 
+  console.log("imagenes", data?.images);
+
   return (
     <div className={styles.mainContainer}>
       <h1 className={styles.prueba}>
@@ -37,6 +39,10 @@ const Carditem = () => {
         <p>{data?.price}</p>
         <p>{data?.status}</p>
         <p>{data?.reduced_price || "-"}</p>
+        <img src={data?.main_image} alt="" />
+        {data?.images.map((img, index) => (
+          <img key={index} src={img} alt="" />
+        ))}
       </h1>
       <button></button>
     </div>

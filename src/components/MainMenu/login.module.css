@@ -1,8 +1,4 @@
-:root * {
-    padding:0px;
-    margin:0px;
-    box-sizing: border-box;
-}
+
 .containerImage{
     width: 1580px;
     /* min-height: 90vh; */
