@@ -84,7 +84,7 @@ export const Vender = () => {
       .post(`${process.env.REACT_APP_LOCALHOST}items`, {
         country: data.country,
         city: data.city,
-        owner_id: data.owner_id,
+        owner_id: localStorage.getItem("userId"),
         price: data.price,
         type: types.data.find(({ name }) => name === data.type).id,
         title: data.title,
@@ -133,21 +133,6 @@ export const Vender = () => {
 
             {errors.city && (
               <span className={styles.fail}>{errors.city.message}</span>
-            )}
-          </div>
-
-          <div>
-            {/* el owner debe de venir del localhost */}
-            <label>Owner</label>
-            <input
-              type="text"
-              {...register("owner_id", {
-                required: "Es necesario indicar el ciudad de origen",
-              })}
-            />
-
-            {errors.owner_id && (
-              <span className={styles.fail}>{errors.owner_id.message}</span>
             )}
           </div>
 

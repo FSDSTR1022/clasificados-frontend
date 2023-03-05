@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./login.module.css";
 import { AiOutlineHome } from "react-icons/ai";
 import jwt_decode from "jwt-decode";
+import { Redirect } from "react-router-dom";
 
 import axios from "axios";
 
@@ -30,12 +31,10 @@ export function LoginUser() {
 
       .then(function (response) {
         const user = jwt_decode(response.data.auth);
-
         let userToken = response.data.auth;
         localStorage.setItem("userToken", userToken);
         localStorage.setItem("userId", user.id);
-        // este se usa al hacer
-        // let userToken = localStorage.getItem("userToken");
+        window.location.replace("/");
       })
       .catch(function (error) {
         console.log(error);
