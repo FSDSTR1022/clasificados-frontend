@@ -4,12 +4,12 @@ import styles from "./search.module.css";
 
 const Search = () => {
   const { updateFilters } = useContext(FiltersContext);
-
-  <div className="range">
+/*
+  <div className={styles.range}>
     <label>Filtro</label>
     <input type="range"></input>
   </div>;
-
+*/
   const [searchInput, updateSearchInput] = useState();
 
   function handleKeyPress(event) {
@@ -26,7 +26,7 @@ const Search = () => {
         <option>Precio minimo</option>
       </select>
 
-      <input
+      <input className={styles.input}
         onChange={(event) => {
           updateSearchInput(event.target.value);
         }}
@@ -39,6 +39,15 @@ const Search = () => {
         }}
       >
         Search
+      </button>
+
+      <button
+        className={styles.button}
+        onClick={() => {
+          updateFilters({ search: searchInput });
+        }}
+      >
+        X
       </button>
     </div>
   );

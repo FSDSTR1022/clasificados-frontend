@@ -1,3 +1,35 @@
+.buscador{
+	display: flex;
+	justify-content: space-around;
+	width: 50%;
+	height: 40px;
+	border: solid 2px #ccc;
+	background-color: #ccc;
+	border-radius: 15px;
+	box-shadow: 1px 1px 2px 0px;
+}
+
+.select{
+	border: solid 2px #ccc;
+	border-radius: 15px;
+	background-color: #ccc;
+}
+
+.input{
+	border: 2px solid #ccc;
+	border-radius: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.button{
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/*
 input {
 	border: solid 1px #ccc;
 	margin-bottom: 20px;
@@ -17,8 +49,7 @@ input:focus {
 	border: solid 2px #ccc;
 	border-radius: 20px;
 	box-shadow: 1px 1px 1px 1px rgb(131, 131, 131);
-	width: 50%;
-	/* margin-left: 40%; */
+	width: 50%; 
 	margin-top: 50px;
 }
 
@@ -56,3 +87,4 @@ label{
 	margin-right: 10px;
 	padding-top: 10px;
 }
+*/
