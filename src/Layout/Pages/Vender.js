@@ -78,7 +78,7 @@ export const Vender = () => {
   } = useForm(valueItem);
 
   const itemSubmit = async (data) => {
-    await multipleUpload();
+    //await multipleUpload();
     axios
       .post(`${process.env.REACT_APP_LOCALHOST}items`, {
         country: data.country,
@@ -91,6 +91,7 @@ export const Vender = () => {
         images: url,
       })
       .then(function (res) {
+        //setUrl([]);
         console.log(res);
       })
       .catch(function (err) {
@@ -199,27 +200,22 @@ export const Vender = () => {
               <span className={styles.fail}>{errors.description.message}</span>
             )}
           </div>
-
-          <div>
-            <label>Imágenes</label>
-            <input
-              type="file"
-              name="images"
-              onChange={(e) => {
-                if (url.length > 0) {
-                  setUrl([]);
-                }
-                setImage([...e.target.files]);
-              }}
-              multiple
-            />
-            {url.map((image, index) => (
-              <img key={index} src={image} alt=""></img>
-            ))}
-          </div>
-
           <button type="submit">Vender</button>
         </form>
+
+        <p>Imágenes</p>
+        <input
+          type="file"
+          onChange={(e) => {
+            setImage([...e.target.files]);
+          }}
+          multiple
+        />
+        {url.map((image, index) => (
+          <img key={index} src={image} alt=""></img>
+        ))}
+
+        <button onClick={multipleUpload}>Cargar imégenes</button>
       </div>
     </>
   );
