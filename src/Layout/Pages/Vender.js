@@ -15,9 +15,7 @@ export const Vender = () => {
       const result = await uploadImage(image[i]);
       tempUrl = [...tempUrl, result];
     }
-    tempUrl.forEach((image) => {
-      url.push(image);
-    });
+    setUrl(tempUrl);
     console.log("hemos subido imagenes", url);
   };
 
@@ -58,6 +56,8 @@ export const Vender = () => {
     findTypes();
   }, []);
 
+  console.log("tipos", types);
+
   //Elementos subir elementos del formulario
 
   const valueItem = {
@@ -79,7 +79,6 @@ export const Vender = () => {
   } = useForm(valueItem);
 
   const itemSubmit = async (data) => {
-    //await multipleUpload();
     axios
       .post(`${process.env.REACT_APP_LOCALHOST}items`, {
         country: data.country,
@@ -92,7 +91,7 @@ export const Vender = () => {
         images: url,
       })
       .then(function (res) {
-        //setUrl([]);
+        setUrl([]);
         console.log(res);
       })
       .catch(function (err) {
