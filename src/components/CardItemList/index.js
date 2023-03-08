@@ -4,9 +4,11 @@ import axios from "axios";
 const CardItemList = (constructor) => {
   async function setwishlist() {
     await axios.post(
-      `${process.env.REACT_APP_LOCALHOST}/user/${localStorage.getItem(
-        "userId"
-      )}/wish-list/item/${constructor.props.id}`
+      `${
+        process.env.REACT_APP_LOCALHOST
+      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/item/${
+        constructor.props.id
+      }`
     );
   }
   return (

@@ -43,7 +43,7 @@ export const Vender = () => {
 
   async function fetchType() {
     const { data } = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}/item-types`
+      `${process.env.REACT_APP_LOCALHOST}/clasificados/item-types`
     );
     return data;
   }
@@ -80,7 +80,7 @@ export const Vender = () => {
 
   const itemSubmit = async (data) => {
     axios
-      .post(`${process.env.REACT_APP_LOCALHOST}/items`, {
+      .post(`${process.env.REACT_APP_LOCALHOST}/clasificados/items`, {
         country: data.country,
         city: data.city,
         owner_id: localStorage.getItem("userId"),

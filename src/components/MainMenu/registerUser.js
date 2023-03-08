@@ -26,7 +26,7 @@ export function RegisterUser() {
     console.log(data);
 
     axios
-      .post(`${process.env.REACT_APP_LOCALHOST}/user/register`, {
+      .post(`${process.env.REACT_APP_LOCALHOST}/clasificados/user/register`, {
         name: data.name,
         surname: data.lastname,
         email: data.email,

@@ -26,7 +26,7 @@ export function LoginUser() {
 
     const result = await axios
       .get(
-        `${process.env.REACT_APP_LOCALHOST}/user/login?email=${data.email}&password=${data.password}`
+        `${process.env.REACT_APP_LOCALHOST}/clasificados/user/login?email=${data.email}&password=${data.password}`
       )
 
       .then(function (response) {
