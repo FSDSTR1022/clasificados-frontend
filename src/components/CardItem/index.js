@@ -11,8 +11,8 @@ const Carditem = () => {
   console.log(id, "id de url");
 
   async function fetchItem() {
-    const item = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}`
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_LOCALHOST}item/${id}`
     );
 
     return data;
@@ -39,21 +39,43 @@ const Carditem = () => {
   console.log("prueba", carImages);
 
   return (
-    <div className={styles.mainContainer}>
-      <h1 className={styles.prueba}>
-        <p>{data?.title}</p>
-        <p>{data?.description}</p>
-        <p>{data?.location?.city}</p>
-        <p>{data?.location?.country}</p>
-        <p>{data?.price}</p>
-        <p>{data?.status}</p>
-        <p>{data?.reduced_price || "-"}</p>
-        <img src={data?.main_image} alt="" />
-        {carImages.map((img, index) => (
-          <img key={index} src={img} alt="" />
-        ))}
-      </h1>
-      <button></button>
+    <div className={styles.cardWrapper}>
+      <div className={styles.card}>
+        <div className={styles.productimgs}>
+          <div className={styles.showcase}>
+            <img src={data?.main_image} alt="" className={styles.mainimage} />
+            <div>
+              {carImages.map((img, index) => (
+                <img key={index} src={img} alt="" className={styles.img} />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.info}>
+          <p className={styles.title}>{data?.title}</p>
+          <label>Description</label>
+          <p className={styles.description}>{data?.description}</p>
+          <p className={styles.location}>
+            <span>Location -</span> {data?.location?.city}
+          </p>
+          <p className={styles.country}>
+            {" "}
+            <span>Country - </span> {data?.location?.country}
+          </p>
+          <p className={styles.price}>
+            {" "}
+            <span>Price - </span> {data?.price} €
+          </p>
+          <p className={styles.status}>
+            <span>Status -</span> {data?.status}
+          </p>
+          <p className={styles.reduced_price}>
+            <span>Reduced price </span> {data?.reduced_price || "-"}
+          </p>
+        </div>
+        <button></button>
+      </div>
     </div>
   );
 };
