@@ -9,7 +9,7 @@ const Carditem = ({ open, onClose, id }) => {
 
   async function fetchItem() {
     const item = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}item/${id}`
+      `${process.env.REACT_APP_LOCALHOST}/item/${id}`
     );
     return item;
   }

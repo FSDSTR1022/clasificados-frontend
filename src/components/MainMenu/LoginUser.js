@@ -26,7 +26,7 @@ export function LoginUser() {
 
     const result = await axios
       .get(
-        `${process.env.REACT_APP_LOCALHOST}user/login?email=${data.email}&password=${data.password}`
+        `${process.env.REACT_APP_LOCALHOST}/user/login?email=${data.email}&password=${data.password}`
       )
 
       .then(function (response) {
@@ -34,6 +34,7 @@ export function LoginUser() {
         let userToken = response.data.auth;
         localStorage.setItem("userToken", userToken);
         localStorage.setItem("userId", user.id);
+        localStorage.setItem("userName", user.name);
         window.location.replace("/");
       })
       .catch(function (error) {

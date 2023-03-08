@@ -10,7 +10,7 @@ const ItemTypesList = () => {
 
   async function fetchItemTypes() {
     const { data } = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}item-types`
+      `${process.env.REACT_APP_LOCALHOST}/item-types`
     );
 
     return data;

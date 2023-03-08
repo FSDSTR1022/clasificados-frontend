@@ -10,7 +10,7 @@ export const MisArticulos = () => {
 
   async function fetchAllItemsByUser() {
     const { data } = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}user/${localStorage.getItem(
+      `${process.env.REACT_APP_LOCALHOST}/user/${localStorage.getItem(
         "userId"
       )}/items`
     );
