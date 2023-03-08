@@ -5,6 +5,8 @@ import CardItemList from "../../components/CardItemList";
 import { FiltersContext } from "../MainPage/context/filters-context";
 import { Link } from "react-router-dom";
 
+import styles from "./itemlist.module.css";
+
 const ItemList = () => {
   const { filters } = useContext(FiltersContext);
 
@@ -31,7 +33,10 @@ const ItemList = () => {
   useEffect(() => {
     async function retrieveItemList() {
       const { data } = await fetchItemList();
+<<<<<<< HEAD
       console.log("dataaaaaa", data);
+=======
+>>>>>>> main
       setItemList(data);
     }
 
@@ -40,7 +45,7 @@ const ItemList = () => {
   }, [filters]);
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       {itemsList.map((item) => (
         <Link to={`/item/${item.id}`}>
           <CardItemList key={item.id} props={item} />

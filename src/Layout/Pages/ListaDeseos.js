@@ -10,7 +10,9 @@ export const ListaDeseos = () => {
 
   async function fetchItemWishList() {
     const items = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}user/63dd69ec26de42f7d8f2cbbb/wish-list/items`
+      `${
+        process.env.REACT_APP_LOCALHOST
+      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/items`
     );
     console.log("debug1", items);
     //console.log("debug1", items.data.data[0].description);

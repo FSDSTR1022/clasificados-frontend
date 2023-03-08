@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import styles from "./login.module.css";
 import { AiOutlineHome } from "react-icons/ai";
+import jwt_decode from "jwt-decode";
+import { Redirect } from "react-router-dom";
 
 import axios from "axios";
 
@@ -24,19 +26,16 @@ export function LoginUser() {
 
     const result = await axios
       .get(
-        `${process.env.REACT_APP_LOCALHOST}user/login?email=${data.email}&password=${data.password}`
+        `${process.env.REACT_APP_LOCALHOST}/clasificados/user/login?email=${data.email}&password=${data.password}`
       )
 
       .then(function (response) {
-        console.log(response);
-        console.log(response.data.auth);
-
+        const user = jwt_decode(response.data.auth);
         let userToken = response.data.auth;
         localStorage.setItem("userToken", userToken);
-        console.log(userToken);
-
-        // este se usa al hacer
-        // let userToken = localStorage.getItem("userToken");
+        localStorage.setItem("userId", user.id);
+        localStorage.setItem("userName", user.name);
+        window.location.replace("/");
       })
       .catch(function (error) {
         console.log(error);

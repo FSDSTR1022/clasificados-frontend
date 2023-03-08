@@ -16,6 +16,7 @@ export const Vender = () => {
       tempUrl = [...tempUrl, result];
     }
     setUrl(tempUrl);
+    console.log("hemos subido imagenes", url);
   };
 
   const uploadImage = async (image) => {
@@ -33,7 +34,7 @@ export const Vender = () => {
       }
     );
     const jsonResult = await result.json();
-    return jsonResult.url;
+    return jsonResult.secure_url;
   };
 
   //elemento para conseguir los types
@@ -42,7 +43,7 @@ export const Vender = () => {
 
   async function fetchType() {
     const { data } = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}item-types`
+      `${process.env.REACT_APP_LOCALHOST}/clasificados/item-types`
     );
     return data;
   }
@@ -55,6 +56,8 @@ export const Vender = () => {
     findTypes();
   }, []);
 
+  console.log("tipos", types);
+
   //Elementos subir elementos del formulario
 
   const valueItem = {
@@ -65,7 +68,7 @@ export const Vender = () => {
     type: "",
     title: "",
     description: "",
-    images: {},
+    images: "",
   };
 
   const {
@@ -75,23 +78,21 @@ export const Vender = () => {
     reset,
   } = useForm(valueItem);
 
-  const itemSubmit = (data) => {
-    console.log(data, "información enviada");
-
+  const itemSubmit = async (data) => {
     axios
-      .post(`${process.env.REACT_APP_LOCALHOST}items`, {
+      .post(`${process.env.REACT_APP_LOCALHOST}/clasificados/items`, {
         country: data.country,
         city: data.city,
-        owner_id: data.owner_id,
+        owner_id: localStorage.getItem("userId"),
         price: data.price,
         type: types.data.find(({ name }) => name === data.type).id,
         title: data.title,
         description: data.description,
-        //debe de enviarse un array
-        images: data.images,
+        images: url,
       })
       .then(function (res) {
-        console.log("res", res);
+        setUrl([]);
+        console.log(res);
       })
       .catch(function (err) {
         console.log(err);
@@ -102,12 +103,13 @@ export const Vender = () => {
 
   return (
     <>
+      <h1 className={styles.title}>{localStorage.getItem("userName")}</h1>
       <div className={styles.containerVender}>
         <form onSubmit={handleSubmit(itemSubmit)} className={styles.formSell}>
           <h2>Registro artículos</h2>
 
-          <div>
-            <label>País</label>
+          <div className={styles.pais}>
+            <label className={styles.medTitle}>País</label>
             <input
               type="text"
               {...register("country", {
@@ -120,8 +122,8 @@ export const Vender = () => {
             )}
           </div>
 
-          <div>
-            <label>Ciudad</label>
+          <div className={styles.ciudad}>
+            <label className={styles.medTitle}>Ciudad</label>
             <input
               type="text"
               {...register("city", {
@@ -134,23 +136,8 @@ export const Vender = () => {
             )}
           </div>
 
-          <div>
-            {/* el owner debe de venir del localhost */}
-            <label>Owner</label>
-            <input
-              type="text"
-              {...register("owner_id", {
-                required: "Es necesario indicar el ciudad de origen",
-              })}
-            />
-
-            {errors.owner_id && (
-              <span className={styles.fail}>{errors.owner_id.message}</span>
-            )}
-          </div>
-
-          <div>
-            <label>Precio</label>
+          <div className={styles.precio}>
+            <label className={styles.medTitle}>Precio</label>
             <input
               type="number"
               {...register("price", {
@@ -163,8 +150,8 @@ export const Vender = () => {
             )}
           </div>
 
-          <div>
-            <label>Tipos</label>
+          <div className={styles.tipos}>
+            <label className={styles.medTitle}>Tipos</label>
             <select {...register("type")}>
               {types.data?.map((item) => (
                 <option keys={item.id}>{item.name}</option>
@@ -172,8 +159,8 @@ export const Vender = () => {
             </select>
           </div>
 
-          <div>
-            <label>Titulo</label>
+          <div className={styles.titulo}>
+            <label className={styles.medTitle}>Titulo</label>
             <input
               type="text"
               {...register("title", {
@@ -186,8 +173,8 @@ export const Vender = () => {
             )}
           </div>
 
-          <div>
-            <label>Descripción</label>
+          <div className={styles.descripcion}>
+            <label className={styles.medTitle}>Descripción</label>
             <input
               type="text"
               {...register("description", {
@@ -199,26 +186,25 @@ export const Vender = () => {
               <span className={styles.fail}>{errors.description.message}</span>
             )}
           </div>
-
-          <div className="containerImg">
-            <label>Imágenes</label>
-            <input
-              multiple="multiple"
-              type="file"
-              onChange={(e) => setImage(e.target.files)}
-              {...register("images")}
-            />
-            {/* pendte capturar las imagenes para mandar un array de url al componente */}
-            <img src={image} alt=""></img>
-            {url.map((image, index) => (
-              <img key={index} src={image} alt=""></img>
-            ))}
-          </div>
-
-          <button type="submit" onClick={multipleUpload}>
-            Vender
-          </button>
+          <button type="submit">Vender</button>
         </form>
+
+        <div className={styles.imagenes}>
+          <h3 className={styles.medTitle}>Imágenes</h3>
+          <input
+            type="file"
+            onChange={(e) => {
+              setImage([...e.target.files]);
+            }}
+            multiple
+          />
+
+          {url.map((image, index) => (
+            <img key={index} src={image} alt="" />
+          ))}
+
+          <button onClick={multipleUpload}>Cargar imágenes</button>
+        </div>
       </div>
     </>
   );

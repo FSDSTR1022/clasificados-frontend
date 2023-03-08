@@ -1,13 +1,5 @@
-/* body {
-    max-width: 1580px;
-    margin: auto;
-} */
-
-.containerHome{
-    /* position: relative; */
-    width: 80%;
-    /* height: calc (100vh - 70px); */
-
-    padding-top: 330px;
-    margin-top: 200px;
+.containerHome {
+    background-color: #ccc;
+    padding: 20px;
 }
+

@@ -20,7 +20,7 @@ import Carditem from "./components/CardItem/index";
 function App() {
   return (
     <>
-      <div className="containerApp">
+      <div>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
