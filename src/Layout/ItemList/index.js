@@ -33,10 +33,6 @@ const ItemList = () => {
   useEffect(() => {
     async function retrieveItemList() {
       const { data } = await fetchItemList();
-<<<<<<< HEAD
-      console.log("dataaaaaa", data);
-=======
->>>>>>> main
       setItemList(data);
     }
 

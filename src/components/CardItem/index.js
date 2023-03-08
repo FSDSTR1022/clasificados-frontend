@@ -11,13 +11,8 @@ const Carditem = () => {
   console.log(id, "id de url");
 
   async function fetchItem() {
-<<<<<<< HEAD
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}item/${id}`
-=======
     const item = await axios.get(
       `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}`
->>>>>>> main
     );
 
     return data;
