@@ -2,14 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  width: 100%;
-  top:50px;
-  /* padding-top: 50px; */
-  /* margin-top: 50px; */
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* 
+@layer base {
+   button {
+    @apply border border-black rounded-xl px-5 py-1 
+   }
+} */

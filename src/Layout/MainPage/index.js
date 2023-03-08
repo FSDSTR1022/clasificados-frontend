@@ -9,6 +9,7 @@ import ItemList from "../ItemList/index";
 import Search from "../../components/Search";
 
 const MainPage = () => {
+
   return (
     <>
       <div className="App">

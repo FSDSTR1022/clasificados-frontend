@@ -1,24 +1,23 @@
-const CardAllData = ({ title, type, price, status, image }) => {
+import React from 'react'
 
+const CardAllData = ({ image, title }) => {
+	const showDetailsCard = () => {
+		console.log('He presionado la Card');
+	}
 return (
+			// <p className='text-sm text-gray-300'>{type}</p>
+			// <p className='text-sm text-cyan-300 font-semibold'>Valor: {price} €</p>
+			// <p className='my-2 text-xs text-gray-50 font-light'>Estado: {status}</p>
 
-<>
-	<div className='bg-slate-200 w-32 h-28 rounded-t-md cursor-pointer'> 
-		<img 
-			className='w-32 h-28 object-fit rounded-t-md'
-			src={image}
-			alt='card Items'
-		/>
+	<div onClick={ showDetailsCard } className='bg-lime-200 w-32 h-28 rounded-t-md cursor-pointer pb-[180px]'> 
 
-		<div className='bg-sky-100 w-32 h-20 align-text-top rounded-b-md'>
-			<p className='text-sm text-gray-500 font-semibold first-letter:uppercase'>{title}</p>
-			<p className='text-sm text-gray-300'>{type}</p>
-			<p className='text-sm text-lime-600 font-semibold'>Valor: {price} €</p>
-			<p className='text-xs text-red-600 font-light'>Estado: {status}</p>
+		<img className='w-32 h-28 object-fit bg-contain rounded-t-md' src={image} alt='card Items' />
+
+		<div className='bg-gray-500 w-32 h-10 align-text-top rounded-b-md'>
+			<p className='text-xs text-gray-200 font-100 first-letter:uppercase py-2'>{title}</p>
 		</div>
+
 	</div>
-</>
 	)
 }
-
 export default CardAllData
