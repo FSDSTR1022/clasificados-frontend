@@ -33,16 +33,19 @@ export const MisArticulos = () => {
   }
   console.log(items);
   return (
-      <div className="m-auto w-3/4 pt-14 pb-[180px]">
+      <div className="m-auto w-3/4 pt-14 pb-[380px]">
         <p className="text-4xl text-gray-500 font-semibold">Mis Articulos</p>
 
-        <div className='pt-8 pb-[280px] justify-items-center grid grid-cols-1 gap-4'>
+        <div className='pt-8 pb-[380px] justify-items-center grid grid-cols-1 gap-4'>
           {items.map((item) => (
             <CardAllData onClick={showDetailsCard}
               key={item.id}
               image={item.main_image}
               title={item.title}
+              type={item.type}
+
               price={item.price}
+              status={item.status}
             />
           ))}
       </div>
