@@ -84,7 +84,9 @@ const ItemList = ({ onTotalCountChange }) => {
   return (
     <div className={styles.mainContainer}>
       {itemsList.map((item) => (
-        <CardItemList key={item.id} props={item} />
+        <Link to={`/item/${item.id}`}>
+          <CardItemList key={item.id} props={item} />
+        </Link>
       ))}
       <ToastContainer />
     </div>

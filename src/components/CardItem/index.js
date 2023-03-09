@@ -11,8 +11,9 @@ const Carditem = () => {
   console.log(id, "id de url");
 
   async function fetchItem() {
+    console.log("probrando fetch");
     const { data } = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}item/${id}`
+      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}`
     );
 
     return data;
@@ -36,8 +37,6 @@ const Carditem = () => {
     });
   }
 
-  console.log("prueba", carImages);
-
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.card}>
@@ -45,7 +44,6 @@ const Carditem = () => {
           <div className={styles.showcase}>
             <img src={data?.main_image} alt="" className={styles.mainimage} />
             <div>
-
               {carImages.map((img, index) => (
                 <img key={index} src={img} alt="" className={styles.img} />
               ))}
@@ -57,11 +55,23 @@ const Carditem = () => {
           <p className={styles.title}>{data?.title}</p>
           <label>Description</label>
           <p className={styles.description}>{data?.description}</p>
-          <p className={styles.location}><span>Location -</span> {data?.location?.city}</p>
-          <p className={styles.country}> <span>Country - </span> {data?.location?.country}</p>
-          <p className={styles.price}> <span>Price - </span> {data?.price} €</p>
-          <p className={styles.status}><span>Status -</span> {data?.status}</p>
-          <p className={styles.reduced_price}><span>Reduced price </span> {data?.reduced_price || "-"}</p>
+          <p className={styles.location}>
+            <span>Location -</span> {data?.location?.city}
+          </p>
+          <p className={styles.country}>
+            {" "}
+            <span>Country - </span> {data?.location?.country}
+          </p>
+          <p className={styles.price}>
+            {" "}
+            <span>Price - </span> {data?.price} €
+          </p>
+          <p className={styles.status}>
+            <span>Status -</span> {data?.status}
+          </p>
+          <p className={styles.reduced_price}>
+            <span>Reduced price </span> {data?.reduced_price || "-"}
+          </p>
         </div>
         <button></button>
       </div>

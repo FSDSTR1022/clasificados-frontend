@@ -10,6 +10,7 @@ import { MisArticulos } from "./Layout/Pages/MisArticulos";
 import { BandejaEntrada } from "./Layout/Pages/BandejaEntrada";
 import { ListaDeseos } from "./Layout/Pages/ListaDeseos";
 import { Vender } from "./Layout/Pages/Vender";
+import CardItem from "./components/CardItem/index";
 
 import { NotFound } from "./Layout/Pages/NotFound";
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="bandejaentrada" element={<BandejaEntrada />} />
             <Route path="listadedeseos" element={<ListaDeseos />} />
             <Route path="vender" element={<Vender />} />
+            <Route path="item/:id" element={<CardItem />} />
           </Route>
           <Route>
             <Route path="user/login" element={<LoginUser />} />
