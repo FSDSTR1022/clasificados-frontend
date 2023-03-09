@@ -20,6 +20,17 @@
 	border-radius: 15px;
 	padding-left: 15px;
 	padding-right: 15px;
+	margin-right: 10px;
+
+}
+
+.priceInput{
+	border: 2px solid #ccc;
+	border-radius: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-right: 10px;
+	width: 60px
 }
 
 .button{

@@ -8,8 +8,12 @@ import Footer from "../Footer/index";
 import ItemTypesList from "../ItemTypesList/index";
 import ItemList from "../ItemList/index";
 import Search from "../../components/Search";
+import { Paginator } from "../../components/Paginator";
 
 const MainPage = () => {
+  const [totalCount, setTotalCount] = useState(0);
+  console.log(totalCount);
+
   return (
     <>
       <div>
@@ -18,8 +22,9 @@ const MainPage = () => {
             <Search className={styles.search} />
             <div className={styles.mainp}>
               <ItemTypesList />
-              <ItemList />
+              <ItemList onTotalCountChange={setTotalCount} />
             </div>
+            <Paginator totalCount={totalCount} />
           </div>
         </FiltersProvider>
 
