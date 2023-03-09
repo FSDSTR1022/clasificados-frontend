@@ -2,12 +2,13 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import styles from "./login.module.css";
 import { AiOutlineHome } from "react-icons/ai";
+import { ToastContainer } from "react-toastify";
+import { promptError } from "../../shared/promptMessages";
+import "react-toastify/dist/ReactToastify.css";
 import jwt_decode from "jwt-decode";
-import { Redirect } from "react-router-dom";
 
 import axios from "axios";
 
-// Validar que password y password 2 son identicas
 export function LoginUser() {
   const valueDefault = {
     email: "",
@@ -18,40 +19,54 @@ export function LoginUser() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm(valueDefault);
 
-  const customSubmit = async (data) => {
-    console.log(data);
+  function storeInLocalStorage(token, userInfo) {
+    localStorage.setItem("userToken", token);
 
-    const result = await axios
-      .get(
-        `${process.env.REACT_APP_LOCALHOST}/clasificados/user/login?email=${data.email}&password=${data.password}`
-      )
+    localStorage.setItem("userId", userInfo.id);
 
-      .then(function (response) {
-        const user = jwt_decode(response.data.auth);
-        let userToken = response.data.auth;
-        localStorage.setItem("userToken", userToken);
-        localStorage.setItem("userId", user.id);
-        localStorage.setItem("userName", user.name);
-        window.location.replace("/");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    localStorage.setItem("userName", userInfo.name);
 
-    reset();
+    localStorage.setItem("tokenExpiration", userInfo.iat);
+  }
+
+  function goToMainPage() {
+    window.location.replace("/");
+  }
+
+  const login = async (user) => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_LOCALHOST}/clasificados/user/login?email=${user.email}&password=${user.password}`
+      );
+
+      const userToken = data.auth;
+
+      const userInfo = jwt_decode(data.auth);
+
+      storeInLocalStorage(userToken, userInfo);
+
+      goToMainPage();
+    } catch (error) {
+      const { response } = error;
+
+      if (response.status === 404) {
+        promptError("el usuario no existe");
+      }
+
+      if (response.status === 403) {
+        promptError("la contraseña no es correcta");
+      }
+    }
   };
 
   return (
     <>
       <div className={styles.containerImage}>
+        <ToastContainer />
         <div className={styles.containerMain}>
-          <form
-            onSubmit={handleSubmit(customSubmit)}
-            className={styles.formLoginUser}
-          >
+          <form onSubmit={handleSubmit(login)} className={styles.formLoginUser}>
             <h2>Login de Usuario</h2>
 
             <div className={styles.formControl}>

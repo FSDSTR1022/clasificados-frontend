@@ -12,7 +12,6 @@ import { Paginator } from "../../components/Paginator";
 
 const MainPage = () => {
   const [totalCount, setTotalCount] = useState(0);
-  console.log(totalCount);
 
   return (
     <>
