@@ -14,7 +14,7 @@ const ItemList = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   async function fetchItemList() {
-    let url = `http://localhost:8043/clasificados/items?page=${filters.page}&page_size=${filters.pageSize}`;
+    let url = `${process.env.REACT_APP_LOCALHOST}/clasificados/items?page=${filters.page}&page_size=${filters.pageSize}`;
     console.log(filters);
 
     if (filters.search) {

@@ -11,8 +11,9 @@ const Carditem = () => {
   console.log(id, "id de url");
 
   async function fetchItem() {
+    console.log("probrando fetch");
     const { data } = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}item/${id}`
+      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}`
     );
 
     return data;
@@ -35,8 +36,6 @@ const Carditem = () => {
       carImages = [...carImages, element];
     });
   }
-
-  console.log("prueba", carImages);
 
   return (
     <div className={styles.cardWrapper}>
