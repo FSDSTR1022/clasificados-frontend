@@ -7,6 +7,7 @@ import CardItemList from "../../components/CardItemList";
 import { FiltersContext } from "../MainPage/context/filters-context";
 import styles from "./itemlist.module.css";
 import { promptError } from "../../shared/promptMessages";
+import { Link } from "react-router-dom";
 
 const ItemList = ({ onTotalCountChange }) => {
   const { filters } = useContext(FiltersContext);

@@ -73,7 +73,6 @@ const Carditem = () => {
             <span>Reduced price </span> {data?.reduced_price || "-"}
           </p>
         </div>
-        <button></button>
       </div>
     </div>
   );
