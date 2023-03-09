@@ -4,20 +4,20 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 import styles from "./carditem.module.css";
+import ButtonDelete from "../botones/ButtonDelete/index";
 
 const Carditem = () => {
   const [data, setData] = useState({});
   const { id } = useParams();
-  console.log(id, "id de url");
 
   async function fetchItem() {
-    console.log("probrando fetch");
     const { data } = await axios.get(
       `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}`
     );
 
     return data;
   }
+  console.log("prueba", data);
 
   useEffect(() => {
     async function findItem() {
@@ -29,10 +29,8 @@ const Carditem = () => {
   }, []);
 
   let carImages = [];
-  console.log("images", data?.images);
   if (data?.images !== undefined) {
     data.images.forEach((element) => {
-      console.log("imassssssss", element);
       carImages = [...carImages, element];
     });
   }
@@ -74,6 +72,7 @@ const Carditem = () => {
           </p>
         </div>
       </div>
+      <ButtonDelete constructor={data} />
     </div>
   );
 };
