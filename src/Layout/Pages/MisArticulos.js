@@ -12,14 +12,16 @@ export const MisArticulos = () => {
   const [items, setItems] = useState([]);
 
   async function fetchAllItemsByUser() {
-    const {data} = await axios.get('http://localhost:8043/clasificados/user/63dd6339c8dd060e29fc46e9/items');
+    const { data } = await axios.get(
+      "http://localhost:8043/clasificados/user/63dd6339c8dd060e29fc46e9/items"
+    );
 
     return data;
   }
 
   useEffect(() => {
     async function fetchItemsUser() {
-      const {data} = await fetchAllItemsByUser();
+      const { data } = await fetchAllItemsByUser();
       console.log(data);
       setItems(data);
     }
@@ -27,24 +29,24 @@ export const MisArticulos = () => {
   }, []);
 
   return (
-      <div className="m-auto w-1/2 pt-16">
-        <p className="text-4xl text-gray-500 font-semibold">Mis Articulos</p>
+    <div className="m-auto w-1/2 pt-16">
+      <p className="text-4xl text-gray-500 font-semibold">Mis Articulos</p>
 
-        <div className='mx-8 pt-8 justify-items-center grid grid-cols-1 gap-4'>
-
-          {items.map((item, index) => {
-            return (
-              <CardAllData
-                key={item.id}
-                image={item.main_image}
-                images={item.images} 
-                title={item.title}
-                description={item.description}
-                price={item.price}
-                status={item.status}
-              /> )}
-          )}
+      <div className="mx-8 pt-8 justify-items-center grid grid-cols-1 gap-4">
+        {items.map((item) => {
+          return (
+            <CardAllData
+              key={item.id}
+              image={item.main_image}
+              images={item.images}
+              title={item.title}
+              description={item.description}
+              price={item.price}
+              status={item.status}
+            />
+          );
+        })}
       </div>
-      </div>
-);
+    </div>
+  );
 };
