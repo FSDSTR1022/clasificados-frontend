@@ -17,7 +17,6 @@ const ButtonChangeStatus = ({ build }) => {
   let statu = "";
 
   const onSubmit = (data) => {
-    console.log("data", data);
     statu = data;
     changeStatus();
   };

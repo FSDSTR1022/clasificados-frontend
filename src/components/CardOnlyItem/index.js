@@ -90,8 +90,6 @@ const Carditem = ({ constructor }) => {
         <div className={styles.containerButton}>
           <ButtonDelete build={data} />
           <ButtonBuy build={data} />
-          <ButtonChangePrice build={data} />
-          <ButtonChangeStatus build={data} />
         </div>
       </div>
     </div>
