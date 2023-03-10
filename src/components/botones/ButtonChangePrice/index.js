@@ -1,5 +1,5 @@
 import React from "react";
-//import axios from "axios";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 
 // import style
@@ -8,27 +8,26 @@ import styles from "./buttonchangeprice.module.css";
 const ButtonChangePrice = ({ build }) => {
   //elementos formulario
   const { register, handleSubmit } = useForm();
-  /* const changePrice = async () => {
+  const changePrice = async () => {
     await axios.put(
-      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${build.id}/price?new_price=${newPrice}`
+      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${build.id}/price?new_price=${newPrice.price}`
     );
   };
- */
 
-  const printPrice = () => {
-    console.log("funcionando", newPrice);
-  };
+  console.log("bould", build.id);
 
-  const newPrice = {
-    price: 0,
+  let newPrice = 0;
+
+  const onSubmit = (data) => {
+    newPrice = data;
+    console.log("newprice", newPrice);
+    console.log("prueba", data.price);
+    changePrice();
   };
 
   return (
     <div>
-      <form
-        onSubmit={handleSubmit(printPrice)}
-        className={styles.containerForm}
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.containerForm}>
         <label>Precio</label>
         <input type="number" {...register("price")} />
         <button type="submit">Cambio Precio</button>
