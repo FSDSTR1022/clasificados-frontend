@@ -1,56 +1,51 @@
 import React from "react";
+import styles from './CardAllData.module.css'
 
-const CardAllData = ({
-  image,
-  images, //estos es un array
-  title,
-  description,
-  price,
-  reduced_price,
-  status,
-}) => {
-  console.log("images", images);
+const CardAllData = (
+	{
+		image,
+		images, //estos es un array
+		title,
+		description,
+		city,
+		country,
+		price,
+		reduced_price,
+		status,
+	}
+	) => {
+
+		//   console.log("images", images);
+
   return (
-    <div className="bg-slate-500 w-full h-[350px] rounded-t-lg cursor-pointer">
-      <div className="flex rounded-t-lg bg-lime-700">
-        <img
-          className="bg-red-400 w-[250px] h-[250px] object-fit bg-contain rounded-tl-lg align-middle content-center justify-center"
-          src={image}
-          alt="without Card"
-        />
+    <div className={styles.ContainerCardMyArticles}>
+    	<div className={styles.ContainerCard}>
 
-        <div className="bg-gray-100 w-3/4 h-30 align-text-top rounded-tr-lg bg-gradient-to-l from-indigo-300 to-blue-100">
-          <p className="text-md text-gray-700 font-300 first-letter:uppercase pt-4">
-            {title}
-          </p>
-          <p className="text-sm text-gray-600 my-1 mx-8">{description}</p>
+			<img className={styles.mainImage} src={image} alt='Without Card ' />
 
-          <div className="flex justify-around">
-            <p className="text-sm text-blue-500 mt-2 font-normal">
-              Valor: {price} €
-            </p>
-            <p className="text-sm text-red-500 mt-2 font-normal">
-              Oferta: {reduced_price} €
-            </p>
-          </div>
+			<div className={styles.ContainerCardDetails}>
+				<h3 className={styles.cardTitle}>{title}</h3>
 
-          <p className="flex my-2 text-xs font-normal ml-16 text-gray-600">
-            Estado: {status}
-          </p>
-        </div>
-      </div>
+				<p className={styles.cardDescription}>{description}</p>
 
-      {images.map((data) => (
-        <img src={data} alt="otro" />
-      ))}
-      {/* <img
-        className="bg-red-500 w-[100px] h-[100px] object-fit"
-        src={images}
-        alt="cual es esta?"
-      /> */}
+				<div className={styles.containerValues}>
+					<p className={styles.cardCity}>Ciudad : {city}</p>
+					<p className={styles.cardCountry}>País : {country}</p>
+					<p className={styles.cardValor}>Valor : {price} €</p>
+					<p className={styles.cardOferta}>Oferta : {reduced_price} €</p>
+				</div>
+
+				<p className={styles.cardState}>Estatus : {status}</p>
+        	</div>
+		</div>
+			<div className={styles.cardImages}>
+				<div className={styles.cardImagesMaps}>
+					{images.map((data, index) => (
+						<img className={styles.imagesCards} key={index} src={data} alt={`Imagen ${index} no encontrada`} />
+						))}
+				</div>
+			</div>
     </div>
   );
 };
 export default CardAllData;
-
-/* <button className='border-solid border-spacing-2 border-slate-400 text-xs'>Cambiar Precio</button> */

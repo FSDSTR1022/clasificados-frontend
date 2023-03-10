@@ -1,0 +1,12 @@
+ .MyArticles {
+    width: 50%;
+    margin: auto;
+    padding-top: 90px;
+ }
+
+ .title {
+   font-size: 2.25rem;
+   font-weight: semi-bold;
+   font-weight: bold;
+   color: gray;
+ }

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-// import Slider from 'react-slick';
-// import  {baseUrl} from './cpnfig';
-
 import CardAllData from "../../components/CardAllData";
 import axios from "axios";
 
+import styles from './MisArticulos.module.css'
+
+// import Slider from 'react-slick';
+// import  {baseUrl} from './cpnfig';
 // import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs'
 // import {RxDotFilled} from 'react-icons/rx'
 
@@ -28,20 +29,25 @@ export const MisArticulos = () => {
     fetchItemsUser();
   }, []);
 
+  // "text-4xl text-gray-500 font-semibold">Mis Articulos</p>
+  // "mx-8 pt-8 justify-items-center">
   return (
-    <div className="m-auto w-1/2 pt-16">
-      <p className="text-4xl text-gray-500 font-semibold">Mis Articulos</p>
+    <div className={styles.MyArticles}>
+      <h2 className={styles.title}>Mis Articulos</h2>
 
-      <div className="mx-8 pt-8 justify-items-center grid grid-cols-1 gap-4">
-        {items.map((item) => {
+      <div className={styles.itemsMaps}>
+        {items.map((item, index) => {
           return (
-            <CardAllData
+            <CardAllData 
               key={item.id}
               image={item.main_image}
               images={item.images}
               title={item.title}
               description={item.description}
+              city={item.location.city}
+              country={item.location.country}
               price={item.price}
+              reduced_price={item.reduced_price}
               status={item.status}
             />
           );
