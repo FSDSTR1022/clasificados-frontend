@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 // importación estilos
-import styles from "./buttondelete.module.css";
+import styles from "../button.module.css";
 
 const ButtonDelete = ({ build }) => {
   // console.log("constructor", build);
@@ -20,13 +20,11 @@ const ButtonDelete = ({ build }) => {
     window.location.reload();
   };
 
-  const print = () => {
-    console.log("esta funcionando");
-  };
-
   return (
-    <div className={styles.mainContainer}>
-      <button onClick={deleteWishList}>Delete</button>
+    <div>
+      <button className={styles.boton} onClick={deleteWishList}>
+        Delete
+      </button>
     </div>
   );
 };

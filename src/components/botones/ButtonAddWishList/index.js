@@ -1,8 +1,10 @@
 import React from "react";
 import axios from "axios";
 
+// import styles
+import styles from "../button.module.css";
+
 const ButtonAddWishList = ({ build }) => {
-  // en el archivo carditemlist el link, no deja que el button funcione correctamente
   const addWishList = async (e) => {
     e.preventDefault();
     await axios.post(
@@ -16,7 +18,9 @@ const ButtonAddWishList = ({ build }) => {
 
   return (
     <div>
-      <button onClick={addWishList}>Añadir Lista de Deseos</button>
+      <button className={styles.boton} onClick={addWishList}>
+        Añadir Lista de Deseos
+      </button>
     </div>
   );
 };

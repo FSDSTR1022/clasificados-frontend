@@ -5,8 +5,6 @@ import axios from "axios";
 //import componentes
 import ButtonDelete from "../botones/ButtonDelete/index";
 import ButtonBuy from "../botones/ButtonBuy/index";
-import ButtonChangePrice from "../botones/ButtonChangePrice/index";
-import ButtonChangeStatus from "../botones/ButtonChangeStatus";
 
 const Carditem = ({ constructor }) => {
   const [data, setData] = useState({});

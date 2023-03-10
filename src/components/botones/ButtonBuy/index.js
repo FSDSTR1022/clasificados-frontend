@@ -1,6 +1,9 @@
 import React from "react";
 import axios from "axios";
 
+// import styles
+import styles from "../button.module.css";
+
 const ButtonBuy = ({ build }) => {
   const deleteWishList = async () => {
     await axios.delete(
@@ -28,7 +31,9 @@ const ButtonBuy = ({ build }) => {
 
   return (
     <div>
-      <button onClick={buy}>Comprar</button>
+      <button className={styles.boton} onClick={buy}>
+        Comprar
+      </button>
     </div>
   );
 };
