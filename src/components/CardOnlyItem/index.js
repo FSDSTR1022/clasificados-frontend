@@ -6,7 +6,6 @@ import axios from "axios";
 import ButtonDelete from "../botones/ButtonDelete/index";
 
 const Carditem = ({ constructor }) => {
-  //console.log("build", build);
   const [data, setData] = useState({});
   const { id } = useParams();
 
@@ -26,7 +25,7 @@ const Carditem = ({ constructor }) => {
   }
 
   useEffect(() => {
-    if (constructor === undefined) {
+    if (Object.entries(constructor).length === 0) {
       async function findItem() {
         const item = await fetchItem();
 
