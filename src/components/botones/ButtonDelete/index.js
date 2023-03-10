@@ -5,14 +5,23 @@ import axios from "axios";
 import styles from "./buttondelete.module.css";
 
 const ButtonDelete = ({ build }) => {
-  //console.log("constructor", constructor);
-  // const user = constructor.owner_id;
+  // console.log("constructor", build);
+  // console.log("user", build.owner_id);
   // const itemId = constructor.id;
 
   const deleteWishList = async () => {
     await axios.delete(
-      `${process.env.REACT_APP_LOCALHOST}/clasificados/user/${constructor.owner.id}/wish-list/item/${constructor.id}`
+      `${
+        process.env.REACT_APP_LOCALHOST
+      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/item/${
+        build.id
+      }`
     );
+    window.location.reload();
+  };
+
+  const print = () => {
+    console.log("esta funcionando");
   };
 
   return (
