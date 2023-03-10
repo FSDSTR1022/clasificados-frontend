@@ -72,7 +72,7 @@ const Carditem = () => {
           </p>
         </div>
       </div>
-      <ButtonDelete constructor={data} />
+      <ButtonDelete props={data} />
     </div>
   );
 };

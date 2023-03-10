@@ -17,6 +17,7 @@ const CardItemList = (constructor) => {
   //     }`
   //   );
   // }
+
   return (
     <section className={styles.web}>
       <div className={styles.articulos}>
@@ -37,7 +38,7 @@ const CardItemList = (constructor) => {
               </div>
             </div>
             <footer className={styles.footerCart}>
-              <ButtonAddWishList props={constructor} />
+              <ButtonAddWishList build={constructor} />
               {/* <button className={styles.button} onClick={setwishlist}>
                 Añadir a lista deseos
               </button> */}
