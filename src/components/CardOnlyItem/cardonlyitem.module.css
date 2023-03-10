@@ -107,3 +107,8 @@ span{
 .main_image{
 	overflow: hidden;
 }
+
+.containerButton{
+	display: flex;
+	flex-direction: column;
+}
