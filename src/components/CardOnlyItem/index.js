@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 //import componentes
 import ButtonDelete from "../botones/ButtonDelete/index";
+import ButtonBuy from "../botones/ButtonBuy/index";
 
 const Carditem = ({ constructor }) => {
   const [data, setData] = useState({});
@@ -85,6 +86,7 @@ const Carditem = ({ constructor }) => {
           </p>
         </div>
         <ButtonDelete build={data} />
+        <ButtonBuy build={data} />
       </div>
     </div>
   );
