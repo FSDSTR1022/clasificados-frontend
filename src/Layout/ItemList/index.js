@@ -86,9 +86,10 @@ const ItemList = ({ onTotalCountChange }) => {
   return (
     <div className={styles.mainContainer}>
       {itemsList.map((item) => (
-        // <Link to={`/item/${item.id}`}>
-        <CardItemList key={item.id} props={item} />
-        // </Link>
+        // el link no me deja que el botón funcione, ya que, cuando doy al botón se activa el link
+        <Link to={`/item/${item.id}`}>
+          <CardItemList key={item.id} props={item} />
+        </Link>
       ))}
       <ToastContainer />
     </div>

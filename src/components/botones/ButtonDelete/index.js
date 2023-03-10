@@ -4,8 +4,8 @@ import axios from "axios";
 // importación estilos
 import styles from "./buttondelete.module.css";
 
-const ButtonDelete = ({ constructor }) => {
-  console.log("constructor", constructor);
+const ButtonDelete = ({ build }) => {
+  //console.log("constructor", constructor);
   // const user = constructor.owner_id;
   // const itemId = constructor.id;
 

@@ -39,6 +39,7 @@ const CardItemList = (constructor) => {
             </div>
             <footer className={styles.footerCart}>
               <ButtonAddWishList build={constructor} />
+
               {/* <button className={styles.button} onClick={setwishlist}>
                 Añadir a lista deseos
               </button> */}

@@ -1,0 +1,109 @@
+.cardWrapper{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	margin: 70px;
+}
+
+.card{
+	display: flex;
+	width: 50%;
+	border: solid #ccc 1px;
+	border-radius: 15px;
+	box-shadow: 1px 1px 4px 0px #ccc;
+	margin: 20px;
+}
+
+.productimgs{
+	display: flex;
+	padding: 20px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.mainimage{
+	width: 200px;
+	border-radius: 10px;
+	border: 1px #ccc solid;
+	box-shadow: 1px 3px 4px 0px #ccc;
+}
+
+.img{
+	width: 60px;
+	margin: 10px;
+	border-radius: 5px;
+	border: 1px #ccc solid;
+	box-shadow: 1px 3px 4px 0px #ccc;
+
+}
+
+.img:hover{
+	scale: 4.2;
+	transition: all 1000ms;
+}
+
+.info{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 300px;
+}
+
+label{
+	color: gray;
+	font-weight: 500;
+}
+
+span{
+	color: gray;
+	font-weight: 500;
+}
+
+.title{
+	font-size: 3rem;
+	text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    color: #12263a;
+    margin: 1rem 0;
+}
+
+.description{
+	text-transform: capitalize;
+    color: #12263a;
+    padding-bottom: 0.6rem;
+}
+
+.location{
+	font-size: 0.9rem;
+    padding: 0.3rem;
+    opacity: 0.8;
+}
+
+.country{
+	font-size: 0.9rem;
+    padding: 0.3rem;
+    opacity: 0.8;
+}
+
+.price{
+	margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.status{
+	font-size: 0.9rem;
+    padding: 0.3rem;
+    opacity: 0.8;
+}
+
+.reduced_price{
+	margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.main_image{
+	overflow: hidden;
+}

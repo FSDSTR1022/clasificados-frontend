@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 const ButtonAddWishList = ({ build }) => {
+  // en el archivo carditemlist el link, no deja que el button funcione correctamente
   const addWishList = async () => {
     await axios.post(
       `${
