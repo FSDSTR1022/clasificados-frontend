@@ -6,6 +6,7 @@ import axios from "axios";
 import ButtonDelete from "../botones/ButtonDelete/index";
 import ButtonBuy from "../botones/ButtonBuy/index";
 import ButtonChangePrice from "../botones/ButtonChangePrice/index";
+import ButtonChangeStatus from "../botones/ButtonChangeStatus";
 
 const Carditem = ({ constructor }) => {
   const [data, setData] = useState({});
@@ -90,6 +91,7 @@ const Carditem = ({ constructor }) => {
           <ButtonDelete build={data} />
           <ButtonBuy build={data} />
           <ButtonChangePrice build={data} />
+          <ButtonChangeStatus build={data} />
         </div>
       </div>
     </div>

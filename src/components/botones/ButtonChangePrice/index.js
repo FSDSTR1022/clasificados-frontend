@@ -14,14 +14,10 @@ const ButtonChangePrice = ({ build }) => {
     );
   };
 
-  console.log("bould", build.id);
-
   let newPrice = 0;
 
   const onSubmit = (data) => {
     newPrice = data;
-    console.log("newprice", newPrice);
-    console.log("prueba", data.price);
     changePrice();
   };
 
