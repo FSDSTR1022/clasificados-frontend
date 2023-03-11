@@ -17,36 +17,55 @@ const CardAllData = (
 
 		//   console.log("images", images);
 
-  return (
-    <div className={styles.ContainerCardMyArticles}>
-    	<div className={styles.ContainerCard}>
+	// const estiloReducido = {
+	// 	visibility:'hidden',
+	// }
 
-			<img className={styles.mainImage} src={image} alt='Without Card ' />
+return (
 
-			<div className={styles.ContainerCardDetails}>
-				<h3 className={styles.cardTitle}>{title}</h3>
+<div className={styles.ContainerCardMyArticles}>
+	<div className={styles.ContainerCard}>
 
-				<p className={styles.cardDescription}>{description}</p>
+		<img className={styles.mainImage} src={image} alt='Without Card ' />
 
-				<div className={styles.containerValues}>
-					<p className={styles.cardCity}>Ciudad : {city}</p>
-					<p className={styles.cardCountry}>País : {country}</p>
-					<p className={styles.cardValor}>Valor : {price} €</p>
-					<p className={styles.cardOferta}>Oferta : {reduced_price} €</p>
-				</div>
+		<div className={styles.ContainerCardDetails}>
+			<h3 className={styles.cardTitle}>{title}</h3>
 
-				<p className={styles.cardState}>Estatus : {status}</p>
-        	</div>
-		</div>
-		
-		<div className={styles.cardImages}>
-			<div className={styles.cardImagesMaps}>
-				{images.map((data, index) => (
-					<img className={styles.imagesCards} key={index} src={data} alt={`Imagen ${index} no encontrada`} />
-					))}
+			<span className={styles.cardDescription}>{description}</span>
+
+			<div className={styles.containerValues}>
+				<p className={styles.cardCity}>Ciudad : {city}</p>
+				<p className={styles.cardCountry}>País : {country}</p>
+				<p className={styles.cardValor}>Valor : {price} €</p>
+
+				<p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p>
+
+				{/* 				
+				{
+					reduced_price === null ? <p className='text-red-500' >Rebaja : {reduced_price} €</p> : <p className={styles.cardRebajaOculta}></p>
+				} */}
+
+				
+				 {/* Dentro de este DIV pon la lógica de los botones */}
+				{/* <div className={containerButtons}>  
+					
+				</div> */}
+				
 			</div>
+
+			<p className={styles.cardState}>Estatus : {status}</p>
 		</div>
-    </div>
+
+	</div>
+
+	<div className={styles.cardImages}>
+		<div className={styles.cardImagesMaps}>
+			{images.map((data, index) => (
+				<img className={styles.imagesCards} key={index} src={data} alt={`Imagen ${index} no encontrada`} />
+				))}
+		</div>
+	</div>
+</div>
   );
 };
 export default CardAllData;

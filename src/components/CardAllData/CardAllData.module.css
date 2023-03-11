@@ -38,6 +38,9 @@
 
 .cardTitle {
     /* up, left-right, down */
+    display: flex;
+    text-align: center;
+    justify-content: center;
     padding: 20px 0 5px;
     font-size: 1rem;
     font-weight: 500;
@@ -47,29 +50,40 @@
 }
 
 .cardDescription {
+    display: flex;
     width: 100%;
+    height: 45px;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
     /* up, left-right, down */
-    padding: 7px 26px 15px;
+    padding: 7px 26px 0px;
     
     font-size: .9rem;
     font-weight: 300;
     line-height: 1rem;
-    color:#eeeeed;
+    color:#eee;
 }
 
-.cardDescription::first-letter{
+.cardDescription::first-letter {
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-weight: 500;
+    color:rgb(61, 148, 61);
 }
 
 .containerValues {
-    width: 40%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
     margin-left: 20px;
+    margin-top: 15px;
+    /* border:2px solid #eee; */
+    /* background-color: orange; */
 }
 
 .cardCity,
@@ -79,20 +93,27 @@
 }
 
 .cardValor,
-.cardOferta {
+.cardRebaja {
     font-size: .75rem;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
 .cardValor {
-    padding-top:15px;
+    padding-top:8px;
     color: #31d0e8;
 }
 
-.cardOferta {
+.cardRebaja {
+    visibility:visible;
     color:#f43f35;
 }
+
+/* .cardRebajaOculta {
+    color:green;
+    visibility: hidden;
+    background-color: yellowgreen;
+} */
 
 .cardState {
     width: 50%;

@@ -47,8 +47,11 @@ export const MisArticulos = () => {
               city={item.location.city}
               country={item.location.country}
               price={item.price}
+
               reduced_price={item.reduced_price}
+  
               status={item.status}
+              
               />
               );
             })}
