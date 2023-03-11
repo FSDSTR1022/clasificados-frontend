@@ -1,13 +1,5 @@
-.containerHeaderNavbar{
-    position: fixed;
-    /* width: 1580px; */
-    width: inherit;
-    max-width: inherit;
-    z-index: 1;
 
-    top:0px;
-    height: 70px;
-    
+.containerHeaderNavbar{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -45,6 +37,19 @@
     align-items: center;
 
     color:#f0f0f0;
+    
+    font-size: .85rem;
+    font-weight: 300;
+    transition: .2s all;
+    text-decoration: none;
+}
+
+.NavbarLinkDisabled {
+    color: rgb(99, 97, 97);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
     
     font-size: .85rem;
     font-weight: 300;

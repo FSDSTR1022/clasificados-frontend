@@ -1,0 +1,130 @@
+.web{
+	width: 100%;
+}
+
+.articulos{
+    margin-top: 45px;
+    margin-left: 50px;
+}
+
+.descripcion{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 380px;
+    background-color:#D9D9D9;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.descripcion:hover{
+    width: 600px;
+}
+
+.descripcion .img{
+    position: relative;
+    min-width: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.img{
+    width: 300px;
+    height: 300px;
+}
+
+
+.descripcion .carbody{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    background-color:grey;
+    color: aliceblue;
+}
+
+.descripcion .carbody h1{
+    font-weight: 200;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+.descripcion .precios{
+    font-size: 1.6rem;
+}
+
+.descripcion .button{
+    padding: 0.5rem 0.8rem;
+    background-color: aliceblue;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 300ms;
+}
+
+.descripcion .button:hover{
+    background-color:#ccc;
+    scale: 1.1;
+    transition: all 300ms;
+}
+/*
+.carbody{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.head{
+    font-size: 25px;
+    justify-content: center;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    margin:15px;
+}
+
+.precios{
+    display: flex;
+    color: rgb(0, 0, 0);
+    background-color: rgb(235, 235, 235);
+    box-shadow: 1px 1px 1px 0px;
+    width: 150px;
+    padding-left: 25px;
+    border-radius: 10px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.footerCart{
+    margin: 10px;
+    padding: 10px;
+}
+
+.button{
+    background-color:#D9D9D9;
+    border: #919191 1.7px solid;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 10px;
+    box-shadow: 1px 1px 1px 0px;
+}
+
+.button:hover{
+    background-color: #c9c9c9;
+    scale: 1.1;
+    transition: all 400ms;
+}
+
+*/

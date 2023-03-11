@@ -1,16 +1,14 @@
-import styles from '../Pages/Home.module.css'
+import styles from "../Pages/Home.module.css";
 
-import MainPage from '../MainPage'
-import { ChakraProvider } from '@chakra-ui/react';
+import MainPage from "../MainPage";
+
 
 export const Home = () => {
-    return (
+  return (
     <div className={styles.containerHome}>
-
-        <ChakraProvider>
-            <MainPage />
-        </ChakraProvider>
-
-    </div>
-    )
-}
+      
+        <MainPage/>
+      
+    </div>     
+  );
+};
