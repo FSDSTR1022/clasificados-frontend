@@ -38,13 +38,14 @@ const CardAllData = (
 				<p className={styles.cardState}>Estatus : {status}</p>
         	</div>
 		</div>
-			<div className={styles.cardImages}>
-				<div className={styles.cardImagesMaps}>
-					{images.map((data, index) => (
-						<img className={styles.imagesCards} key={index} src={data} alt={`Imagen ${index} no encontrada`} />
-						))}
-				</div>
+		
+		<div className={styles.cardImages}>
+			<div className={styles.cardImagesMaps}>
+				{images.map((data, index) => (
+					<img className={styles.imagesCards} key={index} src={data} alt={`Imagen ${index} no encontrada`} />
+					))}
 			</div>
+		</div>
     </div>
   );
 };

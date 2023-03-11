@@ -1,6 +1,12 @@
+ .containerMain{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+ }
+
  .MyArticles {
-    width: 50%;
-    margin: auto;
+    width: 60%;
+    justify-content: center;
     padding-top: 90px;
  }
 
@@ -10,3 +16,9 @@
    font-weight: bold;
    color: gray;
  }
+
+ /* .itemsMaps{
+    margin: 0 auto;
+    justify-content: center;
+    background-color: red;
+ } */

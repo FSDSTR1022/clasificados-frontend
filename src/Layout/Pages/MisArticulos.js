@@ -32,13 +32,13 @@ export const MisArticulos = () => {
   // "text-4xl text-gray-500 font-semibold">Mis Articulos</p>
   // "mx-8 pt-8 justify-items-center">
   return (
-    <div className={styles.MyArticles}>
-      <h2 className={styles.title}>Mis Articulos</h2>
-
-      <div className={styles.itemsMaps}>
-        {items.map((item, index) => {
-          return (
-            <CardAllData 
+    <div className={styles.containerMain}>
+      <div className={styles.MyArticles}>
+        <h2 className={styles.title}>Mis Articulos</h2>
+        <div className={styles.itemsMaps}>
+          {items.map((item, index) => {
+            return (
+              <CardAllData 
               key={item.id}
               image={item.main_image}
               images={item.images}
@@ -49,9 +49,10 @@ export const MisArticulos = () => {
               price={item.price}
               reduced_price={item.reduced_price}
               status={item.status}
-            />
-          );
-        })}
+              />
+              );
+            })}
+        </div>
       </div>
     </div>
   );

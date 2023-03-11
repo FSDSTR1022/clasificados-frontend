@@ -1,19 +1,23 @@
 .ContainerCardMyArticles{
-    display:flex;
-    flex-direction: column;
+    max-width: 650px;
     width: 100%;
     height: 400px;
 
+    display:flex;
+    flex-direction: column;
+    margin: auto;
     margin-bottom: 50px;
 
     border-radius: 8px;
-    background: linear-gradient(-250deg, #ff8a3cdb 0%, #562b7cf0 32%, #1b6fabcd 95%), url('../../Images/bg-card-04.png'), no-repeat center center fixed;
+    background: linear-gradient(-250deg, #ff8a3cdb 0%, #562b7cf0 32%, #1b6fabcd 95%), url('../../Images/bg-card-02.png'), no-repeat center center fixed;
     background-size: cover;
 }
 
 .ContainerCard{
-    display: flex;
+    max-width: 650px;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .mainImage {
