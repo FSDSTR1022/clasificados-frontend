@@ -25,7 +25,6 @@ const ButtonChangePrice = ({ build }) => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.containerForm}>
-        {/* <label>Precio</label> */}
         <input type="number" {...register("price")} />
         <button type="submit">Cambio Precio</button>
       </form>

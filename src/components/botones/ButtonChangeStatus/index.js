@@ -24,12 +24,13 @@ const ButtonChangeStatus = ({ build }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.containerForm}>
-      <label>Status</label>
       <select {...register("status")}>
         <option value="sold">Vendido</option>
         <option value="deleted">Eliminado</option>
       </select>
-      <input type="submit" />
+      <button className={styles.elementBoton} type="submit">
+        Select
+      </button>
     </form>
   );
 };

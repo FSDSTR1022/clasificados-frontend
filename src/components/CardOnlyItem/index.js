@@ -9,7 +9,6 @@ import ButtonChangeStatus from "../botones/ButtonChangeStatus/index";
 import ButtonChangePrice from "../botones/ButtonChangePrice/index";
 
 const Carditem = ({ constructor }) => {
-  console.log("entra en Carditem");
   const [data, setData] = useState({});
   const { id } = useParams();
 
