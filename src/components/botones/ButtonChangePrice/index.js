@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
-// import style
-import styles from "./buttonchangeprice.module.css";
+// import styles
+import styles from "../../botones/buttonSelect.module.css";
 
 const ButtonChangePrice = ({ build }) => {
   //elementos formulario
@@ -19,12 +19,13 @@ const ButtonChangePrice = ({ build }) => {
   const onSubmit = (data) => {
     newPrice = data;
     changePrice();
+    window.location.reload();
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.containerForm}>
-        <label>Precio</label>
+        {/* <label>Precio</label> */}
         <input type="number" {...register("price")} />
         <button type="submit">Cambio Precio</button>
       </form>

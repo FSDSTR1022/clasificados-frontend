@@ -1,0 +1,6 @@
+.containerForm{
+	background-color: blueviolet;
+	display: flex;
+	flex-direction: column;
+	
+}

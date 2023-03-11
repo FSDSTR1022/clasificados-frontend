@@ -2,13 +2,9 @@ import React from "react";
 import axios from "axios";
 
 // importación estilos
-import styles from "../button.module.css";
+import styles from "../buttonWithinSelect.module.css";
 
 const ButtonDelete = ({ build }) => {
-  // console.log("constructor", build);
-  // console.log("user", build.owner_id);
-  // const itemId = constructor.id;
-
   const deleteWishList = async () => {
     await axios.delete(
       `${

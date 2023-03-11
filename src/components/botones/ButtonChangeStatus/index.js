@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
-//import style
-import styles from "./buttonchangestatus.module.css";
+//import styles
+import styles from "../../botones/buttonSelect.module.css";
 
 const ButtonChangeStatus = ({ build }) => {
   const changeStatus = async () => {
@@ -19,6 +19,7 @@ const ButtonChangeStatus = ({ build }) => {
   const onSubmit = (data) => {
     statu = data;
     changeStatus();
+    window.location.reload();
   };
 
   return (

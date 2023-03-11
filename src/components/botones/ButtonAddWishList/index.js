@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 // import styles
-import styles from "../button.module.css";
+import styles from "../buttonWithinSelect.module.css";
 
 const ButtonAddWishList = ({ build }) => {
   const addWishList = async (e) => {
