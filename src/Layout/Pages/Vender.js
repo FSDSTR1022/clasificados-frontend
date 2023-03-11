@@ -154,7 +154,7 @@ export const Vender = () => {
 
           <div className={styles.containerElement}>
             <label className={styles.medTitle}>Tipos</label>
-            <select {...register("type")}>
+            <select className={styles.containerSelect} {...register("type")}>
               {types.data?.map((item) => (
                 <option keys={item.id}>{item.name}</option>
               ))}
