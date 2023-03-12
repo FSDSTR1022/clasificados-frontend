@@ -41,7 +41,7 @@ const CardAllData = ({
         </div>
       </div>
 
-      {/* <div className={styles.cardImages}>
+      <div className={styles.cardImages}>
         <div className={styles.cardImagesMaps}>
           {images.map((data, index) => (
             <img
@@ -52,7 +52,7 @@ const CardAllData = ({
             />
           ))}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
