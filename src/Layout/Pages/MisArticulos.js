@@ -35,6 +35,7 @@ export const MisArticulos = () => {
             return (
               <CardAllData
                 key={item.id}
+                ident={item.id}
                 image={item.main_image}
                 images={item.images}
                 title={item.title}

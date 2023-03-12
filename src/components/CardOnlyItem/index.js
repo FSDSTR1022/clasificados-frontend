@@ -5,8 +5,6 @@ import axios from "axios";
 //import componentes
 import ButtonDelete from "../botones/ButtonDelete/index";
 import ButtonBuy from "../botones/ButtonBuy/index";
-import ButtonChangeStatus from "../botones/ButtonChangeStatus/index";
-import ButtonChangePrice from "../botones/ButtonChangePrice/index";
 
 const Carditem = ({ constructor }) => {
   const [data, setData] = useState({});
@@ -90,8 +88,6 @@ const Carditem = ({ constructor }) => {
         <div className={styles.containerButton}>
           <ButtonDelete build={data} />
           <ButtonBuy build={data} />
-          <ButtonChangeStatus build={data} />
-          <ButtonChangePrice build={data} />
         </div>
       </div>
     </div>

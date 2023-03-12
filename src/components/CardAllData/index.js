@@ -4,6 +4,7 @@ import ButtonChangeStatus from "../botones/ButtonChangeStatus";
 import styles from "./CardAllData.module.css";
 
 const CardAllData = ({
+  ident,
   image,
   images, //estos es un array
   title,
@@ -14,12 +15,6 @@ const CardAllData = ({
   reduced_price,
   status,
 }) => {
-  //   console.log("images", images);
-
-  // const estiloReducido = {
-  // 	visibility:'hidden',
-  // }
-
   return (
     <div className={styles.ContainerCardMyArticles}>
       <div className={styles.ContainerCard}>
@@ -38,15 +33,15 @@ const CardAllData = ({
             <p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p>
 
             <div className={styles.containerButtons}>
-              <ButtonChangePrice />
-              <ButtonChangeStatus />
+              <ButtonChangePrice build={ident} />
+              <ButtonChangeStatus build={ident} />
             </div>
           </div>
           <p className={styles.cardState}>Estatus : {status}</p>
         </div>
       </div>
 
-      <div className={styles.cardImages}>
+      {/* <div className={styles.cardImages}>
         <div className={styles.cardImagesMaps}>
           {images.map((data, index) => (
             <img
@@ -57,7 +52,7 @@ const CardAllData = ({
             />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

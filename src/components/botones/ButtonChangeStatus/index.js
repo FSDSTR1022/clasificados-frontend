@@ -11,7 +11,7 @@ const ButtonChangeStatus = ({ build }) => {
   const onSubmit = (data) => {
     let newStatus = data;
     let finalStatus = newStatus.status;
-    let ident = `${build.id}`;
+    let ident = `${build}`;
     changeStatus(finalStatus, ident);
   };
 

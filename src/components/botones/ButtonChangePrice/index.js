@@ -12,7 +12,7 @@ const ButtonChangePrice = ({ build }) => {
   const onSubmit = (data) => {
     let newPrice = data;
     let finalPrice = newPrice.price;
-    let ident = `${build.id}`;
+    let ident = `${build}`;
     changePrice(finalPrice, ident);
   };
 
