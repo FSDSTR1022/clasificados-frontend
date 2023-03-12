@@ -8,6 +8,7 @@ import { FiltersContext } from "../MainPage/context/filters-context";
 import styles from "./itemlist.module.css";
 import { promptError } from "../../shared/promptMessages";
 import { Link } from "react-router-dom";
+import ButtonAddWishList from "../../components/botones/ButtonAddWishList/index";
 
 const ItemList = ({ onTotalCountChange }) => {
   const { filters } = useContext(FiltersContext);
@@ -85,6 +86,7 @@ const ItemList = ({ onTotalCountChange }) => {
   return (
     <div className={styles.mainContainer}>
       {itemsList.map((item) => (
+        // el link no me deja que el botón funcione, ya que, cuando doy al botón se activa el link
         <Link to={`/item/${item.id}`}>
           <CardItemList key={item.id} props={item} />
         </Link>
