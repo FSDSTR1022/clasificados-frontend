@@ -34,7 +34,7 @@ const CardAllData = ({
 
             <div className={styles.containerButtons}>
               <ButtonChangePrice build={ident} />
-              {/* <ButtonChangeStatus build={ident} /> */}
+              <ButtonChangeStatus build={ident} />
             </div>
           </div>
           <p className={styles.cardState}>Estatus : {status}</p>
