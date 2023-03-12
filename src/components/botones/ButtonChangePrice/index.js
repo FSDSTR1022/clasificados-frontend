@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import changePrice from "../functions/changePrice";
 
 // import styles
@@ -8,12 +10,44 @@ import styles from "../../botones/buttonSelect.module.css";
 const ButtonChangePrice = ({ build }) => {
   //elementos formulario
   const { register, handleSubmit } = useForm();
+  const [item, setItem] = useState();
+
+  console.log("build", build);
+
+  //para no cambiar a un precio mayor al existente
+
+  const fetchData = async () => {
+    const data = await axios.get(
+      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${build}`
+    );
+    setItem(data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const currentPrice = item?.data?.price;
+  const reducedPrice = item?.data?.reduced_price;
+
+  console.log("item", item);
+  console.log("precio", item?.data?.price);
+  console.log("current", currentPrice);
+  console.log("reduced", reducedPrice);
 
   const onSubmit = (data) => {
     let newPrice = data;
     let finalPrice = newPrice.price;
     let ident = `${build}`;
-    changePrice(finalPrice, ident);
+    if (finalPrice < currentPrice) {
+      if (finalPrice >= reducedPrice) {
+        console.log("el precio es mayor, que el ya reducido");
+      } else if (finalPrice < reducedPrice) {
+        changePrice(finalPrice, ident);
+      }
+    } else {
+      console.log("el precio es mayor que el actual");
+    }
   };
 
   return (
