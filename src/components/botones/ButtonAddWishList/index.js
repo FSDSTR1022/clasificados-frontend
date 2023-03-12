@@ -7,6 +7,7 @@ import styles from "../buttonWithinSelect.module.css";
 const ButtonAddWishList = ({ build }) => {
   const addWishList = async (e) => {
     e.preventDefault();
+    console.log("prevent", e.preventDefault());
     await axios.post(
       `${
         process.env.REACT_APP_LOCALHOST

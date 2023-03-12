@@ -1,25 +1,18 @@
 import React from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
+import changeStatus from "../functions/changeStatus";
 
 //import styles
 import styles from "../../botones/buttonSelect.module.css";
 
 const ButtonChangeStatus = ({ build }) => {
-  const changeStatus = async () => {
-    await axios.put(
-      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${build.id}/status?status=${statu.status}`
-    );
-  };
-
   const { register, handleSubmit } = useForm();
 
-  let statu = "";
-
   const onSubmit = (data) => {
-    statu = data;
-    changeStatus();
-    window.location.reload();
+    let newStatus = data;
+    let finalStatus = newStatus.status;
+    let ident = `${build.id}`;
+    changeStatus(finalStatus, ident);
   };
 
   return (
