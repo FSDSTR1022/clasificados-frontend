@@ -39,10 +39,10 @@ const CardAllData = ({
 				{
 					reduced_price === null ? <p className='text-red-500' >Rebaja : {reduced_price} €</p> : <p className={styles.cardRebajaOculta}></p>
 				} */}
-				
-        {/*     <div className={containerButtons}></div>
-          </div> */}
 
+            {/*     <div className={containerButtons}></div>
+          </div> */}
+          </div>
           <p className={styles.cardState}>Estatus : {status}</p>
         </div>
       </div>
