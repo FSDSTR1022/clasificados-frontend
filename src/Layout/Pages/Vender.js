@@ -56,8 +56,6 @@ export const Vender = () => {
     findTypes();
   }, []);
 
-  console.log("tipos", types);
-
   //Elementos subir elementos del formulario
 
   const valueItem = {

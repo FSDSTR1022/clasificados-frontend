@@ -3,6 +3,10 @@ import styles from "./registerUser.module.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
+import { ToastContainer } from "react-toastify";
+import { promptError } from "../../shared/promptMessages";
+import "react-toastify/dist/ReactToastify.css";
+import jwt_decode from "jwt-decode";
 
 // Validar que password y password 2 son identicas
 
@@ -19,35 +23,62 @@ export function RegisterUser() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm(valueDefault);
 
-  const customSubmit = (data) => {
-    console.log(data);
+  function storeInLocalStorage(token, userInfo) {
+    localStorage.setItem("userToken", token);
 
-    axios
-      .post(`${process.env.REACT_APP_LOCALHOST}/clasificados/user/register`, {
-        name: data.name,
-        surname: data.lastname,
-        email: data.email,
-        password: data.password,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    localStorage.setItem("userId", userInfo.id);
 
-    reset();
-  };
+    localStorage.setItem("userName", userInfo.name);
+
+    localStorage.setItem("tokenExpiration", userInfo.iat);
+  }
+
+  function goToMainPage() {
+    window.location.replace("/");
+  }
+
+  async function createUser(user) {
+    try {
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_LOCALHOST}/clasificados/user/register`,
+        {
+          name: user.name,
+          surname: user.lastname,
+          email: user.email,
+          password: user.password,
+        }
+      );
+      const userToken = data.auth;
+
+      const userInfo = jwt_decode(data.auth);
+
+      storeInLocalStorage(userToken, userInfo);
+
+      goToMainPage();
+    } catch (error) {
+      const { response } = error;
+
+      if (response.status === 400) {
+        promptError(
+          "los campos no son correctos por favor revise que nombre, apellido, email i password son correctamente rellenados"
+        );
+      }
+
+      if (response.status === 409) {
+        promptError("el usuario ya está registrado");
+      }
+    }
+  }
 
   return (
     <>
       <div className={styles.containerImage}>
+        <ToastContainer />
         <div className={styles.containerMain}>
           <form
-            onSubmit={handleSubmit(customSubmit)}
+            onSubmit={handleSubmit(createUser)}
             className={styles.formRegister}
           >
             <h2>Registro de Usuario</h2>

@@ -1,32 +1,20 @@
 import React from "react";
-import axios from "axios";
+import deleteWishList from "../functions/deleteWishList";
 
 // importación estilos
-import styles from "./buttondelete.module.css";
+import styles from "../buttonWithinSelect.module.css";
 
 const ButtonDelete = ({ build }) => {
-  // console.log("constructor", build);
-  // console.log("user", build.owner_id);
-  // const itemId = constructor.id;
-
-  const deleteWishList = async () => {
-    await axios.delete(
-      `${
-        process.env.REACT_APP_LOCALHOST
-      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/item/${
-        build.id
-      }`
-    );
+  const utility = () => {
+    deleteWishList(`${build.id}`);
     window.location.reload();
   };
 
-  const print = () => {
-    console.log("esta funcionando");
-  };
-
   return (
-    <div className={styles.mainContainer}>
-      <button onClick={deleteWishList}>Delete</button>
+    <div>
+      <button className={styles.boton} onClick={utility}>
+        Delete
+      </button>
     </div>
   );
 };
