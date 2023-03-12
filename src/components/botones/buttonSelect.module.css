@@ -11,23 +11,27 @@
 	align-items: center;
 }
 
-button{
+.botton{
 	background-color: orange;
 	width: 90%;
 	border: 0;
 	font-weight: bold;
-	font-size: .8em;
+	font-size: .5em;
 }
 
-input{
+.containerLabel{
+	background-color: blueviolet;
 	border-radius: 10px;
 	padding: 3px;
-	width: 90%;
+	width:90%;
 	height: 25px;
 	margin-top: 1px;
 }
 
-select{
+.containerSelection{
+	width: 80%;
+	height: 15px;
+	font-size: 12px;
 	margin-top: 3px;
 	padding: 3px;
 	border-radius: 10px;
