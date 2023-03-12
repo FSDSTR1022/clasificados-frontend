@@ -1,4 +1,6 @@
 import React from "react";
+import ButtonChangePrice from "../botones/ButtonChangePrice";
+import ButtonChangeStatus from "../botones/ButtonChangeStatus";
 import styles from "./CardAllData.module.css";
 
 const CardAllData = ({
@@ -35,13 +37,10 @@ const CardAllData = ({
 
             <p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p>
 
-            {/* 				
-				{
-					reduced_price === null ? <p className='text-red-500' >Rebaja : {reduced_price} €</p> : <p className={styles.cardRebajaOculta}></p>
-				} */}
-
-            {/*     <div className={containerButtons}></div>
-          </div> */}
+            <div className={styles.containerButtons}>
+              <ButtonChangePrice />
+              <ButtonChangeStatus />
+            </div>
           </div>
           <p className={styles.cardState}>Estatus : {status}</p>
         </div>
