@@ -31,7 +31,11 @@
 .containerSelection{
 	width: 80%;
 	height: 20px;
+<<<<<<< HEAD
 	font-size: .7em;
+=======
+	font-size: 12px;
+>>>>>>> main
 	margin-top: 3px;
 	padding: 3px;
 	border-radius: 10px;
