@@ -52,9 +52,6 @@ export const MisArticulos = () => {
           })}
         </div>
       </div>
-      <Link className={styles.linkMysold} to={"/mysold"}>
-        Mis articulos vendidos
-      </Link>
     </div>
   );
 };

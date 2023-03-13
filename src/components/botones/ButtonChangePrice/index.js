@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import changePrice from "../functions/changePrice";
+import { promptError } from "../../../shared/promptMessages";
 
 // import styles
 import styles from "../../botones/buttonSelect.module.css";
@@ -34,12 +35,14 @@ const ButtonChangePrice = ({ build }) => {
     let ident = `${build}`;
     if (finalPrice < currentPrice) {
       if (finalPrice >= reducedPrice) {
-        console.log("el precio es mayor, que el ya reducido");
+        promptError("el precio es mayor, que el ya reducido");
+        // console.log("el precio es mayor, que el ya reducido");
       } else if (finalPrice < reducedPrice) {
         changePrice(finalPrice, ident);
       }
     } else {
-      console.log("el precio es mayor que el actual");
+      promptError("el precio es mayor que el actual");
+      // console.log("el precio es mayor que el actual");
     }
   };
 
