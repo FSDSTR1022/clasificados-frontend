@@ -101,9 +101,6 @@ export const Vender = () => {
 
   return (
     <div className={styles.containerMain}>
-      <h1 className={styles.identificador}>
-        {localStorage.getItem("userName")}
-      </h1>
       <div className={styles.containerVender}>
         <form onSubmit={handleSubmit(itemSubmit)} className={styles.formSell}>
           {/* <h2>Registro artículos</h2> */}
@@ -187,7 +184,7 @@ export const Vender = () => {
             )}
           </div>
           <button className={styles.boton} type="submit">
-            Vender
+            Poner a la venta
           </button>
         </form>
         <div className={styles.containerImagenes}>
