@@ -26,11 +26,13 @@ const CardAllData = ({
           <span className={styles.cardDescription}>{description}</span>
 
           <div className={styles.containerValues}>
-            <p className={styles.cardCity}>Ciudad : {city}</p>
-            <p className={styles.cardCountry}>País : {country}</p>
-            <p className={styles.cardValor}>Valor : {price} €</p>
+            <div className={styles.containerText}>
+              <p className={styles.cardCity}>Ciudad : {city}</p>
+              <p className={styles.cardCountry}>País : {country}</p>
+              <p className={styles.cardValor}>Valor : {price} €</p>
 
-            <p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p>
+              <p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p>
+            </div>
 
             <div className={styles.containerButtons}>
               <ButtonChangePrice build={ident} />
