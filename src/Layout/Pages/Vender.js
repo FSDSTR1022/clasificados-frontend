@@ -184,7 +184,7 @@ export const Vender = () => {
             )}
           </div>
           <button className={styles.boton} type="submit">
-            Vender
+            Poner a la venta
           </button>
         </form>
         <div className={styles.containerImagenes}>
