@@ -20,6 +20,7 @@ const ButtonChangeStatus = ({ build }) => {
       <select className={styles.containerSelection} {...register("status")}>
         <option value="sold">Vendido</option>
         <option value="deleted">Eliminado</option>
+        <option value="available">Disponible</option>
       </select>
       <button className={styles.elementBoton} type="submit">
         Select

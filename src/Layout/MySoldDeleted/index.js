@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
-import CardAllData from "../../components/CardAllData";
+import React from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
-import styles from "./MisArticulos.module.css";
+// import components
+import CardAllData from "../../components/CardAllData";
 
-export const MisArticulos = () => {
+// import styles
+import styles from "./mysolddeleted.module.css";
+
+const MySoldDeleted = () => {
   const [items, setItems] = useState([]);
 
   async function fetchAllItemsByUser() {
@@ -26,6 +29,7 @@ export const MisArticulos = () => {
     }
     fetchItemsUser();
   }, []);
+  console.log("status", items);
 
   return (
     <div className={styles.containerMain}>
@@ -33,7 +37,7 @@ export const MisArticulos = () => {
         <h2 className={styles.title}>Mis Articulos</h2>
         <div className={styles.itemsMaps}>
           {items.map((item, index) => {
-            if (item.status !== "available") return 0;
+            if (item.status === "available") return 0;
             return (
               <CardAllData
                 key={item.id}
@@ -52,7 +56,8 @@ export const MisArticulos = () => {
           })}
         </div>
       </div>
-      <Link to={"/mysold"}>Mis articulos vendidos</Link>
     </div>
   );
 };
+
+export default MySoldDeleted;

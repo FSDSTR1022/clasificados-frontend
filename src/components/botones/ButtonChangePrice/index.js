@@ -12,8 +12,6 @@ const ButtonChangePrice = ({ build }) => {
   const { register, handleSubmit } = useForm();
   const [item, setItem] = useState();
 
-  console.log("build", build);
-
   //para no cambiar a un precio mayor al existente
 
   const fetchData = async () => {
@@ -29,11 +27,6 @@ const ButtonChangePrice = ({ build }) => {
 
   const currentPrice = item?.data?.price;
   const reducedPrice = item?.data?.reduced_price;
-
-  console.log("item", item);
-  console.log("precio", item?.data?.price);
-  console.log("current", currentPrice);
-  console.log("reduced", reducedPrice);
 
   const onSubmit = (data) => {
     let newPrice = data;
