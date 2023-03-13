@@ -37,7 +37,7 @@ const MySoldDeleted = () => {
         <h2 className={styles.title}>Mis Articulos</h2>
         <div className={styles.itemsMaps}>
           {items.map((item, index) => {
-            if (item.status === "available") return 0;
+            if (item.status === "available") return false;
             return (
               <CardAllData
                 key={item.id}

@@ -17,6 +17,10 @@
    color: gray;
  }
 
+ .linkMysold{
+	font-size: 2em;
+ }
+
  /* .itemsMaps{
     margin: 0 auto;
     justify-content: center;

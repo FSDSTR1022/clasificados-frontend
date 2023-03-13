@@ -33,7 +33,7 @@ export const MisArticulos = () => {
         <h2 className={styles.title}>Mis Articulos</h2>
         <div className={styles.itemsMaps}>
           {items.map((item, index) => {
-            if (item.status !== "available") return 0;
+            if (item.status !== "available") return false;
             return (
               <CardAllData
                 key={item.id}
@@ -52,7 +52,9 @@ export const MisArticulos = () => {
           })}
         </div>
       </div>
-      <Link to={"/mysold"}>Mis articulos vendidos</Link>
+      <Link className={styles.linkMysold} to={"/mysold"}>
+        Mis articulos vendidos
+      </Link>
     </div>
   );
 };
