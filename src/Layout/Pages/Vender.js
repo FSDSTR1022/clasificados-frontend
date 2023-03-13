@@ -100,13 +100,15 @@ export const Vender = () => {
   };
 
   return (
-    <>
-      <h1 className={styles.title}>{localStorage.getItem("userName")}</h1>
+    <div className={styles.containerMain}>
+      <h1 className={styles.identificador}>
+        {localStorage.getItem("userName")}
+      </h1>
       <div className={styles.containerVender}>
         <form onSubmit={handleSubmit(itemSubmit)} className={styles.formSell}>
-          <h2>Registro artículos</h2>
+          {/* <h2>Registro artículos</h2> */}
 
-          <div className={styles.pais}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>País</label>
             <input
               type="text"
@@ -120,7 +122,7 @@ export const Vender = () => {
             )}
           </div>
 
-          <div className={styles.ciudad}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>Ciudad</label>
             <input
               type="text"
@@ -134,7 +136,7 @@ export const Vender = () => {
             )}
           </div>
 
-          <div className={styles.precio}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>Precio</label>
             <input
               type="number"
@@ -148,16 +150,16 @@ export const Vender = () => {
             )}
           </div>
 
-          <div className={styles.tipos}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>Tipos</label>
-            <select {...register("type")}>
+            <select className={styles.containerSelect} {...register("type")}>
               {types.data?.map((item) => (
                 <option keys={item.id}>{item.name}</option>
               ))}
             </select>
           </div>
 
-          <div className={styles.titulo}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>Titulo</label>
             <input
               type="text"
@@ -171,7 +173,7 @@ export const Vender = () => {
             )}
           </div>
 
-          <div className={styles.descripcion}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>Descripción</label>
             <input
               type="text"
@@ -184,26 +186,31 @@ export const Vender = () => {
               <span className={styles.fail}>{errors.description.message}</span>
             )}
           </div>
-          <button type="submit">Vender</button>
+          <button className={styles.boton} type="submit">
+            Vender
+          </button>
         </form>
-
-        <div className={styles.imagenes}>
-          <h3 className={styles.medTitle}>Imágenes</h3>
+        <div className={styles.containerImagenes}>
+          <p className={styles.medTitle}>Imágenes</p>
           <input
+            className={styles.boton}
             type="file"
             onChange={(e) => {
               setImage([...e.target.files]);
             }}
             multiple
           />
+          <div className={styles.containerImg}>
+            {url.map((image, index) => (
+              <img key={index} src={image} alt="" className={styles.images} />
+            ))}
+          </div>
 
-          {url.map((image, index) => (
-            <img key={index} src={image} alt="" />
-          ))}
-
-          <button onClick={multipleUpload}>Cargar imágenes</button>
+          <button className={styles.boton} onClick={multipleUpload}>
+            Cargar imágenes
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };

@@ -16,22 +16,28 @@
 	width: 90%;
 	border: 0;
 	font-weight: bold;
-	font-size: .5em;
+	font-size: .6em;
 }
 
 .containerLabel{
 	border-radius: 10px;
 	padding: 3px;
 	width:90%;
-	height: 25px;
+	height: 20px;
 	margin-top: 5px;
+	font-size: .7em;
 }
 
 .containerSelection{
 	width: 80%;
 	height: 20px;
-	font-size: 12px;
+	font-size: .7em;
 	margin-top: 3px;
 	padding: 3px;
 	border-radius: 10px;
+}
+
+.elementBoton{
+font-size: .6em;
+font-weight: bold;
 }
