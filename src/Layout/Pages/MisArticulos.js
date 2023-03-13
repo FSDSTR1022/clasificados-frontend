@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import CardAllData from "../../components/CardAllData";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 import styles from "./MisArticulos.module.css";
 
@@ -33,7 +32,6 @@ export const MisArticulos = () => {
         <h2 className={styles.title}>Mis Articulos</h2>
         <div className={styles.itemsMaps}>
           {items.map((item, index) => {
-            if (item.status !== "available") return false;
             return (
               <CardAllData
                 key={item.id}

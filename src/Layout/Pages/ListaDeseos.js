@@ -7,8 +7,6 @@ import styles from "../Pages/ListaDeseos.module.css";
 // import componentes
 import CardOnlyItem from "../../components/CardOnlyItem/index";
 
-// en los comentarios, se encuentra como hacer el camino, para tomar los datos
-
 export const ListaDeseos = () => {
   const [list, setList] = useState([]);
 
@@ -18,15 +16,13 @@ export const ListaDeseos = () => {
         process.env.REACT_APP_LOCALHOST
       }/clasificados/user/${localStorage.getItem("userId")}/wish-list/items`
     );
-    //console.log("debug1", items);
-    //console.log("debug1", items.data.data[0].description);
+
     return items;
   }
 
   useEffect(() => {
     async function fetchWishList() {
       const items = await fetchItemWishList();
-      //console.log("debug2", items.data.data[0].title);
       setList(items);
     }
     fetchWishList();

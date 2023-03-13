@@ -31,7 +31,6 @@
 .containerSelection{
 	width: 80%;
 	height: 20px;
-<<<<<<<<< Temporary merge branch 1
 	font-size: .7em;
 	margin-top: 3px;
 	padding: 3px;
@@ -39,6 +38,8 @@
 }
 
 .elementBoton{
-font-size: .6em;
-font-weight: bold;
+	background-color: orange;
+	font-size: .6em;
+	font-weight: bold;
+	border: 0px;
 }

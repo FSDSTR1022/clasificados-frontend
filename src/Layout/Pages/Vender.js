@@ -103,8 +103,6 @@ export const Vender = () => {
     <div className={styles.containerMain}>
       <div className={styles.containerVender}>
         <form onSubmit={handleSubmit(itemSubmit)} className={styles.formSell}>
-          {/* <h2>Registro artículos</h2> */}
-
           <div className={styles.containerElement}>
             <label className={styles.medTitle}>País</label>
             <input
