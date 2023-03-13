@@ -2,6 +2,8 @@ import React from "react";
 import ButtonChangePrice from "../botones/ButtonChangePrice";
 import ButtonChangeStatus from "../botones/ButtonChangeStatus";
 import styles from "./CardAllData.module.css";
+import { ToastContainer } from "react-toastify";
+import { promptError } from "../../shared/promptMessages";
 
 const CardAllData = ({
   ident,
@@ -35,6 +37,7 @@ const CardAllData = ({
             </div>
 
             <div className={styles.containerButtons}>
+              <ToastContainer />
               <ButtonChangePrice build={ident} />
               <ButtonChangeStatus build={ident} />
             </div>
