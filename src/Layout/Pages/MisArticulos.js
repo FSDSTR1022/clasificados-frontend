@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import CardAllData from "../../components/CardAllData";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 import styles from "./MisArticulos.module.css";
 

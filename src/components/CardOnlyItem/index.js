@@ -2,9 +2,11 @@ import styles from "./cardonlyitem.module.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+
 //import componentes
 import ButtonDelete from "../botones/ButtonDelete/index";
 import ButtonBuy from "../botones/ButtonBuy/index";
+import ButtonAddWishList from "../botones/ButtonAddWishList/index";
 
 const Carditem = ({ constructor }) => {
   const [data, setData] = useState({});
@@ -21,7 +23,6 @@ const Carditem = ({ constructor }) => {
     const { data } = await axios.get(
       `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}`
     );
-
     return data;
   }
 
@@ -29,7 +30,6 @@ const Carditem = ({ constructor }) => {
     if (Object.entries(constructor).length === 0) {
       async function findItem() {
         const item = await fetchItem();
-
         setData({ ...item });
       }
       findItem();
@@ -49,6 +49,33 @@ const Carditem = ({ constructor }) => {
     });
   }
 
+  let component = "";
+
+  if (id !== undefined) {
+    component = <ButtonAddWishList build={data} />;
+  } else {
+    component = <ButtonDelete build={data} />;
+  }
+
+  let element = "";
+  if (data?.reduced_price !== null) {
+    element = (
+      <p className={styles.reduced_price}>
+        <span>Reduced price </span> {data?.reduced_price}
+      </p>
+    );
+  } else {
+    element = null;
+  }
+
+  /*   let style = "";
+  if (constructor.status === "available") {
+    style = "styles.containerVisible";
+  } else {
+    style = "styles.containerNoVisible";
+  }
+  console.log("linea estilo", style); */
+
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.card}>
@@ -62,7 +89,6 @@ const Carditem = ({ constructor }) => {
             </div>
           </div>
         </div>
-
         <div className={styles.info}>
           <p className={styles.title}>{data?.title}</p>
           <label>Description</label>
@@ -81,13 +107,11 @@ const Carditem = ({ constructor }) => {
           <p className={styles.status}>
             <span>Status -</span> {data?.status}
           </p>
-          <p className={styles.reduced_price}>
-            <span>Reduced price </span> {data?.reduced_price || "-"}
-          </p>
+          {element}
         </div>
         <div className={styles.containerButton}>
-          <ButtonDelete build={data} />
-          <ButtonBuy build={data} />
+          {component}
+          <ButtonBuy /* className={`${style}`} */ build={data} />
         </div>
       </div>
     </div>

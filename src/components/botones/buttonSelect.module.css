@@ -38,6 +38,13 @@
 }
 
 .elementBoton{
-font-size: .6em;
-font-weight: bold;
+	background-color: orange;
+	font-size: .6em;
+	font-weight: bold;
+	border: 0px;
+}
+
+button:disabled,
+boton[disabled]{
+	opacity: 50%;
 }

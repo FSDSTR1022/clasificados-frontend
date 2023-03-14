@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styles from "../MainMenu/Navbar.module.css";
-import { useState } from "react";
 
 export const Navbar = () => {
   const navBarOptions = [

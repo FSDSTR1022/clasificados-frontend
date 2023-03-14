@@ -8,16 +8,7 @@ import styles from "./carditemlist.module.css";
 import ButtonAddWishList from "../botones/ButtonAddWishList";
 
 const CardItemList = (constructor) => {
-  // async function setwishlist() {
-  //   await axios.post(
-  //     `${
-  //       process.env.REACT_APP_LOCALHOST
-  //     }/clasificados/user/${localStorage.getItem("userId")}/wish-list/item/${
-  //       constructor.props.id
-  //     }`
-  //   );
-  // }
-
+  console.log("constructor", constructor);
   return (
     <section className={styles.web}>
       <div className={styles.articulos}>
@@ -39,10 +30,6 @@ const CardItemList = (constructor) => {
             </div>
             <footer className={styles.footerCart}>
               <ButtonAddWishList build={constructor} />
-
-              {/* <button className={styles.button} onClick={setwishlist}>
-                Añadir a lista deseos
-              </button> */}
             </footer>
           </div>
         </div>
