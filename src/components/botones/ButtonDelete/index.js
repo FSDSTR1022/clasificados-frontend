@@ -13,7 +13,7 @@ const ButtonDelete = ({ build }) => {
   return (
     <div>
       <button className={styles.boton} onClick={utility}>
-        Delete
+        Borrar
       </button>
     </div>
   );
