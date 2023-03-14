@@ -27,11 +27,17 @@ const ButtonChangePrice = ({ build }) => {
   }, []);
 
   const currentPrice = item?.data?.price;
-  const reducedPrice = item?.data?.reduced_price;
+
+  let reducedPrice = 0;
+  if (item?.data?.reduced_price === null) {
+    reducedPrice = currentPrice;
+  } else {
+    reducedPrice = item?.data?.reduced_price;
+  }
 
   const onSubmit = (data) => {
     let newPrice = data;
-    let finalPrice = newPrice.price;
+    let finalPrice = parseFloat(newPrice.price);
     let ident = `${build}`;
     if (finalPrice < currentPrice) {
       if (finalPrice >= reducedPrice) {

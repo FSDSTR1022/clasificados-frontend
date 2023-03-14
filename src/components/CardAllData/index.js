@@ -39,6 +39,7 @@ const CardAllData = ({
               <p className={styles.cardValor}>Valor : {price} €</p>
 
               {element}
+              {/* <p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p> */}
             </div>
 
             <div className={styles.containerButtons}>
