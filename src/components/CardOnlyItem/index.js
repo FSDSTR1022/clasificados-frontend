@@ -57,6 +57,17 @@ const Carditem = ({ constructor }) => {
     component = <ButtonDelete build={data} />;
   }
 
+  let element = "";
+  if (data?.reduced_price !== null) {
+    element = (
+      <p className={styles.reduced_price}>
+        <span>Reduced price </span> {data?.reduced_price}
+      </p>
+    );
+  } else {
+    element = null;
+  }
+
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.card}>
@@ -88,9 +99,7 @@ const Carditem = ({ constructor }) => {
           <p className={styles.status}>
             <span>Status -</span> {data?.status}
           </p>
-          <p className={styles.reduced_price}>
-            <span>Reduced price </span> {data?.reduced_price || "-"}
-          </p>
+          {element}
         </div>
         <div className={styles.containerButton}>
           {component}

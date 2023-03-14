@@ -16,6 +16,12 @@ const CardAllData = ({
   reduced_price,
   status,
 }) => {
+  let element = "";
+  if (reduced_price !== null) {
+    element = <p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p>;
+  } else {
+    element = null;
+  }
   return (
     <div className={styles.ContainerCardMyArticles}>
       <div className={styles.ContainerCard}>
@@ -32,7 +38,7 @@ const CardAllData = ({
               <p className={styles.cardCountry}>País : {country}</p>
               <p className={styles.cardValor}>Valor : {price} €</p>
 
-              <p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p>
+              {element}
             </div>
 
             <div className={styles.containerButtons}>
