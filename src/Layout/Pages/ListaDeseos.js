@@ -14,9 +14,17 @@ export const ListaDeseos = () => {
     const items = await axios.get(
       `${
         process.env.REACT_APP_LOCALHOST
-      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/items`
+      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/items`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
     );
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     return items;
   }
 

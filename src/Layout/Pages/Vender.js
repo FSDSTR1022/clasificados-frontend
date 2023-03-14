@@ -78,16 +78,24 @@ export const Vender = () => {
 
   const itemSubmit = async (data) => {
     axios
-      .post(`${process.env.REACT_APP_LOCALHOST}/clasificados/items`, {
-        country: data.country,
-        city: data.city,
-        owner_id: localStorage.getItem("userId"),
-        price: data.price,
-        type: types.data.find(({ name }) => name === data.type).id,
-        title: data.title,
-        description: data.description,
-        images: url,
-      })
+      .post(
+        `${process.env.REACT_APP_LOCALHOST}/clasificados/items`,
+        {
+          country: data.country,
+          city: data.city,
+          owner_id: localStorage.getItem("userId"),
+          price: data.price,
+          type: types.data.find(({ name }) => name === data.type).id,
+          title: data.title,
+          description: data.description,
+          images: url,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("userToken")}`,
+          },
+        }
+      )
       .then(function (res) {
         setUrl([]);
         console.log(res);
