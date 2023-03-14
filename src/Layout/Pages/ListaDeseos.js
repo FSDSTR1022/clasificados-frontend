@@ -21,10 +21,6 @@ export const ListaDeseos = () => {
         },
       }
     );
-<<<<<<< HEAD
-
-=======
->>>>>>> main
     return items;
   }
 
