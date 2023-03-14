@@ -26,8 +26,14 @@ const ButtonChangePrice = ({ build }) => {
     fetchData();
   }, []);
 
-  const currentPrice = item?.data?.price;
-  const reducedPrice = item?.data?.reduced_price;
+  let currentPrice = item?.data?.price;
+  let reducedPrice = item?.data?.reduced_price;
+
+  if (item?.data?.reduced_price === null) {
+    reducedPrice = currentPrice;
+  } else {
+    reducedPrice = item?.data?.reduced_price;
+  }
 
   const onSubmit = (data) => {
     let newPrice = data;

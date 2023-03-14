@@ -19,9 +19,10 @@ const ButtonAddWishList = ({ build }) => {
     await axios.post(
       `${
         process.env.REACT_APP_LOCALHOST
-      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/item/${
-        build.props.id
-      }`,
+      }/clasificados/user/${localStorage.getItem(
+        "userId"
+      )}/wish-list/item/${id}`,
+      null,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem("userToken")}`,

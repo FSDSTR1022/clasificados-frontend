@@ -8,7 +8,6 @@ import styles from "./carditemlist.module.css";
 import ButtonAddWishList from "../botones/ButtonAddWishList";
 
 const CardItemList = (constructor) => {
-  console.log("constructor", constructor);
   return (
     <section className={styles.web}>
       <div className={styles.articulos}>
