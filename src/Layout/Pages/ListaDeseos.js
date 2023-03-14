@@ -16,10 +16,13 @@ export const ListaDeseos = () => {
     const items = await axios.get(
       `${
         process.env.REACT_APP_LOCALHOST
-      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/items`
+      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/items`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
     );
-    //console.log("debug1", items);
-    //console.log("debug1", items.data.data[0].description);
     return items;
   }
 

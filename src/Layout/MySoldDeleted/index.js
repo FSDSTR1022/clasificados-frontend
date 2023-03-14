@@ -15,7 +15,12 @@ const MySoldDeleted = () => {
     const { data } = await axios.get(
       `${
         process.env.REACT_APP_LOCALHOST
-      }/clasificados/user/${localStorage.getItem("userId")}/items`
+      }/clasificados/user/${localStorage.getItem("userId")}/items`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
     );
 
     return data;

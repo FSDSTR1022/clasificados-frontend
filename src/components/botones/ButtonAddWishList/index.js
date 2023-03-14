@@ -13,7 +13,12 @@ const ButtonAddWishList = ({ build }) => {
         process.env.REACT_APP_LOCALHOST
       }/clasificados/user/${localStorage.getItem("userId")}/wish-list/item/${
         build.props.id
-      }`
+      }`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
     );
   };
 

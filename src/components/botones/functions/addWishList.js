@@ -5,7 +5,12 @@ const addWishList = async (e, id) => {
   await axios.post(
     `${
       process.env.REACT_APP_LOCALHOST
-    }/clasificados/user/${localStorage.getItem("userId")}/wish-list/item/${id}`
+    }/clasificados/user/${localStorage.getItem("userId")}/wish-list/item/${id}`,
+    {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("userToken")}`,
+      },
+    }
   );
 };
 
