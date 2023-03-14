@@ -68,6 +68,14 @@ const Carditem = ({ constructor }) => {
     element = null;
   }
 
+  /*   let style = "";
+  if (constructor.status === "available") {
+    style = "styles.containerVisible";
+  } else {
+    style = "styles.containerNoVisible";
+  }
+  console.log("linea estilo", style); */
+
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.card}>
@@ -103,7 +111,7 @@ const Carditem = ({ constructor }) => {
         </div>
         <div className={styles.containerButton}>
           {component}
-          <ButtonBuy build={data} />
+          <ButtonBuy /* className={`${style}`} */ build={data} />
         </div>
       </div>
     </div>

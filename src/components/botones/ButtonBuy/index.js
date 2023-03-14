@@ -15,7 +15,11 @@ const ButtonBuy = ({ build }) => {
 
   return (
     <div>
-      <button className={styles.boton} onClick={utility}>
+      <button
+        disabled={build.status !== "available"}
+        className={styles.boton}
+        onClick={utility}
+      >
         Comprar
       </button>
     </div>
