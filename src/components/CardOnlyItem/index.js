@@ -2,6 +2,7 @@ import styles from "./cardonlyitem.module.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+
 //import componentes
 import ButtonDelete from "../botones/ButtonDelete/index";
 import ButtonBuy from "../botones/ButtonBuy/index";
@@ -22,7 +23,6 @@ const Carditem = ({ constructor }) => {
     const { data } = await axios.get(
       `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}`
     );
-
     return data;
   }
 
@@ -30,7 +30,6 @@ const Carditem = ({ constructor }) => {
     if (Object.entries(constructor).length === 0) {
       async function findItem() {
         const item = await fetchItem();
-
         setData({ ...item });
       }
       findItem();
@@ -50,6 +49,14 @@ const Carditem = ({ constructor }) => {
     });
   }
 
+  let component = "";
+
+  if (id !== undefined) {
+    component = <ButtonAddWishList build={data} />;
+  } else {
+    component = <ButtonDelete build={data} />;
+  }
+
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.card}>
@@ -63,7 +70,6 @@ const Carditem = ({ constructor }) => {
             </div>
           </div>
         </div>
-
         <div className={styles.info}>
           <p className={styles.title}>{data?.title}</p>
           <label>Description</label>
@@ -87,9 +93,8 @@ const Carditem = ({ constructor }) => {
           </p>
         </div>
         <div className={styles.containerButton}>
-          <ButtonDelete build={data} />
+          {component}
           <ButtonBuy build={data} />
-          <ButtonAddWishList build={data} />
         </div>
       </div>
     </div>

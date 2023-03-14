@@ -5,10 +5,6 @@ import axios from "axios";
 import styles from "../buttonWithinSelect.module.css";
 
 const ButtonAddWishList = ({ build }) => {
-  console.log("prueba", build);
-  console.log("prueba2", build?.id);
-  console.log("prueba3", build?.props?.id);
-
   let id = "";
 
   if (build?.id !== undefined) {
@@ -16,8 +12,6 @@ const ButtonAddWishList = ({ build }) => {
   } else {
     id = build?.props?.id;
   }
-
-  console.log("prueba4", id);
 
   const addWishList = async (e) => {
     e.preventDefault();

@@ -9,9 +9,8 @@
     margin-bottom: 50px;
 
     border-radius: 8px;
-		background-color: #d3cfcf;
-/*     background: linear-gradient(-250deg, #ff8a3cdb 0%, #562b7cf0 32%, #1b6fabcd 95%), url('../../Images/bg-card-02.png'), no-repeat center center fixed;
-    background-size: cover; */
+    background: linear-gradient(-250deg, #ff8a3cdb 0%, #562b7cf0 32%, #1b6fabcd 95%), url('../../Images/bg-card-02.png'), no-repeat center center fixed;
+    background-size: cover;
 }
 
 .ContainerCard{
