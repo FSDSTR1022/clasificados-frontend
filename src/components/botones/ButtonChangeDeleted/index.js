@@ -8,7 +8,7 @@ const ButtonChangeDeleted = ({ build }) => {
   const utility = () => {
     changeStatusToDeleted(`${build}`);
     //hacer cambios en un useState en el meno principal
-    window.location.reload();
+    //window.location.reload();
   };
 
   return (
