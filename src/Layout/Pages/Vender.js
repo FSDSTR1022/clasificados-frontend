@@ -2,10 +2,13 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../Pages/Vender.module.css";
+import {
+  isTokenExpired,
+  clearCurrentSession,
+  keepSessionActive,
+} from "../../shared/sessionManagement";
 
 export const Vender = () => {
-  //elemento subir imagenes
-
   const [image, setImage] = useState([]);
   const [url, setUrl] = useState([]);
 
@@ -53,6 +56,14 @@ export const Vender = () => {
       const typeName = await fetchType();
       setTypes(typeName);
     }
+
+    if (isTokenExpired()) {
+      clearCurrentSession();
+      window.location.replace("/user/login");
+    }
+
+    keepSessionActive();
+
     findTypes();
   }, []);
 

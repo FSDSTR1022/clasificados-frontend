@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import CardAllData from "../../components/CardAllData";
 import axios from "axios";
-import { Link } from "react-router-dom";
-
 import styles from "./MisArticulos.module.css";
+import {
+  clearCurrentSession,
+  isTokenExpired,
+  keepSessionActive,
+} from "../../shared/sessionManagement";
 
 export const MisArticulos = () => {
   const [items, setItems] = useState([]);
@@ -29,6 +32,13 @@ export const MisArticulos = () => {
       console.log(data);
       setItems(data);
     }
+    if (isTokenExpired()) {
+      clearCurrentSession();
+      window.location.replace("/user/login");
+    }
+
+    keepSessionActive();
+
     fetchItemsUser();
   }, []);
 

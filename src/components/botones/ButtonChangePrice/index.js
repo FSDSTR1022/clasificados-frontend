@@ -36,13 +36,11 @@ const ButtonChangePrice = ({ build }) => {
     if (finalPrice < currentPrice) {
       if (finalPrice >= reducedPrice) {
         promptError("el precio es mayor, que el ya reducido");
-        // console.log("el precio es mayor, que el ya reducido");
       } else if (finalPrice < reducedPrice) {
         changePrice(finalPrice, ident);
       }
     } else {
       promptError("el precio es mayor que el actual");
-      // console.log("el precio es mayor que el actual");
     }
   };
 

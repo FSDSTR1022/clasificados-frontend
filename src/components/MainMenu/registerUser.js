@@ -32,7 +32,7 @@ export function RegisterUser() {
 
     localStorage.setItem("userName", userInfo.name);
 
-    localStorage.setItem("tokenExpiration", userInfo.iat);
+    localStorage.setItem("tokenExpiration", userInfo.exp);
   }
 
   function goToMainPage() {

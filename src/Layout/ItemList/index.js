@@ -8,6 +8,7 @@ import { FiltersContext } from "../MainPage/context/filters-context";
 import styles from "./itemlist.module.css";
 import { promptError } from "../../shared/promptMessages";
 import { Link } from "react-router-dom";
+import { keepSessionActive } from "../../shared/sessionManagement";
 
 const ItemList = ({ onTotalCountChange }) => {
   const { filters } = useContext(FiltersContext);
@@ -78,6 +79,8 @@ const ItemList = ({ onTotalCountChange }) => {
   }
 
   useEffect(() => {
+    keepSessionActive();
+
     retrieveItemList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
