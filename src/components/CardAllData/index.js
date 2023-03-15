@@ -1,22 +1,7 @@
 import React from "react";
 import styles from "./CardAllData.module.css";
 
-const CardAllData = ({
-  image,
-  images, //estos es un array
-  title,
-  description,
-  city,
-  country,
-  price,
-  reduced_price,
-  status,
-}) => {
-  //   console.log("images", images);
-
-  // const estiloReducido = {
-  // 	visibility:'hidden',
-  // }
+const CardAllData = ({ image, images, title, description, city, country, price, reduced_price, status }) => {
 
   return (
     <div className={styles.ContainerCardMyArticles}>
