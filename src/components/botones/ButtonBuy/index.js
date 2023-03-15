@@ -9,7 +9,6 @@ const ButtonBuy = ({ build }) => {
   const utility = () => {
     deleteWishList(`${build.id}`);
     changeStatusToSold(`${build.id}`);
-
     window.location.reload();
   };
 

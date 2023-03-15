@@ -7,7 +7,6 @@ const deleteWishList = async (data) => {
     }/clasificados/user/${localStorage.getItem(
       "userId"
     )}/wish-list/item/${data}`,
-    null,
     {
       headers: {
         authorization: `Bearer ${localStorage.getItem("userToken")}`,
