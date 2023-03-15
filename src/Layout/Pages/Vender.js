@@ -2,10 +2,13 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../Pages/Vender.module.css";
+import {
+  isTokenExpired,
+  clearCurrentSession,
+  keepSessionActive,
+} from "../../shared/sessionManagement";
 
 export const Vender = () => {
-  //elemento subir imagenes
-
   const [image, setImage] = useState([]);
   const [url, setUrl] = useState([]);
 
@@ -53,6 +56,14 @@ export const Vender = () => {
       const typeName = await fetchType();
       setTypes(typeName);
     }
+
+    if (isTokenExpired()) {
+      clearCurrentSession();
+      window.location.replace("/user/login");
+    }
+
+    keepSessionActive();
+
     findTypes();
   }, []);
 
@@ -78,16 +89,24 @@ export const Vender = () => {
 
   const itemSubmit = async (data) => {
     axios
-      .post(`${process.env.REACT_APP_LOCALHOST}/clasificados/items`, {
-        country: data.country,
-        city: data.city,
-        owner_id: localStorage.getItem("userId"),
-        price: data.price,
-        type: types.data.find(({ name }) => name === data.type).id,
-        title: data.title,
-        description: data.description,
-        images: url,
-      })
+      .post(
+        `${process.env.REACT_APP_LOCALHOST}/clasificados/items`,
+        {
+          country: data.country,
+          city: data.city,
+          owner_id: localStorage.getItem("userId"),
+          price: data.price,
+          type: types.data.find(({ name }) => name === data.type).id,
+          title: data.title,
+          description: data.description,
+          images: url,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("userToken")}`,
+          },
+        }
+      )
       .then(function (res) {
         setUrl([]);
         console.log(res);
@@ -100,13 +119,10 @@ export const Vender = () => {
   };
 
   return (
-    <>
-      <h1 className={styles.title}>{localStorage.getItem("userName")}</h1>
+    <div className={styles.containerMain}>
       <div className={styles.containerVender}>
         <form onSubmit={handleSubmit(itemSubmit)} className={styles.formSell}>
-          <h2>Registro artículos</h2>
-
-          <div className={styles.pais}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>País</label>
             <input
               type="text"
@@ -120,7 +136,7 @@ export const Vender = () => {
             )}
           </div>
 
-          <div className={styles.ciudad}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>Ciudad</label>
             <input
               type="text"
@@ -134,7 +150,7 @@ export const Vender = () => {
             )}
           </div>
 
-          <div className={styles.precio}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>Precio</label>
             <input
               type="number"
@@ -148,16 +164,16 @@ export const Vender = () => {
             )}
           </div>
 
-          <div className={styles.tipos}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>Tipos</label>
-            <select {...register("type")}>
+            <select className={styles.containerSelect} {...register("type")}>
               {types.data?.map((item) => (
                 <option keys={item.id}>{item.name}</option>
               ))}
             </select>
           </div>
 
-          <div className={styles.titulo}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>Titulo</label>
             <input
               type="text"
@@ -171,7 +187,7 @@ export const Vender = () => {
             )}
           </div>
 
-          <div className={styles.descripcion}>
+          <div className={styles.containerElement}>
             <label className={styles.medTitle}>Descripción</label>
             <input
               type="text"
@@ -184,26 +200,31 @@ export const Vender = () => {
               <span className={styles.fail}>{errors.description.message}</span>
             )}
           </div>
-          <button type="submit">Vender</button>
+          <button className={styles.boton} type="submit">
+            Poner a la venta
+          </button>
         </form>
-
-        <div className={styles.imagenes}>
-          <h3 className={styles.medTitle}>Imágenes</h3>
+        <div className={styles.containerImagenes}>
+          <p className={styles.medTitle}>Imágenes</p>
           <input
+            className={styles.boton}
             type="file"
             onChange={(e) => {
               setImage([...e.target.files]);
             }}
             multiple
           />
+          <div className={styles.containerImg}>
+            {url.map((image, index) => (
+              <img key={index} src={image} alt="" className={styles.images} />
+            ))}
+          </div>
 
-          {url.map((image, index) => (
-            <img key={index} src={image} alt="" />
-          ))}
-
-          <button onClick={multipleUpload}>Cargar imágenes</button>
+          <button className={styles.boton} onClick={multipleUpload}>
+            Cargar imágenes
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };

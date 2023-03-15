@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import CardAllData from "../../components/CardAllData";
+import React from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./MisArticulos.module.css";
-import {
-  clearCurrentSession,
-  isTokenExpired,
-  keepSessionActive,
-} from "../../shared/sessionManagement";
 
-export const MisArticulos = () => {
+// import components
+import CardAllData from "../../components/CardAllData";
+
+// import styles
+import styles from "./mysolddeleted.module.css";
+
+const MySoldDeleted = () => {
   const [items, setItems] = useState([]);
 
   async function fetchAllItemsByUser() {
@@ -32,15 +32,9 @@ export const MisArticulos = () => {
       console.log(data);
       setItems(data);
     }
-    if (isTokenExpired()) {
-      clearCurrentSession();
-      window.location.replace("/user/login");
-    }
-
-    keepSessionActive();
-
     fetchItemsUser();
   }, []);
+  console.log("status", items);
 
   return (
     <div className={styles.containerMain}>
@@ -48,6 +42,7 @@ export const MisArticulos = () => {
         <h2 className={styles.title}>Mis Articulos</h2>
         <div className={styles.itemsMaps}>
           {items.map((item, index) => {
+            if (item.status === "available") return false;
             return (
               <CardAllData
                 key={item.id}
@@ -69,3 +64,5 @@ export const MisArticulos = () => {
     </div>
   );
 };
+
+export default MySoldDeleted;

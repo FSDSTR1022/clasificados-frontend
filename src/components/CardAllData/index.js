@@ -1,8 +1,27 @@
 import React from "react";
+import ButtonChangePrice from "../botones/ButtonChangePrice";
+import ButtonChangeDeleted from "../botones/ButtonChangeDeleted";
 import styles from "./CardAllData.module.css";
+import { ToastContainer } from "react-toastify";
 
-const CardAllData = ({ image, images, title, description, city, country, price, reduced_price, status }) => {
-
+const CardAllData = ({
+  ident,
+  image,
+  images, //estos es un array
+  title,
+  description,
+  city,
+  country,
+  price,
+  reduced_price,
+  status,
+}) => {
+  let element = "";
+  if (reduced_price !== null) {
+    element = <p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p>;
+  } else {
+    element = null;
+  }
   return (
     <div className={styles.ContainerCardMyArticles}>
       <div className={styles.ContainerCard}>
@@ -14,19 +33,19 @@ const CardAllData = ({ image, images, title, description, city, country, price, 
           <span className={styles.cardDescription}>{description}</span>
 
           <div className={styles.containerValues}>
-            <p className={styles.cardCity}>Ciudad : {city}</p>
-            <p className={styles.cardCountry}>País : {country}</p>
-            <p className={styles.cardValor}>Valor : {price} €</p>
+            <div className={styles.containerText}>
+              <p className={styles.cardCity}>Ciudad : {city}</p>
+              <p className={styles.cardCountry}>País : {country}</p>
+              <p className={styles.cardValor}>Valor : {price} €</p>
 
-            <p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p>
+              {element}
+            </div>
 
-            {/* 				
-				{
-					reduced_price === null ? <p className='text-red-500' >Rebaja : {reduced_price} €</p> : <p className={styles.cardRebajaOculta}></p>
-				} */}
-
-            {/*     <div className={containerButtons}></div>
-          </div> */}
+            <div className={styles.containerButtons}>
+              <ToastContainer />
+              <ButtonChangePrice build={ident} />
+              <ButtonChangeDeleted build={ident} />
+            </div>
           </div>
           <p className={styles.cardState}>Estatus : {status}</p>
         </div>
