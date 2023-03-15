@@ -5,6 +5,7 @@ import axios from "axios";
 //import componentes
 import ButtonDelete from "../botones/ButtonDelete/index";
 import ButtonBuy from "../botones/ButtonBuy/index";
+import SliderImg from "../CardOnlyItem/sliderImg";
 
 const Carditem = ({ constructor }) => {
   const [data, setData] = useState({});
@@ -54,40 +55,34 @@ const Carditem = ({ constructor }) => {
       <div className={styles.card}>
         <div className={styles.productimgs}>
           <div className={styles.showcase}>
-            <img src={data?.main_image} alt="" className={styles.mainimage} />
-            <div>
-              {carImages.map((img, index) => (
-                <img key={index} src={img} alt="" className={styles.img} />
-              ))}
-            </div>
+            <SliderImg carImages={carImages} imagesPerPage={1}></SliderImg>
           </div>
         </div>
 
         <div className={styles.info}>
           <p className={styles.title}>{data?.title}</p>
-          <label>Description</label>
+          <label>Descripción</label>
           <p className={styles.description}>{data?.description}</p>
           <p className={styles.location}>
-            <span>Location -</span> {data?.location?.city}
+            <span>localización -</span> {data?.location?.city}
           </p>
           <p className={styles.country}>
             {" "}
-            <span>Country - </span> {data?.location?.country}
+            <span>País - </span> {data?.location?.country}
           </p>
           <p className={styles.price}>
             {" "}
-            <span>Price - </span> {data?.price} €
+            <span>Precio - </span> {data?.price} €
           </p>
           <p className={styles.status}>
-            <span>Status -</span> {data?.status}
+            <span>Estatus -</span> {data?.status}
           </p>
           <p className={styles.reduced_price}>
-            <span>Reduced price </span> {data?.reduced_price || "-"}
+            <span>Precios reducido </span> {data?.reduced_price || "-"}
           </p>
-        </div>
-        <div className={styles.containerButton}>
-          <ButtonDelete build={data} />
+        <div>
           <ButtonBuy build={data} />
+        </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,21 @@
+.sld {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    width: 10%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    background-color:#ccc;
+    border: solid 1px  #a5a5a5;
+    color:#505050;
+    margin: 10px;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+button:hover{
+background-color: #979797;
+}
