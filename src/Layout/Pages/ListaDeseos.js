@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-// import styles
 import styles from "../Pages/ListaDeseos.module.css";
-
-// import componentes
 import CardOnlyItem from "../../components/CardOnlyItem/index";
-
-// en los comentarios, se encuentra como hacer el camino, para tomar los datos
+import {
+  isTokenExpired,
+  clearCurrentSession,
+  keepSessionActive,
+} from "../../shared/sessionManagement";
 
 export const ListaDeseos = () => {
   const [list, setList] = useState([]);
@@ -16,19 +15,28 @@ export const ListaDeseos = () => {
     const items = await axios.get(
       `${
         process.env.REACT_APP_LOCALHOST
-      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/items`
+      }/clasificados/user/${localStorage.getItem("userId")}/wish-list/items`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("userToken")}`,
+        },
+      }
     );
-    //console.log("debug1", items);
-    //console.log("debug1", items.data.data[0].description);
     return items;
   }
 
   useEffect(() => {
     async function fetchWishList() {
       const items = await fetchItemWishList();
-      //console.log("debug2", items.data.data[0].title);
       setList(items);
     }
+
+    if (isTokenExpired()) {
+      clearCurrentSession();
+      window.location.replace("/user/login");
+    }
+    keepSessionActive();
+
     fetchWishList();
   }, []);
 

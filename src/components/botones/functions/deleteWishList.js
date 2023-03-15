@@ -6,7 +6,12 @@ const deleteWishList = async (data) => {
       process.env.REACT_APP_LOCALHOST
     }/clasificados/user/${localStorage.getItem(
       "userId"
-    )}/wish-list/item/${data}`
+    )}/wish-list/item/${data}`,
+    {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("userToken")}`,
+      },
+    }
   );
   // window.location.reload();
 };

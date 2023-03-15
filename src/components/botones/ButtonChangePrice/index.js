@@ -26,8 +26,14 @@ const ButtonChangePrice = ({ build }) => {
     fetchData();
   }, []);
 
-  const currentPrice = item?.data?.price;
-  const reducedPrice = item?.data?.reduced_price;
+  let currentPrice = item?.data?.price;
+  let reducedPrice = item?.data?.reduced_price;
+
+  if (item?.data?.reduced_price === null) {
+    reducedPrice = currentPrice;
+  } else {
+    reducedPrice = item?.data?.reduced_price;
+  }
 
   const onSubmit = (data) => {
     let newPrice = data;
@@ -36,13 +42,11 @@ const ButtonChangePrice = ({ build }) => {
     if (finalPrice < currentPrice) {
       if (finalPrice >= reducedPrice) {
         promptError("el precio es mayor, que el ya reducido");
-        // console.log("el precio es mayor, que el ya reducido");
       } else if (finalPrice < reducedPrice) {
         changePrice(finalPrice, ident);
       }
     } else {
       promptError("el precio es mayor que el actual");
-      // console.log("el precio es mayor que el actual");
     }
   };
 
