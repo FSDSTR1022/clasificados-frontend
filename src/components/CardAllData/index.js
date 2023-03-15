@@ -6,15 +6,11 @@ import ButtonChangeDeleted from "../botones/ButtonChangeDeleted";
 import styles from "./CardAllData.module.css";
 import { ToastContainer } from "react-toastify";
 
-const CardAllData = ({ ident }) => {
+const CardAllData = ({ ident, toggle }) => {
   // axios para obtener item y refresh
 
   const [item, setItem] = useState();
-  const [refresh, toggle] = useState(true);
-
-  const changeToggle = () => {
-    toggle(!refresh);
-  };
+  const [refresh, setToggle] = useState(true);
 
   const fetchItem = async () => {
     axios
@@ -22,6 +18,11 @@ const CardAllData = ({ ident }) => {
       .then((res) => {
         setItem(res);
       });
+  };
+
+  const handleToggle = () => {
+    setToggle(!refresh);
+    console.log("funcionando");
   };
 
   useEffect(() => {
@@ -71,8 +72,8 @@ const CardAllData = ({ ident }) => {
 
             <div className={styles.containerButtons}>
               <ToastContainer />
-              <ButtonChangePrice build={ident} changeTgle={changeToggle} />
-              <ButtonChangeDeleted build={ident} changeTgle={changeToggle} />
+              <ButtonChangePrice build={ident} changeTgle={handleToggle} />
+              <ButtonChangeDeleted build={ident} changeTgle={toggle} />
             </div>
           </div>
           <p className={styles.cardState}>Estatus : {item?.data?.status}</p>

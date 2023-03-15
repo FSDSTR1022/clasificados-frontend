@@ -12,7 +12,10 @@ const Carditem = ({ constructor, changeToggle }) => {
   const [data, setData] = useState({});
   const { id } = useParams();
 
+  let ident = "";
+
   async function fetchItemWithBuild() {
+    ident = constructor.id;
     const { data } = await axios.get(
       `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${constructor.id}`
     );
@@ -20,11 +23,22 @@ const Carditem = ({ constructor, changeToggle }) => {
   }
 
   async function fetchItem() {
+    ident = id;
     const { data } = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}`
+      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${ident}`
     );
     return data;
   }
+
+  const handleButton = () => {
+    async function refresh() {
+      const item = await fetchItem();
+      setData({ ...item });
+    }
+    refresh();
+  };
+
+  // según si esta definido el id, obtenemos el id de maneras diferentes y según llegue, se realizza un tipo de fetch
 
   useEffect(() => {
     if (Object.entries(constructor).length === 0) {
@@ -49,6 +63,7 @@ const Carditem = ({ constructor, changeToggle }) => {
     });
   }
 
+  // segun si esta definido el id, llegamos a esta tarjeta de diferentes lugares y entonces se debde de mostrar un componente u otro
   let component = "";
 
   if (id !== undefined) {
@@ -57,6 +72,7 @@ const Carditem = ({ constructor, changeToggle }) => {
     component = <ButtonDelete build={data} changeTgle={changeToggle} />;
   }
 
+  // si existe precio reducido lo mostramos, si no existe no se muestra
   let element = "";
   if (data?.reduced_price !== null) {
     element = (
@@ -103,7 +119,7 @@ const Carditem = ({ constructor, changeToggle }) => {
         </div>
         <div className={styles.containerButton}>
           {component}
-          <ButtonBuy build={data} changeTgle={changeToggle} />
+          <ButtonBuy build={data} changeTgle={handleButton} />
         </div>
       </div>
     </div>
