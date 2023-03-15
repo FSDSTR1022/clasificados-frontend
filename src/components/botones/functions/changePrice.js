@@ -10,7 +10,6 @@ const changePrice = async (price, id) => {
       },
     }
   );
-  window.location.reload();
 };
 
 export default changePrice;

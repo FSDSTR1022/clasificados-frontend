@@ -9,7 +9,7 @@ import ButtonBuy from "../botones/ButtonBuy/index";
 import SliderImg from "../CardOnlyItem/sliderImg";
 import ButtonAddWishList from "../botones/ButtonAddWishList/index";
 
-const Carditem = ({ constructor }) => {
+const Carditem = ({ constructor, changeToggle }) => {
   const [data, setData] = useState({});
   const { id } = useParams();
 
@@ -55,7 +55,7 @@ const Carditem = ({ constructor }) => {
   if (id !== undefined) {
     component = <ButtonAddWishList build={data} />;
   } else {
-    component = <ButtonDelete build={data} />;
+    component = <ButtonDelete build={data} changeTgle={changeToggle} />;
   }
 
   let element = "";
@@ -68,14 +68,6 @@ const Carditem = ({ constructor }) => {
   } else {
     element = null;
   }
-
-  /*   let style = "";
-  if (constructor.status === "available") {
-    style = "styles.containerVisible";
-  } else {
-    style = "styles.containerNoVisible";
-  }
-  console.log("linea estilo", style); */
 
   return (
     <div className={styles.cardWrapper}>
@@ -107,7 +99,7 @@ const Carditem = ({ constructor }) => {
         </div>
         <div className={styles.containerButton}>
           {component}
-          <ButtonBuy /* className={`${style}`} */ build={data} />
+          <ButtonBuy build={data} changeTgle={changeToggle} />
         </div>
         </div>
       </div>

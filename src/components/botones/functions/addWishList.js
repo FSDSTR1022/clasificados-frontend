@@ -6,6 +6,7 @@ const addWishList = async (e, id) => {
     `${
       process.env.REACT_APP_LOCALHOST
     }/clasificados/user/${localStorage.getItem("userId")}/wish-list/item/${id}`,
+    null,
     {
       headers: {
         authorization: `Bearer ${localStorage.getItem("userToken")}`,
