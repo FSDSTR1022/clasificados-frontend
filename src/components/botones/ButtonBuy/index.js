@@ -5,11 +5,11 @@ import changeStatusToSold from "../functions/changeStatusToSold";
 // import styles
 import styles from "../buttonWithinSelect.module.css";
 
-const ButtonBuy = ({ build }) => {
-  const utility = () => {
-    deleteWishList(`${build.id}`);
-    changeStatusToSold(`${build.id}`);
-    window.location.reload();
+const ButtonBuy = ({ build, changeTgle }) => {
+  const utility = async () => {
+    await changeStatusToSold(`${build.id}`);
+    await deleteWishList(`${build.id}`);
+    changeTgle();
   };
 
   return (

@@ -25,7 +25,6 @@ export const MisArticulos = () => {
   useEffect(() => {
     async function fetchItemsUser() {
       const { data } = await fetchAllItemsByUser();
-      console.log(data);
       setItems(data);
     }
     fetchItemsUser();
@@ -37,21 +36,7 @@ export const MisArticulos = () => {
         <h2 className={styles.title}>Mis Articulos</h2>
         <div className={styles.itemsMaps}>
           {items.map((item, index) => {
-            return (
-              <CardAllData
-                key={item.id}
-                ident={item.id}
-                image={item.main_image}
-                images={item.images}
-                title={item.title}
-                description={item.description}
-                city={item.location.city}
-                country={item.location.country}
-                price={item.price}
-                reduced_price={item.reduced_price}
-                status={item.status}
-              />
-            );
+            return <CardAllData key={item.id} ident={item.id} />;
           })}
         </div>
       </div>

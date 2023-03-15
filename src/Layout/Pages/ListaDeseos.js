@@ -24,10 +24,18 @@ export const ListaDeseos = () => {
     return items;
   }
 
+  const handleList = () => {
+    async function fetchWishList() {
+      const items = await fetchItemWishList();
+      setList(items.data.data);
+    }
+    fetchWishList();
+  };
+
   useEffect(() => {
     async function fetchWishList() {
       const items = await fetchItemWishList();
-      setList(items);
+      setList(items.data.data);
     }
     fetchWishList();
   }, []);
@@ -36,8 +44,12 @@ export const ListaDeseos = () => {
     <>
       <div className={styles.containerListaDeseos}>
         <h2>Page Lista de Deseos</h2>
-        {list.data?.data?.map((item) => (
-          <CardOnlyItem constructor={item} />
+        {list.map((item) => (
+          <CardOnlyItem
+            key={item.id}
+            constructor={item}
+            changeToggle={handleList}
+          />
         ))}
       </div>
     </>

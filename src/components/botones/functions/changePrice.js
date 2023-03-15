@@ -1,8 +1,6 @@
 import axios from "axios";
 
 const changePrice = async (price, id) => {
-  console.log("precio", price);
-  console.log("identidad", id);
   await axios.put(
     `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}/price?new_price=${price}`,
     null,
@@ -12,7 +10,6 @@ const changePrice = async (price, id) => {
       },
     }
   );
-  window.location.reload();
 };
 
 export default changePrice;
