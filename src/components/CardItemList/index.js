@@ -24,6 +24,7 @@ const CardItemList = (constructor) => {
               <div className={styles.precios}>
                 <div className={styles.precio}>
                   <div>Precio: {constructor.props.price}€</div>
+                  <div>Oferta: {constructor.props.reduced_price}</div>
                 </div>
               </div>
             </div>

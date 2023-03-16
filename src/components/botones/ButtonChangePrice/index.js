@@ -50,6 +50,7 @@ const ButtonChangePrice = ({ build, changeTgle }) => {
       promptError("el precio es mayor que el actual");
     }
     changeTgle();
+    fetchData();
   };
 
   return (

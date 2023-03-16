@@ -61,7 +61,7 @@ export const MisArticulos = () => {
               <CardAllData
                 key={item.id}
                 ident={item.id}
-                toggle={handleButton}
+                changeTgle={handleButton}
               />
             );
           })}
