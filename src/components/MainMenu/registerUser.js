@@ -181,7 +181,7 @@ export function RegisterUser() {
               )}
             </div>
 
-            <button type="submit">Registrar</button>
+            <button  className={styles.botonRegistrar} type="submit">REGISTRAR</button>
             <Link to="/" className={styles.backToHome}>
               <AiOutlineHome /> Volver a Inicio
             </Link>
