@@ -8,21 +8,16 @@
     width: 60%;
     justify-content: center;
     padding-top: 90px;
- }
-
- .title {
-   font-size: 2.25rem;
-   font-weight: semi-bold;
-   font-weight: bold;
-   color: gray;
+  }
+  
+  .title {
+    font-size: 2.25rem;
+    font-weight: semi-bold;
+    font-weight: bold;
+    color: gray;
+    padding-bottom: 2rem;
  }
 
  .linkMysold{
 	font-size: 2em;
  }
-
- /* .itemsMaps{
-    margin: 0 auto;
-    justify-content: center;
-    background-color: red;
- } */

@@ -1,49 +1,31 @@
 .ContainerCardMyArticles{
-    max-width: 650px;
     width: 100%;
-    height: 400px;
+    max-width: 650px;
+    height: 410px;
 
     display:flex;
     flex-direction: column;
     margin: auto;
     margin-bottom: 50px;
-
     border-radius: 8px;
-    background-color: #bab6b6;
     background-size: cover;
 }
 
-.ContainerCard{
-    max-width: 650px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.mainImage {
-    width: 250px;
-    height: 250px;
-    padding: 5px;
-    object-fit: fill;
-
-    border-top-left-radius: 14px;
-}
-
-.ContainerCardDetails {
-    width: 75%;
-    height: 250px;
-    letter-spacing: .025rem;
+.ContainerHeaderCard{
+    height: 110px;
+    border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    background-color: #cfcccc;
 }
 
 .cardTitle {
-    /* up, left-right, down */
     display: flex;
     text-align: center;
     justify-content: center;
-    padding: 20px 0 5px;
+    /* up, left-right, down */
+    padding-top: 20px;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1rem;
     text-transform: uppercase;
     color:#0c7585;
@@ -51,47 +33,48 @@
 
 .cardDescription {
     display: flex;
-    width: 100%;
+    width: auto;
     height: 45px;
-
     align-items: center;
     justify-content: center;
     text-align: center;
     
     /* up, left-right, down */
-    padding: 7px 26px 0px;
-    
-    font-size: .9rem;
-    font-weight: 300;
-    line-height: 1rem;
-    color:#eee;
+    padding: .15rem 100px 3rem;
+    font-size: .95rem;
+    font-weight: 400;
+    line-height: 1.1rem;
+    letter-spacing: .03rem;
+    color:#095c76;
 }
 
-.cardDescription::first-letter {
-    text-transform: uppercase;
-    font-size: 2rem;
-    font-weight: 500;
-    color:rgb(61, 148, 61);
+
+.containerMidiumCard {
+    width: 100%;
+    display: flex;
+    height: 145px;
+    border-top:4px solid #eee;
+    background-color: #bab6b6;
 }
 
 .containerValues {
-    width: 45%;
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    justify-content: start;
-    margin-left: 20px;
-    margin-top: 15px;
+    width: 50%;
+    padding-left: 50px;
+    padding-top: 10px;
 }
 
 .cardCity,
 .cardCountry {
+    display: flex;
     font-size: .75rem;
+    margin-top:5px;
     color:antiquewhite
 }
 
 .cardValor,
 .cardRebaja {
+    display:flex;
+    margin-top: 5px;
     font-size: .75rem;
     font-weight: 600;
     letter-spacing: 1px;
@@ -108,12 +91,32 @@
 }
 
 .cardState {
-    width: 50%;
     display: flex;
-    font-size: .85rem;
+    font-size: .75rem;
+    font-weight: 600;
     /* up, left-right, down */
-    padding: 10px 20px 0;
-    color:#967815;
+    padding-top: 5px;
+    color:#852e0b;
+}
+
+/* Contenedor de componentes botones */
+.containerButtons {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.containerCardImages{
+    width: 100%;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    border-top: 4px solid #fff;
+    background-color: #cfcccc;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 .cardImages{
@@ -133,11 +136,13 @@
     height: 120px;
 
     display:flex;
+    justify-content: center;
     object-fit: fill;
     border-radius: 12px;
     border:4px solid rgb(171, 138, 4);
     
     overflow-x: scroll;
+    margin-top: 10px;
 }
 
 .imagesCards {

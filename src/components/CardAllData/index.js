@@ -22,36 +22,43 @@ const CardAllData = ({
   } else {
     element = null;
   }
+  //  {element}
   return (
+
     <div className={styles.ContainerCardMyArticles}>
-      <div className={styles.ContainerCard}>
-        <img className={styles.mainImage} src={image} alt="Without Card " />
+      {/* <div className={styles.ContainerCard}> */}
 
         <div className={styles.ContainerCardDetails}>
-          <h3 className={styles.cardTitle}>{title}</h3>
 
-          <span className={styles.cardDescription}>{description}</span>
+          {/* Container Header Card */}
+          <div className={styles.ContainerHeaderCard}>
+            <h3 className={styles.cardTitle}>{title}</h3>
+            <span className={styles.cardDescription}>{description}</span>
+          </div>
 
-          <div className={styles.containerValues}>
-            <div className={styles.containerText}>
-              <p className={styles.cardCity}>Ciudad : {city}</p>
-              <p className={styles.cardCountry}>País : {country}</p>
-              <p className={styles.cardValor}>Valor : {price} €</p>
+          {/* Container del medio */}
+          <div className={styles.containerMidiumCard}> 
 
-              {element}
+            <div className={styles.containerValues}>
+                <p className={styles.cardCity}>Ciudad : {city}</p>
+                <p className={styles.cardCountry}>País : {country}</p>
+                <p className={styles.cardValor}>Valor : {price} €</p>
+                {element}
+                <p className={styles.cardState}>Estatus : {status}</p>
             </div>
 
             <div className={styles.containerButtons}>
               <ToastContainer />
-              <ButtonChangePrice build={ident} />
+              <ButtonChangePrice className={styles.ButtonPrice} build={ident} />
               <ButtonChangeDeleted build={ident} />
             </div>
           </div>
-          <p className={styles.cardState}>Estatus : {status}</p>
         </div>
-      </div>
 
-      <div className={styles.cardImages}>
+      {/* </div> */}
+
+      {/* Container end card */}
+      <div className={styles.containerCardImages}>
         <div className={styles.cardImagesMaps}>
           {images.map((data, index) => (
             <img
