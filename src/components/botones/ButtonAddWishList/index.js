@@ -33,7 +33,7 @@ const ButtonAddWishList = ({ build }) => {
 
   return (
     <div>
-      <button className={styles.boton} onClick={addWishList}>
+      <button className={styles.botons} onClick={addWishList}>
         Añadir Lista de Deseos
       </button>
     </div>

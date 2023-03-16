@@ -96,13 +96,15 @@ const Carditem = ({ constructor, changeToggle }) => {
             <span>Estatus -</span> {data?.status}
           </p>
           {element}
-        </div>
-        <div className={styles.containerButton}>
-          {component}
-          <ButtonBuy build={data} changeTgle={changeToggle} />
-        </div>
+          <div className={styles.btn}>
+            <div className={styles.containerButton}>
+              {component}
+              <ButtonBuy build={data} changeTgle={changeToggle} />
+            </div>
+          </div>
         </div>
       </div>
+    </div>
   );
 };
 

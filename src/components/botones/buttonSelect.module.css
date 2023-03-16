@@ -46,5 +46,5 @@
 
 button:disabled,
 boton[disabled]{
-	opacity: 50%;
+	opacity: 1000%;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from "../sliderImg/slider.modules.css"
+import styles from "../sliderImg/slider.module.css"
 
 function SliderImg({ carImages, imagesPerPage }) {
     const [currentPage, setCurrentPage] = useState(1);
@@ -26,14 +26,19 @@ function SliderImg({ carImages, imagesPerPage }) {
     const pages = [...Array(endPage - startPage + 1).keys()].map((i) => startPage + i);
 
     return (
-        <div className={styles.sld}>
-           
+        <div>
+
             {showImagesOnPage()}
-            <button disabled={currentPage === startPage} onClick={() => setCurrentPage(currentPage - 1)}>
-                {"<"}</button>
-            <button disabled={currentPage === endPage} onClick={() => setCurrentPage(currentPage + 1)}>
-                {">"}
-            </button>
+            <div className={styles.botonesflecha}>
+                <div>
+                    <button disabled={currentPage === startPage} onClick={() => setCurrentPage(currentPage - 1)}>
+                        {"<"}</button>
+                </div>
+                <div>
+                    <button disabled={currentPage === endPage} onClick={() => setCurrentPage(currentPage + 1)}>
+                        {">"}</button>
+                </div>
+            </div>
         </div>
     );
 }
