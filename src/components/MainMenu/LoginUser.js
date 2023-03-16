@@ -109,11 +109,12 @@ export function LoginUser() {
                 <span className={styles.fail}>{errors.password.message}</span>
               )}
             </div>
-
-            <button type="submit">Enviar</button>
-            <Link to="/" className={styles.backToHome}>
-              <AiOutlineHome /> Volver a Inicio
-            </Link>
+            <div className={styles.buttonEnviar}>
+              <button type="submit">ENVIAR</button>
+            </div>
+              <Link to="/" className={styles.backToHome}>
+                <AiOutlineHome /> Volver a Inicio
+              </Link>
           </form>
         </div>
       </div>

@@ -43,44 +43,47 @@ const CardAllData = ({ ident, toggle }) => {
   //----------------------------
   return (
     <div className={styles.ContainerCardMyArticles}>
-      <div className={styles.ContainerCard}>
-        <img
-          className={styles.mainImage}
-          src={item?.data?.main_image}
-          alt="Without Card "
-        />
+      {/* <div className={styles.ContainerCard}> */}
 
-        <div className={styles.ContainerCardDetails}>
+      <div className={styles.ContainerCardDetails}>
+        {/* Container Header Card */}
+        <div className={styles.ContainerHeaderCard}>
           <h3 className={styles.cardTitle}>{item?.data?.title}</h3>
-
           <span className={styles.cardDescription}>
             {item?.data?.description}
           </span>
+        </div>
 
+        {/* Container del medio */}
+        <div className={styles.containerMidiumCard}>
           <div className={styles.containerValues}>
-            <div className={styles.containerText}>
-              <p className={styles.cardCity}>
-                Ciudad : {item?.data?.location?.city}
-              </p>
-              <p className={styles.cardCountry}>
-                País : {item?.data?.location?.country}
-              </p>
-              <p className={styles.cardValor}>Valor : {item?.data?.price} €</p>
-
-              {element}
-            </div>
-
-            <div className={styles.containerButtons}>
-              <ToastContainer />
-              <ButtonChangePrice build={ident} changeTgle={handleToggle} />
-              <ButtonChangeDeleted build={ident} changeTgle={toggle} />
-            </div>
+            <p className={styles.cardCity}>
+              Ciudad : {item?.data?.location?.city}
+            </p>
+            <p className={styles.cardCountry}>
+              País : {item?.data?.location?.country}
+            </p>
+            <p className={styles.cardValor}>Valor : {item?.data?.price} €</p>
+            {element}
+            <p className={styles.cardState}>Estatus : {item?.data?.status}</p>
           </div>
-          <p className={styles.cardState}>Estatus : {item?.data?.status}</p>
+
+          <div className={styles.containerButtons}>
+            <ToastContainer />
+            <ButtonChangePrice
+              className={styles.ButtonPrice}
+              build={ident}
+              changeTgle={handleToggle}
+            />
+            <ButtonChangeDeleted build={ident} changeTgle={toggle} />
+          </div>
         </div>
       </div>
 
-      <div className={styles.cardImages}>
+      {/* </div> */}
+
+      {/* Container end card */}
+      <div className={styles.containerCardImages}>
         <div className={styles.cardImagesMaps}>
           {item?.data?.images.map((data, index) => (
             <img

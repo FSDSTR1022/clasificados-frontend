@@ -1,11 +1,6 @@
-/*:root * {
-    padding:0px;
-    margin:0px;
-    box-sizing: border-box;
-}*/
 .containerImage{
     width: 1580px;
-    /* min-height: 90vh; */
+    margin: auto;
     height:100vh;
 
     display: flex;
@@ -18,7 +13,7 @@
 
 .containerMain{
     width: 420px;
-    height: 55vh;
+    height: 45vh;
 
     display: flex;
     justify-content: center;
@@ -33,27 +28,20 @@
     width: 80%;
     max-width: 100%;
     padding: .75rem 0;
-    /* background-color: red; */
-
 }
 
 .formLoginUser h2{
     display: flex;
     justify-content: center;
-    font-weight: 400;
+    font-weight: 300;
     color:#edc86b;
     padding: 1.25rem 0px;
 }
-
-/* No olvidar poner en ambas icono de ojo ...*/
 
 .formControl,
 .formControlPassword {
     width: 100%;
     height: auto;
-/* Revisar esto aca, esta muy raro ! */
-    overflow: hidden;
-    /* background-color: red; */
 }
 
 .formControl label,
@@ -68,28 +56,26 @@
 .formControl input {
     width: 100%;
     text-align: left;
-
     font-size: .8rem;
     font-family: inherit;
     font-weight: 200;
-    padding: 12px;
-    border: none;
+    padding: 12px 0;
     text-transform: lowercase;
     margin-bottom: 30px;
-    
+    border: none;
+    border-radius: 8px;
     background-color: #f0f0f0;
 }
 
 .formControlPassword input{
     width: 100%;
-    /* display: flex; */
     text-align: left;
-
     font-size: .8rem;
     font-family: inherit;
-    padding: 12px;
-    border: none;
     margin-bottom: 40px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
     background-color: #f0f0f0;
 }
 
@@ -104,21 +90,24 @@
     background-color: #e4caa9b2;
 }
 
-.formLoginUser button {
+.buttonEnviar button{
     width: 100%;
-    display: block;
-    padding: .75rem 1.2rem;
-    margin: .75rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 2rem;
     
     color: #f6f6e9;
     font-size: 1rem;
     font-weight: 500;
+    letter-spacing: .15rem;
     
     border:none;
-    border-radius: 4px;
+    border-radius: 8px;
+    padding: .75rem 1.2rem;
     background: #bf165a;
 }
+
 
 .formLoginUser button:hover {
     cursor: pointer;
@@ -143,8 +132,7 @@
 .backToHome:hover{
     cursor:pointer;
     color:#fff;
-    font-weight: 500;
-    border-bottom: 2px solid orange;
+    font-weight: 300;
 }
 
 .fail{
@@ -153,7 +141,6 @@
 
     font-size: .75rem;
     font-weight: 300;
-
 }
 .successUser{
     display: flex;

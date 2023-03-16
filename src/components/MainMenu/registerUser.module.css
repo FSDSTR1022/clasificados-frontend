@@ -1,15 +1,12 @@
-/*:root * {
-    padding:0px;
-    margin:0px;
-    box-sizing: border-box;
-}*/
 .containerImage{
     width: 1580px;
+    margin:auto;
     height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     background: linear-gradient(rgba(75, 66, 95, 0.75), rgba(4, 12, 30, 0.75)), url('../../Images/bg-06.png') no-repeat center center fixed;
     background-size: cover;
 }
@@ -17,15 +14,14 @@
 .containerMain{
     width: 420px;
     height: auto;
-    padding:20px 40px;
     
     border-radius: 8px;
     background: linear-gradient(-225deg, rgba(198, 172, 172, 0.642) 0%, rgba(42, 112, 152, 0.452) 85%);
+    padding:20px 40px;
 }
 
 .formRegister{
     width: 100%;
-    max-width: 100%;
     padding: .75rem 0;
 }
 
@@ -35,7 +31,6 @@
     align-items: center;
     font-weight: 400;
     color: #edc86b;
-
     margin-bottom: 30px;
 }
 
@@ -45,7 +40,6 @@
     width: 100%;
     height: auto;
     margin-bottom:20px;
-    overflow: hidden;
 }
 
 .formControl label,
@@ -62,13 +56,12 @@
     text-align: left;
     font-size: .8rem;
     font-family: inherit;
-    margin: 0px;
-    padding: 12px;
-
+    font-weight: 200;
     text-transform: lowercase;
-
-    border: none;
     outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
     background-color: #cfcdcd;
 }
 
@@ -79,10 +72,10 @@
     text-align: left;
     font-size: .8rem;
     font-family: inherit;
-    margin:0px;
-    padding: 12px;
-    border: none;
     outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
     background-color: #cfcdcd;
 }
 
@@ -93,17 +86,20 @@
     background-color: #e4caa9b2;
 }
 
-.formRegister button {
+.botonRegistrar {
     width: 100%;
-    display: block;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
     color: #f6f6e9;
     font-size: 1rem;
-    font-weight: 500;
-    
+    font-weight: 300;
+    letter-spacing: .15rem;
+
     border:none;
     border-radius: 8px;
-
     padding: .75rem 1.2rem;
     margin: 3rem 0;
     background: #bf165a;
@@ -121,29 +117,24 @@
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
-
     font-family: 'Roboto', sans-serif;
     font-size:1rem;
     font-weight: 100;
-    
     color:#bdbcbd;
     transition: .3s ease;
 }
 .backToHome:hover{
     cursor:pointer;
     color:#fff;
-    font-weight: 500;
-    padding: 0px;
-    margin: 0px;
-    border-bottom: .05rem solid orange;
-    /* border-radius: 8px; */
-
+    font-weight: 300;
 }
+
 .fail{
     color: #d1b881;
     font-size: .75rem;
     font-weight: 500;
 }
+
 .successUser{
         display: flex;
         justify-content: center;
