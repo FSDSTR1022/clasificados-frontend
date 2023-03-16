@@ -41,7 +41,7 @@ const Carditem = ({ constructor, changeToggle }) => {
     refresh();
   };
 
-  // según si esta definido el id, obtenemos el id de maneras diferentes y según llegue, se realizza un tipo de fetch
+  // según si esta definido el id, obtenemos el id de maneras diferentes y según llegue, se realiza un tipo de fetch
 
   useEffect(() => {
     if (Object.entries(constructor).length === 0) {
@@ -117,7 +117,11 @@ const Carditem = ({ constructor, changeToggle }) => {
           <div className={styles.btn}>
             <div className={styles.containerButton}>
               {component}
-              <ButtonBuy build={data} changeTgle={(handleButton, changeToggle)} />
+              <ButtonBuy
+                build={data}
+                changeTgle={changeToggle}
+                refresh={handleButton}
+              />
             </div>
           </div>
         </div>
