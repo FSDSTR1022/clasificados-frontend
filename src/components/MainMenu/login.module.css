@@ -5,6 +5,7 @@
 }*/
 .containerImage{
     width: 1580px;
+    margin: auto;
     /* min-height: 90vh; */
     height:100vh;
 

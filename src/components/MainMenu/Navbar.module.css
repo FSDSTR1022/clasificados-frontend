@@ -1,12 +1,11 @@
  .containerHeaderNavbar{
     display: flex;
-    width: 100%;
     max-width: 1580px;
+    width: 100%;
     min-width: 480px;
     height: 8vh;
 
     justify-content: space-around;
-    padding: 0 12px;
     background-color:gray;
 }
 
