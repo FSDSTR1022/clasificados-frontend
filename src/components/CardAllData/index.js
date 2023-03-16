@@ -1,28 +1,46 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import ButtonChangePrice from "../botones/ButtonChangePrice";
 import ButtonChangeDeleted from "../botones/ButtonChangeDeleted";
 import styles from "./CardAllData.module.css";
 import { ToastContainer } from "react-toastify";
 
-const CardAllData = ({
-  ident,
-  image,
-  images, //estos es un array
-  title,
-  description,
-  city,
-  country,
-  price,
-  reduced_price,
-  status,
-}) => {
+const CardAllData = ({ ident, toggle }) => {
+  // axios para obtener item y refresh
+
+  const [item, setItem] = useState();
+  const [refresh, setToggle] = useState(true);
+
+  const fetchItem = async () => {
+    axios
+      .get(`${process.env.REACT_APP_LOCALHOST}/clasificados/item/${ident}`)
+      .then((res) => {
+        setItem(res);
+      });
+  };
+
+  const handleToggle = () => {
+    setToggle(!refresh);
+    console.log("funcionando");
+  };
+
+  useEffect(() => {
+    fetchItem();
+  }, [refresh]);
+
+  // logica mostrar reduced_price
   let element = "";
-  if (reduced_price !== null) {
-    element = <p className={styles.cardRebaja}>Rebaja : {reduced_price} €</p>;
+  if (item?.data?.reduced_price !== null) {
+    element = (
+      <p className={styles.cardRebaja}>
+        Rebaja : {item?.data?.reduced_price} €
+      </p>
+    );
   } else {
     element = null;
   }
-  //  {element}
+  //----------------------------
   return (
 
     <div className={styles.ContainerCardMyArticles}>
@@ -60,7 +78,7 @@ const CardAllData = ({
       {/* Container end card */}
       <div className={styles.containerCardImages}>
         <div className={styles.cardImagesMaps}>
-          {images.map((data, index) => (
+          {item?.data?.images.map((data, index) => (
             <img
               className={styles.imagesCards}
               key={index}

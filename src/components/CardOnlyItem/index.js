@@ -8,11 +8,14 @@ import ButtonDelete from "../botones/ButtonDelete/index";
 import ButtonBuy from "../botones/ButtonBuy/index";
 import ButtonAddWishList from "../botones/ButtonAddWishList/index";
 
-const Carditem = ({ constructor }) => {
+const Carditem = ({ constructor, changeToggle }) => {
   const [data, setData] = useState({});
   const { id } = useParams();
 
+  let ident = "";
+
   async function fetchItemWithBuild() {
+    ident = constructor.id;
     const { data } = await axios.get(
       `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${constructor.id}`
     );
@@ -20,11 +23,24 @@ const Carditem = ({ constructor }) => {
   }
 
   async function fetchItem() {
+    ident = id;
     const { data } = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}`
+      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${ident}`
     );
     return data;
   }
+
+  //función para que cuando se realice la compra, envie los datos para que cambien la lógica
+
+  const handleButton = () => {
+    async function refresh() {
+      const item = await fetchItem();
+      setData({ ...item });
+    }
+    refresh();
+  };
+
+  // según si esta definido el id, obtenemos el id de maneras diferentes y según llegue, se realizza un tipo de fetch
 
   useEffect(() => {
     if (Object.entries(constructor).length === 0) {
@@ -49,14 +65,16 @@ const Carditem = ({ constructor }) => {
     });
   }
 
+  // segun si esta definido el id, llegamos a esta tarjeta de diferentes lugares y entonces se debde de mostrar un componente u otro
   let component = "";
 
   if (id !== undefined) {
     component = <ButtonAddWishList build={data} />;
   } else {
-    component = <ButtonDelete build={data} />;
+    component = <ButtonDelete build={data} changeTgle={changeToggle} />;
   }
 
+  // si existe precio reducido lo mostramos, si no existe no se muestra
   let element = "";
   if (data?.reduced_price !== null) {
     element = (
@@ -67,14 +85,6 @@ const Carditem = ({ constructor }) => {
   } else {
     element = null;
   }
-
-  /*   let style = "";
-  if (constructor.status === "available") {
-    style = "styles.containerVisible";
-  } else {
-    style = "styles.containerNoVisible";
-  }
-  console.log("linea estilo", style); */
 
   return (
     <div className={styles.cardWrapper}>
@@ -111,7 +121,7 @@ const Carditem = ({ constructor }) => {
         </div>
         <div className={styles.containerButton}>
           {component}
-          <ButtonBuy /* className={`${style}`} */ build={data} />
+          <ButtonBuy build={data} changeTgle={(handleButton, changeToggle)} />
         </div>
       </div>
     </div>

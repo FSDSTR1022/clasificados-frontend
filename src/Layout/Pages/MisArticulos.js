@@ -26,10 +26,17 @@ export const MisArticulos = () => {
     return data;
   }
 
+  const handleButton = () => {
+    async function fetchItemsUser() {
+      const { data } = await fetchAllItemsByUser();
+      setItems(data);
+    }
+    fetchItemsUser();
+  };
+
   useEffect(() => {
     async function fetchItemsUser() {
       const { data } = await fetchAllItemsByUser();
-      console.log(data);
       setItems(data);
     }
     if (isTokenExpired()) {
@@ -42,6 +49,8 @@ export const MisArticulos = () => {
     fetchItemsUser();
   }, []);
 
+  console.log("item", items);
+
   return (
     <div className={styles.containerMain}>
       <div className={styles.MyArticles}>
@@ -52,15 +61,7 @@ export const MisArticulos = () => {
               <CardAllData
                 key={item.id}
                 ident={item.id}
-                image={item.main_image}
-                images={item.images}
-                title={item.title}
-                description={item.description}
-                city={item.location.city}
-                country={item.location.country}
-                price={item.price}
-                reduced_price={item.reduced_price}
-                status={item.status}
+                toggle={handleButton}
               />
             );
           })}

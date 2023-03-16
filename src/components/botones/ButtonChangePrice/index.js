@@ -8,7 +8,7 @@ import { promptError } from "../../../shared/promptMessages";
 // import styles
 import styles from "../../botones/buttonSelect.module.css";
 
-const ButtonChangePrice = ({ build }) => {
+const ButtonChangePrice = ({ build, changeTgle }) => {
   //elementos formulario
   const { register, handleSubmit } = useForm();
   const [item, setItem] = useState();
@@ -35,19 +35,21 @@ const ButtonChangePrice = ({ build }) => {
     reducedPrice = item?.data?.reduced_price;
   }
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     let newPrice = data;
-    let finalPrice = newPrice.price;
+    let finalPrice = parseFloat(newPrice.price);
     let ident = `${build}`;
     if (finalPrice < currentPrice) {
+      console.log("menor que precio ");
       if (finalPrice >= reducedPrice) {
         promptError("el precio es mayor, que el ya reducido");
       } else if (finalPrice < reducedPrice) {
-        changePrice(finalPrice, ident);
+        await changePrice(finalPrice, ident);
       }
     } else {
       promptError("el precio es mayor que el actual");
     }
+    changeTgle();
   };
 
   return (
@@ -56,6 +58,7 @@ const ButtonChangePrice = ({ build }) => {
         <input
           className={styles.containerLabel}
           type="number"
+          min="0"
           {...register("price")}
         />
         <button className={styles.botton} type="submit">
