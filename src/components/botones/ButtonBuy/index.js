@@ -9,7 +9,7 @@ const ButtonBuy = ({ build, changeTgle, refresh }) => {
   console.log("tog", changeTgle);
   const utility = async () => {
     await changeStatusToSold(`${build.id}`);
-    await deleteWishList(`${build.id}`);
+    //await deleteWishList(`${build.id}`);
     await refresh();
     changeTgle();
   };

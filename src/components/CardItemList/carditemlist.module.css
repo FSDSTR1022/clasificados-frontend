@@ -79,3 +79,12 @@ a{
     justify-content: center;
 }
 
+.reducedPrice{
+	color: red;
+	font-weight: bold;
+}
+
+.price{
+	text-decoration:line-through
+}
+
