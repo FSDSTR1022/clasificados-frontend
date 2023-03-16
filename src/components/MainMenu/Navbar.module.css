@@ -1,4 +1,6 @@
  .containerHeaderNavbar{
+    position: fixed;
+    z-index: 10;
     display: flex;
     max-width: 1580px;
     width: 100%;

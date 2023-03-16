@@ -9,6 +9,7 @@
     margin-bottom: 50px;
     border-radius: 8px;
     background-size: cover;
+    filter:drop-shadow(.5rem .5rem 1rem rgb(124, 123, 123));
 }
 
 .ContainerHeaderCard{
