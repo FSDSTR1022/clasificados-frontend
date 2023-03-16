@@ -40,6 +40,7 @@ const ButtonChangePrice = ({ build, changeTgle }) => {
     let finalPrice = parseFloat(newPrice.price);
     let ident = `${build}`;
     if (finalPrice < currentPrice) {
+      console.log("menor que precio ");
       if (finalPrice >= reducedPrice) {
         promptError("el precio es mayor, que el ya reducido");
       } else if (finalPrice < reducedPrice) {

@@ -26,6 +26,14 @@ export const MisArticulos = () => {
     return data;
   }
 
+  const handleButton = () => {
+    async function fetchItemsUser() {
+      const { data } = await fetchAllItemsByUser();
+      setItems(data);
+    }
+    fetchItemsUser();
+  };
+
   useEffect(() => {
     async function fetchItemsUser() {
       const { data } = await fetchAllItemsByUser();
@@ -41,13 +49,21 @@ export const MisArticulos = () => {
     fetchItemsUser();
   }, []);
 
+  console.log("item", items);
+
   return (
     <div className={styles.containerMain}>
       <div className={styles.MyArticles}>
         <h2 className={styles.title}>Mis Articulos</h2>
         <div className={styles.itemsMaps}>
           {items.map((item, index) => {
-            return <CardAllData key={item.id} ident={item.id} />;
+            return (
+              <CardAllData
+                key={item.id}
+                ident={item.id}
+                toggle={handleButton}
+              />
+            );
           })}
         </div>
       </div>
