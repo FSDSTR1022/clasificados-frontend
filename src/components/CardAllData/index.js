@@ -43,10 +43,7 @@ const CardAllData = ({ ident, toggle }) => {
   //----------------------------
   return (
     <div className={styles.ContainerCardMyArticles}>
-      {/* <div className={styles.ContainerCard}> */}
-
       <div className={styles.ContainerCardDetails}>
-        {/* Container Header Card */}
         <div className={styles.ContainerHeaderCard}>
           <h3 className={styles.cardTitle}>{item?.data?.title}</h3>
           <span className={styles.cardDescription}>
@@ -54,7 +51,6 @@ const CardAllData = ({ ident, toggle }) => {
           </span>
         </div>
 
-        {/* Container del medio */}
         <div className={styles.containerMidiumCard}>
           <div className={styles.containerValues}>
             <p className={styles.cardCity}>
@@ -80,9 +76,6 @@ const CardAllData = ({ ident, toggle }) => {
         </div>
       </div>
 
-      {/* </div> */}
-
-      {/* Container end card */}
       <div className={styles.containerCardImages}>
         <div className={styles.cardImagesMaps}>
           {item?.data?.images.map((data, index) => (
