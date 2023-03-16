@@ -45,8 +45,3 @@
 	font-weight: bold;
 	border: 0px;
 }
-
-button:disabled,
-boton[disabled]{
-	opacity: 1000%;
-}
