@@ -30,6 +30,8 @@ const Carditem = ({ constructor, changeToggle }) => {
     return data;
   }
 
+  //función para que cuando se realice la compra, envie los datos para que cambien la lógica
+
   const handleButton = () => {
     async function refresh() {
       const item = await fetchItem();
@@ -119,7 +121,7 @@ const Carditem = ({ constructor, changeToggle }) => {
         </div>
         <div className={styles.containerButton}>
           {component}
-          <ButtonBuy build={data} changeTgle={handleButton} />
+          <ButtonBuy build={data} changeTgle={(handleButton, changeToggle)} />
         </div>
       </div>
     </div>
