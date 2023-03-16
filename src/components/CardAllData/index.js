@@ -42,36 +42,43 @@ const CardAllData = ({ ident, toggle }) => {
   }
   //----------------------------
   return (
-
     <div className={styles.ContainerCardMyArticles}>
       {/* <div className={styles.ContainerCard}> */}
 
-        <div className={styles.ContainerCardDetails}>
+      <div className={styles.ContainerCardDetails}>
+        {/* Container Header Card */}
+        <div className={styles.ContainerHeaderCard}>
+          <h3 className={styles.cardTitle}>{item?.data?.title}</h3>
+          <span className={styles.cardDescription}>
+            {item?.data?.description}
+          </span>
+        </div>
 
-          {/* Container Header Card */}
-          <div className={styles.ContainerHeaderCard}>
-            <h3 className={styles.cardTitle}>{title}</h3>
-            <span className={styles.cardDescription}>{description}</span>
+        {/* Container del medio */}
+        <div className={styles.containerMidiumCard}>
+          <div className={styles.containerValues}>
+            <p className={styles.cardCity}>
+              Ciudad : {item?.data?.location?.city}
+            </p>
+            <p className={styles.cardCountry}>
+              País : {item?.data?.location?.country}
+            </p>
+            <p className={styles.cardValor}>Valor : {item?.data?.price} €</p>
+            {element}
+            <p className={styles.cardState}>Estatus : {item?.data?.status}</p>
           </div>
 
-          {/* Container del medio */}
-          <div className={styles.containerMidiumCard}> 
-
-            <div className={styles.containerValues}>
-                <p className={styles.cardCity}>Ciudad : {city}</p>
-                <p className={styles.cardCountry}>País : {country}</p>
-                <p className={styles.cardValor}>Valor : {price} €</p>
-                {element}
-                <p className={styles.cardState}>Estatus : {status}</p>
-            </div>
-
-            <div className={styles.containerButtons}>
-              <ToastContainer />
-              <ButtonChangePrice className={styles.ButtonPrice} build={ident} />
-              <ButtonChangeDeleted build={ident} />
-            </div>
+          <div className={styles.containerButtons}>
+            <ToastContainer />
+            <ButtonChangePrice
+              className={styles.ButtonPrice}
+              build={ident}
+              changeTgle={handleToggle}
+            />
+            <ButtonChangeDeleted build={ident} changeTgle={toggle} />
           </div>
         </div>
+      </div>
 
       {/* </div> */}
 
