@@ -1,30 +1,31 @@
 .containerForm{
 	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 	width: 110px;
 	height: 50px;
 	border: 3px solid rgb(109, 107, 107);
 	border-radius: 10px;
-	background-color: orange;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	background-color: orange;	
 	overflow: hidden;
 }
 
-.botton{
+.pusher{
 	background-color: orange;
 	width: 90%;
 	border: 0;
 	font-weight: bold;
 	font-size: .6em;
+	margin: 0;
 }
 
 .containerLabel{
 	border-radius: 10px;
-	padding: 3px;
-	width:90%;
-	height: 20px;
+	/* padding-top: 3px; */
+	width:80%;
+	height: .7em;
 	margin-top: 5px;
 	font-size: .7em;
 }
