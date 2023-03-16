@@ -82,6 +82,20 @@
 
 .boton{
 	background-color: orange;
+	width: 110px;
+	height: 50px;
+	border: 3px solid rgb(109, 107, 107);
+	border-radius: 20%;
+	font-weight: bold;
+	font-size: 0.8em;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.botonPutImages{
+	background-color: orange;
+	width: 200px;
+	height: 30px;
 	border: 3px solid rgb(109, 107, 107);
 	border-radius: 20%;
 	font-weight: bold;

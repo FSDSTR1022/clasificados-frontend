@@ -204,10 +204,11 @@ export const Vender = () => {
             Poner a la venta
           </button>
         </form>
+
         <div className={styles.containerImagenes}>
           <p className={styles.medTitle}>Imágenes</p>
           <input
-            className={styles.boton}
+            className={styles.botonPutImages}
             type="file"
             onChange={(e) => {
               setImage([...e.target.files]);
