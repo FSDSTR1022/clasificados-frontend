@@ -9,12 +9,11 @@ export function isTokenExpired() {
 
 function isTokenNearToExpire() {
   const tokenExp = localStorage.getItem("tokenExpiration");
-  console.log(Math.floor(Date.now() / 1000) - tokenExp <= 300);
 
   return Math.floor(Date.now() / 1000) - tokenExp <= 300;
 }
 
-function isTokenAvailable() {
+export function isTokenAvailable() {
   const token = localStorage.getItem("userToken");
 
   return token ? true : false;

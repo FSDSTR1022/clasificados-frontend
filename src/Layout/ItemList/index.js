@@ -8,7 +8,11 @@ import { FiltersContext } from "../MainPage/context/filters-context";
 import styles from "./itemlist.module.css";
 import { promptError } from "../../shared/promptMessages";
 import { Link } from "react-router-dom";
-import { keepSessionActive } from "../../shared/sessionManagement";
+import {
+  isTokenAvailable,
+  isTokenExpired,
+  keepSessionActive,
+} from "../../shared/sessionManagement";
 
 const ItemList = ({ onTotalCountChange }) => {
   const { filters } = useContext(FiltersContext);
@@ -66,6 +70,32 @@ const ItemList = ({ onTotalCountChange }) => {
     return data;
   }
 
+  async function retrieveWishList() {
+    if (isTokenAvailable()) {
+      if (!isTokenExpired()) {
+        const wishListItems = [];
+        const { data } = await axios.get(
+          `${
+            process.env.REACT_APP_LOCALHOST
+          }/clasificados/user/${localStorage.getItem(
+            "userId"
+          )}/wish-list/items`,
+          {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("userToken")}`,
+            },
+          }
+        );
+
+        data.data.forEach((item) => {
+          wishListItems.push(item.id);
+        });
+
+        localStorage.setItem("userWishList", wishListItems);
+      }
+    }
+  }
+
   async function retrieveItemList() {
     if (areFiltersCorrect()) {
       try {
@@ -80,6 +110,8 @@ const ItemList = ({ onTotalCountChange }) => {
 
   useEffect(() => {
     keepSessionActive();
+
+    retrieveWishList();
 
     retrieveItemList();
     // eslint-disable-next-line react-hooks/exhaustive-deps

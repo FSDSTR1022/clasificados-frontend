@@ -51,7 +51,7 @@ export const ListaDeseos = () => {
   return (
     <>
       <div className={styles.containerListaDeseos}>
-        <h2>Page Lista de Deseos</h2>
+        <h2>Lista de Deseos</h2>
         {list.map((item) => (
           <CardOnlyItem
             key={item.id}
