@@ -79,12 +79,25 @@ const Carditem = ({ constructor, changeToggle }) => {
   let element = "";
   if (data?.reduced_price !== null) {
     element = (
-      <p className={styles.reduced_price}>
-        <span>Reduced price </span> {data?.reduced_price}
-      </p>
+      <div>
+        <p className={styles.offPrice}>
+          {" "}
+          <span>Precio - </span> {data?.price} €
+        </p>
+        <p className={styles.reduced_price}>
+          <span>Oferta - </span> {data?.reduced_price}
+        </p>
+      </div>
     );
   } else {
-    element = null;
+    element = (
+      <div>
+        <p className={styles.price}>
+          {" "}
+          <span>Precio - </span> {data?.price} €
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -100,20 +113,17 @@ const Carditem = ({ constructor, changeToggle }) => {
           <label>Descripción</label>
           <p className={styles.description}>{data?.description}</p>
           <p className={styles.location}>
-            <span>localización -</span> {data?.location?.city}
+            <span>Ciudad -</span> {data?.location?.city}
           </p>
           <p className={styles.country}>
             {" "}
             <span>País - </span> {data?.location?.country}
           </p>
-          <p className={styles.price}>
-            {" "}
-            <span>Precio - </span> {data?.price} €
-          </p>
-          <p className={styles.status}>
-            <span>Estatus -</span> {data?.status}
-          </p>
           {element}
+          <p className={styles.status}>
+            <span>Estado -</span> {data?.status}
+          </p>
+
           <div className={styles.btn}>
             <div className={styles.containerButton}>
               {component}
