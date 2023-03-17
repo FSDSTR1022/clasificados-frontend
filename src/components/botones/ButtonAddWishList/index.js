@@ -65,7 +65,7 @@ const ButtonAddWishList = ({ build }) => {
       }
     }
     promptError(
-      "Necesitas logearte para añadir el artículo a tu lista de deseos"
+      "Necesitas loguearte para añadir el artículo a tu lista de deseos"
     );
   }
 
