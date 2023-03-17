@@ -63,7 +63,7 @@ const ButtonChangePrice = ({ build, changeTgle }) => {
           {...register("price")}
         />
         <button className={styles.pusher} type="submit">
-          Cambio Precio
+          Rebajar precio
         </button>
       </form>
     </div>

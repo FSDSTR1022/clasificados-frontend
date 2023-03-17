@@ -15,6 +15,12 @@ const Carditem = ({ constructor, changeToggle }) => {
 
   let ident = "";
 
+  const status = {
+    available: "disponible",
+    sold: "vendido",
+    deleted: "no disponible",
+  };
+
   async function fetchItemWithBuild() {
     ident = constructor.id;
     const { data } = await axios.get(
@@ -110,7 +116,7 @@ const Carditem = ({ constructor, changeToggle }) => {
         </div>
         <div className={styles.info}>
           <p className={styles.title}>{data?.title}</p>
-          <label>Descripción</label>
+          <label>Descripción:</label>
           <p className={styles.description}>{data?.description}</p>
           <p className={styles.location}>
             <span>Ciudad -</span> {data?.location?.city}
@@ -121,7 +127,7 @@ const Carditem = ({ constructor, changeToggle }) => {
           </p>
           {element}
           <p className={styles.status}>
-            <span>Estado -</span> {data?.status}
+            <span>Estado -</span> {status[data?.status]}
           </p>
 
           <div className={styles.btn}>

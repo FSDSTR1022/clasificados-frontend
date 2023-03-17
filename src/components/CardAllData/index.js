@@ -12,6 +12,12 @@ const CardAllData = ({ ident, toggle }) => {
   const [item, setItem] = useState();
   const [refresh, setToggle] = useState(true);
 
+  const status = {
+    available: "disponible",
+    sold: "vendido",
+    deleted: "borrado",
+  };
+
   const fetchItem = async () => {
     axios
       .get(`${process.env.REACT_APP_LOCALHOST}/clasificados/item/${ident}`)
@@ -61,7 +67,9 @@ const CardAllData = ({ ident, toggle }) => {
             </p>
             <p className={styles.cardValor}>Valor : {item?.data?.price} €</p>
             {element}
-            <p className={styles.cardState}>Estatus : {item?.data?.status}</p>
+            <p className={styles.cardState}>
+              Estado : {status[item?.data?.status]}
+            </p>
           </div>
 
           <div className={styles.containerButtons}>
