@@ -2,18 +2,19 @@ import React from "react";
 import changeStatusToSold from "../functions/changeStatusToSold";
 import styles from "../buttonWithinSelect.module.css";
 import { ToastContainer } from "react-toastify";
-import { promptSuccess, promptError } from "../../../shared/promptMessages";
+import { promptSuccess } from "../../../shared/promptMessages";
 import {
   isTokenAvailable,
   isTokenExpired,
 } from "../../../shared/sessionManagement";
 
 const ButtonBuy = ({ build, changeTgle, refresh }) => {
+  function isAvailable() {
+    return (
+      isTokenAvailable() && !isTokenExpired() && build.status === "available"
+    );
+  }
   const utility = async () => {
-    if (!isTokenAvailable() || isTokenExpired()) {
-      promptError("Debes loguearte para poder comprar artículos");
-      return;
-    }
     await changeStatusToSold(`${build.id}`);
     promptSuccess("Artículo comprado !");
     setTimeout(async () => {
@@ -26,7 +27,7 @@ const ButtonBuy = ({ build, changeTgle, refresh }) => {
     <div>
       <ToastContainer />
       <button
-        disabled={build.status !== "available"}
+        disabled={!isAvailable()}
         className={styles.boton}
         onClick={utility}
       >
