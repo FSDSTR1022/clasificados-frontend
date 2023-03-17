@@ -6,7 +6,7 @@ import ButtonChangeDeleted from "../botones/ButtonChangeDeleted";
 import styles from "./CardAllData.module.css";
 import { ToastContainer } from "react-toastify";
 
-const CardAllData = ({ ident, toggle }) => {
+const CardAllData = ({ ident, changeTgle }) => {
   // axios para obtener item y refresh
 
   const [item, setItem] = useState();
@@ -79,7 +79,7 @@ const CardAllData = ({ ident, toggle }) => {
               build={ident}
               changeTgle={handleToggle}
             />
-            <ButtonChangeDeleted build={ident} changeTgle={toggle} />
+            <ButtonChangeDeleted build={ident} changeTgle={changeTgle} />
           </div>
         </div>
       </div>

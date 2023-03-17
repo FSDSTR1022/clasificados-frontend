@@ -70,7 +70,7 @@
 .containerImg{
 	display: flex;
 	flex-direction: row;
-	width: 90%;
+	width: 40%;
 	overflow: scroll;
 	overflow-y: hidden;
 	height: 150px;
