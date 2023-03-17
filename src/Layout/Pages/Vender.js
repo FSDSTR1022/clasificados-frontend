@@ -19,7 +19,6 @@ export const Vender = () => {
       tempUrl = [...tempUrl, result];
     }
     setUrl(tempUrl);
-    console.log("hemos subido imagenes", url);
   };
 
   const uploadImage = async (image) => {

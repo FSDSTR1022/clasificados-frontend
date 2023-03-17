@@ -19,7 +19,6 @@ const ButtonBuy = ({ build, changeTgle, refresh }) => {
     promptSuccess("Artículo comprado !");
     setTimeout(async () => {
       await refresh();
-      changeTgle();
     }, 500);
   };
 

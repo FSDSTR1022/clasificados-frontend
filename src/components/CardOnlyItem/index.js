@@ -13,8 +13,6 @@ const Carditem = ({ constructor, changeToggle }) => {
   const [data, setData] = useState({});
   const { id } = useParams();
 
-  let ident = "";
-
   const status = {
     available: "disponible",
     sold: "vendido",
@@ -22,7 +20,6 @@ const Carditem = ({ constructor, changeToggle }) => {
   };
 
   async function fetchItemWithBuild() {
-    ident = constructor.id;
     const { data } = await axios.get(
       `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${constructor.id}`
     );
@@ -30,9 +27,8 @@ const Carditem = ({ constructor, changeToggle }) => {
   }
 
   async function fetchItem() {
-    ident = id;
     const { data } = await axios.get(
-      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${ident}`
+      `${process.env.REACT_APP_LOCALHOST}/clasificados/item/${id}`
     );
     return data;
   }
@@ -40,11 +36,19 @@ const Carditem = ({ constructor, changeToggle }) => {
   //función para que cuando se realice la compra, envie los datos para que cambien la lógica
 
   const handleButton = () => {
-    async function refresh() {
-      const item = await fetchItem();
-      setData({ ...item });
+    if (Object.entries(constructor).length === 0) {
+      async function findItem() {
+        const item = await fetchItem();
+        setData({ ...item });
+      }
+      findItem();
+    } else {
+      async function findItemBuild() {
+        const itemBuild = await fetchItemWithBuild();
+        setData({ ...itemBuild });
+      }
+      findItemBuild();
     }
-    refresh();
   };
 
   // según si esta definido el id, obtenemos el id de maneras diferentes y según llegue, se realiza un tipo de fetch
